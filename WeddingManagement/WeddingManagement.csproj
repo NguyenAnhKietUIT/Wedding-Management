@@ -226,6 +226,66 @@
     <Compile Include="CustomBorderTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DropDownLobby.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DropDownLobby.Designer.cs">
+      <DependentUpon>DropDownLobby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DropDownReport.Designer.cs">
+      <DependentUpon>DropDownReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLobby.Designer.cs">
+      <DependentUpon>FormLobby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLobbyType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLobbyType.Designer.cs">
+      <DependentUpon>FormLobbyType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNhanTiec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhanTiec.Designer.cs">
+      <DependentUpon>FormNhanTiec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchWedding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchWedding.Designer.cs">
+      <DependentUpon>FormSearchWedding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServices.Designer.cs">
+      <DependentUpon>FormServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShift.Designer.cs">
+      <DependentUpon>FormShift.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
@@ -244,6 +304,24 @@
     <Compile Include="MessageBoxManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DropDownSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DropDownSearch.Designer.cs">
+      <DependentUpon>DropDownSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDay.Designer.cs">
+      <DependentUpon>ReportDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RevenueReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevenueReport.Designer.cs">
+      <DependentUpon>RevenueReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="WeddingClient.cs" />

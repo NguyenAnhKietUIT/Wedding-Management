@@ -35,5 +35,29 @@
         }
 
         #endregion
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnService;
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panelNavigate;
+        private System.Windows.Forms.Button btnLobby;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnWedding;
+        private DropDownSearch dropDownSearch;
+        private DropDownLobby dropDownLobby;
+        private DropDownReport dropDownReport;
+        private System.Windows.Forms.PictureBox pictureBoxAnhChinh;
+        private System.Windows.Forms.Label labelElegant;
+        private System.Windows.Forms.Label labelMerry;
+        private System.Windows.Forms.Label labelRomantic;
+        private System.Windows.Forms.PictureBox pictureBoxAnhNhoTrai;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBoxAnhNhoGiua;
+        private System.Windows.Forms.Label label6;
     }
 }
