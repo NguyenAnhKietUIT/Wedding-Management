@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WeddingManagement
@@ -20,36 +17,41 @@ namespace WeddingManagement
 
         internal static Random rand = new Random();
 
-        //    internal static string sqlConnectionString = ConfigurationManager.AppSettings.Get("An");
-
         internal static string sqlConnectionString = ConfigurationManager.AppSettings.Get("Kiet");
 
         public static string client_id;
         public static short client_priority;
-        public static bool Logged_in(string tk, string mk)
+        public static bool Logged_in(string username, string password)
         {
-            string commandtext = "select top 1 Id, Pw, Priority from ACCOUNT where Username=@username";
+            string query = "select top 1 AccountNo, Password, Priority " +
+                "from ACCOUNT where Username=@username";
             using (SqlConnection sql = new SqlConnection(sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand command = new SqlCommand(commandtext, sql))
+                using (SqlCommand command = new SqlCommand(query, sql))
                 {
-                    command.Parameters.AddWithValue("@username", tk);
+                    command.Parameters.AddWithValue("@username", username);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         Console.WriteLine("After avatar");
                         if (reader.Read())
                         {
-                            //if (act.pw == reader["pw"].ToString())
-                            if (mk == reader["pw"].ToString() || Crypter.CheckPassword(mk, reader["pw"].ToString()))
+                            if (password == reader["Password"].ToString() || 
+                                Crypter.CheckPassword(password, 
+                                reader["Password"].ToString()))
                             {
                                 bool skip = false;
-                                if (mk == reader["pw"].ToString())
+                                if (password == reader["Password"].ToString())
                                 {
-                                    using (SqlCommand changepass = new SqlCommand("update top (1) ACCOUNT set Pw = @pw where Id = @id", sql))
+                                    using (SqlCommand changepass = 
+                                        new SqlCommand("update top (1) ACCOUNT " +
+                                        "set Password = @password " +
+                                        "where AccountNo = @accountno", sql))
                                     {
-                                        changepass.Parameters.AddWithValue("@pw", Crypter.Blowfish.Crypt(mk));
-                                        changepass.Parameters.AddWithValue("@id", reader["id"].ToString());
+                                        changepass.Parameters.AddWithValue("@password", 
+                                            Crypter.Blowfish.Crypt(password));
+                                        changepass.Parameters.AddWithValue("@accountno", 
+                                            reader["AccountNo"].ToString());
                                         reader.Close();
                                         changepass.ExecuteNonQuery();
                                         skip = true;
@@ -58,11 +60,11 @@ namespace WeddingManagement
                                 }
                                 if (!skip)
                                 {
-                                    string id = reader["id"].ToString();
-                                    string str_id = id;
-                                    while (id.Length < 19) id = '0' + id;
-                                    client_id = id;
-                                    client_priority = (short)reader["priority"];
+                                    string accountno = reader["AccountNo"].ToString();
+                                    string str_id = accountno;
+                                    while (accountno.Length < 19) accountno = '0' + accountno;
+                                    client_id = accountno;
+                                    client_priority = (short)reader["Priority"];
                                     return true;
                                 }
                             }
@@ -70,14 +72,14 @@ namespace WeddingManagement
                             {
                                 MessageBox.Show("Wrong password");
                                 return false;
-                            } // wrong password
+                            }
 
                         }
                         else
                         {
                             MessageBox.Show("Wrong username");
                             return false;
-                        } // wrong username
+                        }
                     }
                 }
                 MessageBox.Show("Cannot connect to Database");
@@ -91,15 +93,15 @@ namespace WeddingManagement
             return BitConverter.ToInt64(buffer, 0);
         }
 
-        private static bool check_existed_username(string v)
+        private static bool check_existed_username(string username)
         {
-            string commandtext = "select top 1 Id from ACCOUNT where Username=@username";
+            string query = "select top 1 AccountNo from ACCOUNT where Username=@username";
             using (SqlConnection sql = new SqlConnection(sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand command = new SqlCommand(commandtext, sql))
+                using (SqlCommand command = new SqlCommand(query, sql))
                 {
-                    command.Parameters.AddWithValue("@username", v);
+                    command.Parameters.AddWithValue("@username", username);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
@@ -142,47 +144,47 @@ namespace WeddingManagement
                     case "LT":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("LOBBY_TYPE", "IdLobbyType", idStr);
+                            return check_existed_id("LOBBY_TYPE", "LobbyTypeNo", idStr);
                         }
                     case "LO":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("LOBBY", "IdLobby", idStr);
+                            return check_existed_id("LOBBY", "LobbyNo", idStr);
                         }
                     case "SH":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("SHIFT", "IdShift", idStr);
+                            return check_existed_id("SHIFT", "ShiftNo", idStr);
                         }
                     case "WD":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("WEDDING_INFOR", "IdWedding", idStr);
+                            return check_existed_id("WEDDING", "WeddingNo", idStr);
                         }
                     case "MN":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("MENU", "IdDishes", idStr);
+                            return check_existed_id("MENU", "ItemNo", idStr);
                         }
                     case "SV":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("SERVICE", "IdService", idStr);
+                            return check_existed_id("SERVICE", "ServiceNo", idStr);
                         }
                     case "BI":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("BILL", "IdBill", idStr);
+                            return check_existed_id("BILL", "BillNo", idStr);
                         }
                     case "RR":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("REVENUE_REPORT", "IdReport", idStr);
+                            return check_existed_id("REVENUE_REPORT", "ReportNo", idStr);
                         }
                     case "PA":
                         {
                             string idStr = key + randomid.ToString().PadLeft(19, '0');
-                            return check_existed_id("PARAMETER", "IdParameter", idStr);
+                            return check_existed_id("PARAMETER", "ParameterNo", idStr);
                         }
                     default:
                         throw new Exception("Unknown table key");
@@ -198,11 +200,11 @@ namespace WeddingManagement
         {
             Console.WriteLine(key);
             Console.WriteLine(key.PadLeft(19, '0'));
-            string commandtext = "select top 1 * from " + table + " where " + idColumn + "=@id";
+            string query = "select top 1 * from " + table + " where " + idColumn + "=@id";
             using (SqlConnection sql = new SqlConnection(sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand command = new SqlCommand(commandtext, sql))
+                using (SqlCommand command = new SqlCommand(query, sql))
                 {
                     command.Parameters.AddWithValue("@id", key.PadLeft(19, '0'));
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -221,11 +223,11 @@ namespace WeddingManagement
         {
             if (randomid > 0)
             {
-                string commandtext = "select top 1 Id from ACCOUNT where Id=@id";
+                string query = "select top 1 AccountNo from ACCOUNT where AccountNo=@id";
                 using (SqlConnection sql = new SqlConnection(sqlConnectionString))
                 {
                     sql.Open();
-                    using (SqlCommand command = new SqlCommand(commandtext, sql))
+                    using (SqlCommand command = new SqlCommand(query, sql))
                     {
                         command.Parameters.AddWithValue("@id", randomid);
                         using (SqlDataReader reader = command.ExecuteReader())
