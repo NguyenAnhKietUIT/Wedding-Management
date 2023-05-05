@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPassWord = new System.Windows.Forms.TextBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
@@ -45,7 +44,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(204)))), ((int)(((byte)(176)))));
+            this.panel1.BackColor = System.Drawing.Color.LightBlue;
             this.panel1.Controls.Add(this.textBoxPassWord);
             this.panel1.Controls.Add(this.textBoxUserName);
             this.panel1.Controls.Add(this.label4);
@@ -55,6 +54,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(401, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
@@ -66,29 +66,33 @@
             // 
             // textBoxPassWord
             // 
+            this.textBoxPassWord.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassWord.Location = new System.Drawing.Point(158, 323);
             this.textBoxPassWord.Name = "textBoxPassWord";
-            this.textBoxPassWord.Size = new System.Drawing.Size(206, 22);
+            this.textBoxPassWord.Size = new System.Drawing.Size(206, 27);
             this.textBoxPassWord.TabIndex = 11;
             this.textBoxPassWord.UseSystemPasswordChar = true;
             this.textBoxPassWord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxPassWord_KeyDown);
             // 
             // textBoxUserName
             // 
+            this.textBoxUserName.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUserName.Location = new System.Drawing.Point(158, 250);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(206, 22);
+            this.textBoxUserName.Size = new System.Drawing.Size(206, 27);
             this.textBoxUserName.TabIndex = 10;
             this.textBoxUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxUserName_KeyDown);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(375, 5);
+            this.label4.BackColor = System.Drawing.Color.Gray;
+            this.label4.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(371, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 21);
+            this.label4.Size = new System.Drawing.Size(28, 25);
             this.label4.TabIndex = 9;
             this.label4.Text = "X";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -96,18 +100,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Info;
-            this.label3.Location = new System.Drawing.Point(120, 160);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(116)))), ((int)(((byte)(217)))));
+            this.label3.Location = new System.Drawing.Point(161, 165);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 37);
+            this.label3.Size = new System.Drawing.Size(103, 43);
             this.label3.TabIndex = 8;
-            this.label3.Text = "User Login";
+            this.label3.Text = "Login";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonLogin
             // 
-            this.buttonLogin.BackColor = System.Drawing.Color.IndianRed;
-            this.buttonLogin.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.BackColor = System.Drawing.Color.Orange;
+            this.buttonLogin.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.Location = new System.Drawing.Point(124, 426);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLogin.Name = "buttonLogin";
@@ -120,11 +126,11 @@
             // checkboxRemPW
             // 
             this.checkboxRemPW.AutoSize = true;
-            this.checkboxRemPW.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxRemPW.Location = new System.Drawing.Point(127, 386);
+            this.checkboxRemPW.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkboxRemPW.Location = new System.Drawing.Point(158, 381);
             this.checkboxRemPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkboxRemPW.Name = "checkboxRemPW";
-            this.checkboxRemPW.Size = new System.Drawing.Size(133, 23);
+            this.checkboxRemPW.Size = new System.Drawing.Size(115, 24);
             this.checkboxRemPW.TabIndex = 5;
             this.checkboxRemPW.Text = "Remember me";
             this.checkboxRemPW.UseVisualStyleBackColor = true;
@@ -134,7 +140,7 @@
             this.label2.AutoSize = true;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(42, 320);
+            this.label2.Location = new System.Drawing.Point(45, 323);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 4;
@@ -155,10 +161,11 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::WeddingManagement.Properties.Resources.FormLogin;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(401, 601);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
