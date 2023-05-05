@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace WeddingManagementApplication
+namespace WeddingManagement
 {
     public partial class CustomBorderTextbox : TextBox
     {
