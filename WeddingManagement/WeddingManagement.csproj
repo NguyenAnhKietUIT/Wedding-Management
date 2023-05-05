@@ -357,8 +357,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\FormHome.jpg" />
+    <Content Include="Resources\FormHome_Elegant.jpg" />
+    <Content Include="Resources\FormHome_Main.jpg" />
+    <Content Include="Resources\FormHome_Merry.jpg" />
+    <Content Include="Resources\FormHome_Romantic.jpg" />
     <Content Include="Resources\FormLogin.jpg" />
-    <Content Include="Resources\merry.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('packages\Fody.4.0.2\build\Fody.targets')" />

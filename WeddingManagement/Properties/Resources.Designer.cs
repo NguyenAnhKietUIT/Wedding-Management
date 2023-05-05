@@ -63,9 +63,9 @@ namespace WeddingManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FormLogin {
+        internal static System.Drawing.Bitmap FormHome {
             get {
-                object obj = ResourceManager.GetObject("FormLogin", resourceCulture);
+                object obj = ResourceManager.GetObject("FormHome", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,49 @@ namespace WeddingManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap merry {
+        internal static System.Drawing.Bitmap FormHome_Elegant {
             get {
-                object obj = ResourceManager.GetObject("merry", resourceCulture);
+                object obj = ResourceManager.GetObject("FormHome_Elegant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormHome_Main {
+            get {
+                object obj = ResourceManager.GetObject("FormHome_Main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormHome_Merry {
+            get {
+                object obj = ResourceManager.GetObject("FormHome_Merry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormHome_Romantic {
+            get {
+                object obj = ResourceManager.GetObject("FormHome_Romantic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormLogin {
+            get {
+                object obj = ResourceManager.GetObject("FormLogin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
