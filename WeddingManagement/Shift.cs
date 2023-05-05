@@ -4,20 +4,18 @@ namespace WeddingManagement
 {
     internal class Shift
     {
-        private string ShiftNo;
-        private string ShiftName;
-        private TimeSpan Starting;
-        private TimeSpan Ending;
-        private bool Available;
+        public string ShiftNo;
+        public string ShiftName;
+        public TimeSpan Starting;
+        public TimeSpan Ending;
 
         public Shift(string ShiftNo, string ShiftName, TimeSpan Starting, 
-            TimeSpan Ending, bool available)
+            TimeSpan Ending)
         {
             this.ShiftNo = ShiftNo;
             this.ShiftName = ShiftName;
             this.Starting = Starting;
             this.Ending = Ending;
-            Available = available;
         }
 
         public Shift()

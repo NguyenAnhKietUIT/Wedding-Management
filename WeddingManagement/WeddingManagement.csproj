@@ -325,6 +325,9 @@
     <Compile Include="Service.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="WeddingClient.cs" />
+    <EmbeddedResource Include="FormHome.resx">
+      <DependentUpon>FormHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +358,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\FormLogin.jpg" />
+    <Content Include="Resources\merry.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('packages\Fody.4.0.2\build\Fody.targets')" />

@@ -2,24 +2,22 @@
 {
     internal class Lobby
     {
-        private string LobbyNo;
-        private string LobbyTypeNo;
-        private string LobbyName;
-        private int MaxTable;
-        private string Note;
-        private bool Available;
+        public string LobbyNo;
+        public string LobbyTypeNo;
+        public string LobbyName;
+        public int MaxTable;
+        public string Note;
 
         public Lobby() { }
 
-        public Lobby(string LobbyNo, string LobbyTypeNo, string LobbyName, 
-            int MaxTable, string Note, bool available)
+        public Lobby(string LobbyNo, string LobbyTypeNo, 
+            string LobbyName, int MaxTable, string Note)
         {
             this.LobbyNo = LobbyNo;
             this.LobbyTypeNo = LobbyTypeNo;
             this.LobbyName = LobbyName;
             this.MaxTable = MaxTable;
             this.Note = Note;
-            Available = available;
         }
     }
 }

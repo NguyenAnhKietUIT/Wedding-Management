@@ -2,20 +2,17 @@
 {
     internal class Item
     {
-        private string ItemNo;
-        private string ItemName;
-        private long ItemPrice;
-        private string Note;
-        private bool Available;
+        public string ItemNo;
+        public string ItemName;
+        public long ItemPrice;
+        public string Note;
 
-        public Item(string ItemNo, string ItemName, 
-            long ItemPrice, string Note = "", bool available = true)
+        public Item(string ItemNo, string ItemName, long ItemPrice, string Note = "")
         {
             this.ItemNo = ItemNo;
             this.ItemName = ItemName;
             this.ItemPrice = ItemPrice;
             this.Note = Note;
-            Available = available;
         }
 
         public Item() { }

@@ -204,5 +204,18 @@ namespace WeddingManagement
         {
             this.Close();
         }
+
+        private void pictureBoxAnhNhoGiua_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void DropDownLobby_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void FormHome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

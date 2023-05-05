@@ -2,18 +2,15 @@
 {
     internal class LobbyType
     {
-        private string LobbyTypeNo { get; set; }
-        private string LobbyName { get; set; }
-        private long MinTablePrice { get; set; }
-        private bool Available { get; set; }
+        public string LobbyTypeNo { get; set; }
+        public string LobbyName { get; set; }
+        public long MinTablePrice { get; set; }
 
-        public LobbyType(string LobbyTypeNo, string LobbyName, 
-            long MinTablePrice, bool available)
+        public LobbyType(string LobbyTypeNo, string LobbyName, long MinTablePrice)
         {
             this.LobbyTypeNo = LobbyTypeNo;
             this.LobbyName = LobbyName;
             this.MinTablePrice = MinTablePrice;
-            Available = available;
         }
 
         public LobbyType() { }
