@@ -226,7 +226,7 @@
     <Compile Include="CustomBorderTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DishesData.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,13 +239,13 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="LobbyData.cs" />
-    <Compile Include="LobbyTypeData.cs" />
+    <Compile Include="Lobby.cs" />
+    <Compile Include="LobbyType.cs" />
     <Compile Include="MessageBoxManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServicesData.cs" />
-    <Compile Include="ShiftData.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="Shift.cs" />
     <Compile Include="WeddingClient.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

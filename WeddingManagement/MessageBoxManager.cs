@@ -1,7 +1,5 @@
 ﻿#pragma warning disable 0618
 
-using System;
-
 using System.Text;
 
 using System.Runtime.InteropServices;

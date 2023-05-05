@@ -12,11 +12,11 @@ namespace WeddingManagement
 {
     internal class WeddingClient
     {
-        internal static List<DishesData> listDishes = new List<DishesData>();
-        internal static List<ServicesData> listServices = new List<ServicesData>();
-        internal static List<ShiftData> listShifts = new List<ShiftData>();
-        internal static List<LobbyTypeData> listLobbyTypes = new List<LobbyTypeData>();
-        internal static List<LobbyData> listLobbies = new List<LobbyData>();
+        internal static List<Item> listDishes = new List<Item>();
+        internal static List<Service> listServices = new List<Service>();
+        internal static List<Shift> listShifts = new List<Shift>();
+        internal static List<LobbyType> listLobbyTypes = new List<LobbyType>();
+        internal static List<Lobby> listLobbies = new List<Lobby>();
 
         internal static Random rand = new Random();
 
