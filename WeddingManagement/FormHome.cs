@@ -202,7 +202,7 @@ namespace WeddingManagement
 
         private void label6_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void pictureBoxAnhNhoGiua_Click(object sender, EventArgs e)
