@@ -15,10 +15,6 @@ namespace WeddingManagement
         [STAThread]
         static void Main()
         {
-            MessageBoxManager.Yes = "Check bill";
-            MessageBoxManager.No = "Wedding Info";
-            MessageBoxManager.Cancel = "Cancel";
-            MessageBoxManager.Register();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormLogin());

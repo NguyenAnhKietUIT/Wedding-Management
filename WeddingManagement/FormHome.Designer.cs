@@ -41,21 +41,24 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAnhChinh = new System.Windows.Forms.PictureBox();
             this.labelElegant = new System.Windows.Forms.Label();
             this.labelMerry = new System.Windows.Forms.Label();
             this.labelRomantic = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.pictureBoxAnhNhoTrai = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBoxAnhNhoGiua = new System.Windows.Forms.PictureBox();
-            this.pictureBoxAnhChinh = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dropDownReport = new WeddingManagement.DropDownReport();
+            this.dropDownLobby = new WeddingManagement.DropDownLobby();
+            this.dropDownSearch = new WeddingManagement.DropDownSearch();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnhChinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnhNhoTrai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnhNhoGiua)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnhChinh)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -129,7 +132,7 @@
             // 
             // panelNavigate
             // 
-            this.panelNavigate.BackColor = System.Drawing.Color.Cyan;
+            this.panelNavigate.BackColor = System.Drawing.Color.DarkTurquoise;
             this.panelNavigate.Location = new System.Drawing.Point(221, 206);
             this.panelNavigate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelNavigate.Name = "panelNavigate";
@@ -255,85 +258,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // labelElegant
-            // 
-            this.labelElegant.AutoSize = true;
-            this.labelElegant.Font = new System.Drawing.Font("Sitka Banner", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelElegant.Location = new System.Drawing.Point(1132, 692);
-            this.labelElegant.Name = "labelElegant";
-            this.labelElegant.Size = new System.Drawing.Size(119, 49);
-            this.labelElegant.TabIndex = 17;
-            this.labelElegant.Text = "Elegant";
-            // 
-            // labelMerry
-            // 
-            this.labelMerry.AutoSize = true;
-            this.labelMerry.Font = new System.Drawing.Font("Sitka Banner", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMerry.Location = new System.Drawing.Point(371, 692);
-            this.labelMerry.Name = "labelMerry";
-            this.labelMerry.Size = new System.Drawing.Size(103, 49);
-            this.labelMerry.TabIndex = 16;
-            this.labelMerry.Text = "Merry";
-            // 
-            // labelRomantic
-            // 
-            this.labelRomantic.AutoSize = true;
-            this.labelRomantic.Font = new System.Drawing.Font("Sitka Banner", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRomantic.Location = new System.Drawing.Point(731, 692);
-            this.labelRomantic.Name = "labelRomantic";
-            this.labelRomantic.Size = new System.Drawing.Size(146, 49);
-            this.labelRomantic.TabIndex = 15;
-            this.labelRomantic.Text = "Romantic";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Gray;
-            this.label6.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(1364, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 25);
-            this.label6.TabIndex = 73;
-            this.label6.Text = "X";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // pictureBoxAnhNhoTrai
-            // 
-            this.pictureBoxAnhNhoTrai.Image = global::WeddingManagement.Properties.Resources.FormHome_Merry;
-            this.pictureBoxAnhNhoTrai.Location = new System.Drawing.Point(273, 443);
-            this.pictureBoxAnhNhoTrai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxAnhNhoTrai.Name = "pictureBoxAnhNhoTrai";
-            this.pictureBoxAnhNhoTrai.Size = new System.Drawing.Size(307, 229);
-            this.pictureBoxAnhNhoTrai.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAnhNhoTrai.TabIndex = 12;
-            this.pictureBoxAnhNhoTrai.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::WeddingManagement.Properties.Resources.FormHome_Elegant;
-            this.pictureBox3.Location = new System.Drawing.Point(1038, 443);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(307, 229);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBoxAnhNhoGiua
-            // 
-            this.pictureBoxAnhNhoGiua.Image = global::WeddingManagement.Properties.Resources.FormHome_Romantic;
-            this.pictureBoxAnhNhoGiua.Location = new System.Drawing.Point(664, 443);
-            this.pictureBoxAnhNhoGiua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxAnhNhoGiua.Name = "pictureBoxAnhNhoGiua";
-            this.pictureBoxAnhNhoGiua.Size = new System.Drawing.Size(307, 229);
-            this.pictureBoxAnhNhoGiua.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAnhNhoGiua.TabIndex = 13;
-            this.pictureBoxAnhNhoGiua.TabStop = false;
-            this.pictureBoxAnhNhoGiua.Click += new System.EventHandler(this.pictureBoxAnhNhoGiua_Click);
-            // 
             // pictureBoxAnhChinh
             // 
             this.pictureBoxAnhChinh.Image = global::WeddingManagement.Properties.Resources.FormHome_Main;
@@ -345,6 +269,116 @@
             this.pictureBoxAnhChinh.TabIndex = 11;
             this.pictureBoxAnhChinh.TabStop = false;
             // 
+            // labelElegant
+            // 
+            this.labelElegant.AutoSize = true;
+            this.labelElegant.Font = new System.Drawing.Font("Sitka Banner", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelElegant.Location = new System.Drawing.Point(1121, 693);
+            this.labelElegant.Name = "labelElegant";
+            this.labelElegant.Size = new System.Drawing.Size(115, 48);
+            this.labelElegant.TabIndex = 17;
+            this.labelElegant.Text = "Elegant";
+            // 
+            // labelMerry
+            // 
+            this.labelMerry.AutoSize = true;
+            this.labelMerry.Font = new System.Drawing.Font("Sitka Banner", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMerry.Location = new System.Drawing.Point(382, 693);
+            this.labelMerry.Name = "labelMerry";
+            this.labelMerry.Size = new System.Drawing.Size(97, 48);
+            this.labelMerry.TabIndex = 16;
+            this.labelMerry.Text = "Merry";
+            // 
+            // labelRomantic
+            // 
+            this.labelRomantic.AutoSize = true;
+            this.labelRomantic.Font = new System.Drawing.Font("Sitka Banner", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRomantic.Location = new System.Drawing.Point(742, 693);
+            this.labelRomantic.Name = "labelRomantic";
+            this.labelRomantic.Size = new System.Drawing.Size(141, 48);
+            this.labelRomantic.TabIndex = 15;
+            this.labelRomantic.Text = "Romantic";
+            // 
+            // pictureBoxAnhNhoTrai
+            // 
+            this.pictureBoxAnhNhoTrai.Image = global::WeddingManagement.Properties.Resources.FormHome_Merry;
+            this.pictureBoxAnhNhoTrai.Location = new System.Drawing.Point(284, 444);
+            this.pictureBoxAnhNhoTrai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxAnhNhoTrai.Name = "pictureBoxAnhNhoTrai";
+            this.pictureBoxAnhNhoTrai.Size = new System.Drawing.Size(316, 229);
+            this.pictureBoxAnhNhoTrai.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAnhNhoTrai.TabIndex = 12;
+            this.pictureBoxAnhNhoTrai.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::WeddingManagement.Properties.Resources.FormHome_Elegant;
+            this.pictureBox3.Location = new System.Drawing.Point(1049, 444);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(284, 229);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBoxAnhNhoGiua
+            // 
+            this.pictureBoxAnhNhoGiua.Image = global::WeddingManagement.Properties.Resources.FormHome_Romantic;
+            this.pictureBoxAnhNhoGiua.Location = new System.Drawing.Point(675, 444);
+            this.pictureBoxAnhNhoGiua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxAnhNhoGiua.Name = "pictureBoxAnhNhoGiua";
+            this.pictureBoxAnhNhoGiua.Size = new System.Drawing.Size(307, 229);
+            this.pictureBoxAnhNhoGiua.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAnhNhoGiua.TabIndex = 13;
+            this.pictureBoxAnhNhoGiua.TabStop = false;
+            this.pictureBoxAnhNhoGiua.Click += new System.EventHandler(this.pictureBoxAnhNhoGiua_Click);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Gray;
+            this.label6.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label6.Location = new System.Drawing.Point(1364, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 25);
+            this.label6.TabIndex = 73;
+            this.label6.Text = "X";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // dropDownReport
+            // 
+            this.dropDownReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dropDownReport.Location = new System.Drawing.Point(233, 582);
+            this.dropDownReport.Name = "dropDownReport";
+            this.dropDownReport.Size = new System.Drawing.Size(147, 91);
+            this.dropDownReport.TabIndex = 2;
+            this.dropDownReport.Visible = false;
+            // 
+            // dropDownLobby
+            // 
+            this.dropDownLobby.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dropDownLobby.Location = new System.Drawing.Point(224, 324);
+            this.dropDownLobby.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dropDownLobby.MaximumSize = new System.Drawing.Size(150, 97);
+            this.dropDownLobby.Name = "dropDownLobby";
+            this.dropDownLobby.Size = new System.Drawing.Size(149, 90);
+            this.dropDownLobby.TabIndex = 1;
+            this.dropDownLobby.Visible = false;
+            this.dropDownLobby.Load += new System.EventHandler(this.dropDownLobby_Load);
+            // 
+            // dropDownSearch
+            // 
+            this.dropDownSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dropDownSearch.Location = new System.Drawing.Point(224, 233);
+            this.dropDownSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dropDownSearch.Name = "dropDownSearch";
+            this.dropDownSearch.Size = new System.Drawing.Size(161, 181);
+            this.dropDownSearch.TabIndex = 0;
+            this.dropDownSearch.Visible = false;
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -352,6 +386,9 @@
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1395, 786);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.dropDownReport);
+            this.Controls.Add(this.dropDownLobby);
+            this.Controls.Add(this.dropDownSearch);
             this.Controls.Add(this.labelElegant);
             this.Controls.Add(this.labelMerry);
             this.Controls.Add(this.labelRomantic);
@@ -368,10 +405,10 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnhChinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnhNhoTrai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnhNhoGiua)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnhChinh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

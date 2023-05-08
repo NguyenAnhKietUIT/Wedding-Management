@@ -58,20 +58,6 @@ namespace WeddingManagement
             this.panelNavigate.Top = this.btnLobby.Top;
             this.dropDownLobby.Visible = !this.dropDownLobby.Visible;
         }
-        private void openChildForm(Form childForm)
-        {
-            if (childForm == null) return;
-            childForm.TopLevel = false;
-            childForm.Dock = DockStyle.Fill;
-            this.curChildForm = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void btnShift_Click(object sender, EventArgs e)
         {
@@ -202,7 +188,10 @@ namespace WeddingManagement
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Close();
+            if (MessageBox.Show("Are you sure you want to close the program?", "Confirm closing the program", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void pictureBoxAnhNhoGiua_Click(object sender, EventArgs e)

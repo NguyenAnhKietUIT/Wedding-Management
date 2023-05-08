@@ -325,6 +325,15 @@
     <Compile Include="Service.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="WeddingClient.cs" />
+    <EmbeddedResource Include="DropDownLobby.resx">
+      <DependentUpon>DropDownLobby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownReport.resx">
+      <DependentUpon>DropDownReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownSearch.resx">
+      <DependentUpon>DropDownSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
