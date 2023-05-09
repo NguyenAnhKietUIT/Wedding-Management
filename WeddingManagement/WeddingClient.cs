@@ -9,7 +9,7 @@ namespace WeddingManagement
 {
     internal class WeddingClient
     {
-        internal static List<Item> listDishes = new List<Item>();
+        internal static List<Item> listItems = new List<Item>();
         internal static List<Service> listServices = new List<Service>();
         internal static List<Shift> listShifts = new List<Shift>();
         internal static List<LobbyType> listLobbyTypes = new List<LobbyType>();

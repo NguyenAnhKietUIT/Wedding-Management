@@ -120,7 +120,7 @@ namespace WeddingManagement
         {
             this.dropDownSearch.Visible = false;
             this.panelNavigate.Top = this.btnWedding.Top;
-            FormNhanTiec frm = new FormNhanTiec();
+            FormWedding frm = new FormWedding();
             frm.ShowDialog();
         }
 

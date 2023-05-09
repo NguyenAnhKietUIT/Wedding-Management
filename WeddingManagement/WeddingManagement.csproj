@@ -262,11 +262,11 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNhanTiec.cs">
+    <Compile Include="FormWedding.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNhanTiec.Designer.cs">
-      <DependentUpon>FormNhanTiec.cs</DependentUpon>
+    <Compile Include="FormWedding.Designer.cs">
+      <DependentUpon>FormWedding.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSearchWedding.cs">
       <SubType>Form</SubType>
