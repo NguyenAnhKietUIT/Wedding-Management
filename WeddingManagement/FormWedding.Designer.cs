@@ -96,7 +96,7 @@
             // 
             // label_tittle_wedding_in4
             // 
-            this.label_tittle_wedding_in4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label_tittle_wedding_in4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_tittle_wedding_in4.AutoSize = true;
             this.label_tittle_wedding_in4.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,7 +198,7 @@
             // 
             // wedding
             // 
-            this.wedding.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.wedding.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wedding.Controls.Add(this.cbb_lobby);
             this.wedding.Controls.Add(this.label1);
@@ -230,7 +230,7 @@
             // 
             // cbb_lobby
             // 
-            this.cbb_lobby.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cbb_lobby.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbb_lobby.FormattingEnabled = true;
             this.cbb_lobby.Location = new System.Drawing.Point(512, 151);
@@ -241,7 +241,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -274,7 +274,7 @@
             // 
             // cbt_deposit
             // 
-            this.cbt_deposit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cbt_deposit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbt_deposit.Location = new System.Drawing.Point(472, 114);
             this.cbt_deposit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -316,7 +316,7 @@
             // 
             // cbt_groom
             // 
-            this.cbt_groom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cbt_groom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbt_groom.Location = new System.Drawing.Point(472, 30);
             this.cbt_groom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -326,7 +326,7 @@
             // 
             // cbt_bride
             // 
-            this.cbt_bride.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cbt_bride.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbt_bride.Location = new System.Drawing.Point(472, 71);
             this.cbt_bride.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -354,7 +354,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.date_booking);
             this.groupBox1.Controls.Add(this.label_weddingdate);
@@ -634,7 +634,7 @@
             // 
             // dataWedding
             // 
-            this.dataWedding.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dataWedding.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataWedding.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataWedding.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -652,7 +652,7 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(984, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 17);
+            this.label6.Size = new System.Drawing.Size(15, 16);
             this.label6.TabIndex = 72;
             this.label6.Text = "X";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -689,6 +689,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataWedding)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

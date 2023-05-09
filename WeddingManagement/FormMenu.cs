@@ -99,7 +99,7 @@ namespace WeddingManagement
                     }
                 }
             }
-            WeddingClient.listDishes = dishes;
+            WeddingClient.listItems = dishes;
 
             foreach (Item Item in dishes)
             {
@@ -128,9 +128,9 @@ namespace WeddingManagement
             cbt_item_price.Text = row[1].ToString();
             cbt_item_note.Text = row[2].ToString();
 
-            if (i < WeddingClient.listDishes.Count)
+            if (i < WeddingClient.listItems.Count)
             {
-                currentTypeId = WeddingClient.listDishes[i].ItemNo;
+                currentTypeId = WeddingClient.listItems[i].ItemNo;
             }
             else
             {
@@ -183,7 +183,7 @@ namespace WeddingManagement
                                     row["ItemNo"] = newDishesId;
                                     table.Rows.Add(row);
                                     MessageBox.Show("An item added", "SUCCESS", MessageBoxButtons.OK);
-                                    WeddingClient.listDishes.Add(
+                                    WeddingClient.listItems.Add(
                                         new Item(
                                             newDishesId, 
                                             cbt_item_name.Text, 
@@ -226,11 +226,11 @@ namespace WeddingManagement
                             cmd.Parameters.AddWithValue("@ItemNo", currentTypeId);
                             if (cmd.ExecuteNonQuery() > 0)
                             {
-                                foreach (Item dishes in WeddingClient.listDishes)
+                                foreach (Item dishes in WeddingClient.listItems)
                                 {
                                     if (dishes.ItemNo == currentTypeId)
                                     {
-                                        WeddingClient.listDishes.Remove(dishes);
+                                        WeddingClient.listItems.Remove(dishes);
                                         break;
                                     }
                                 }

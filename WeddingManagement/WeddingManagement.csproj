@@ -244,6 +244,18 @@
     <Compile Include="FormAccount.Designer.cs">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGridViewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGridViewItem.Designer.cs">
+      <DependentUpon>FormGridViewItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGridViewService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGridViewService.Designer.cs">
+      <DependentUpon>FormGridViewService.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLobby.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +349,12 @@
     <EmbeddedResource Include="FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGridViewItem.resx">
+      <DependentUpon>FormGridViewItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGridViewService.resx">
+      <DependentUpon>FormGridViewService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWedding.resx">
+      <DependentUpon>FormWedding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -58,7 +58,21 @@ namespace WeddingManagement
                             cbt_deposit.Text = reader.GetInt64(11).ToString();
 
                             DataRow row = table1.NewRow();
-                            row.ItemArray = new object[] { reader["LobbyName"].ToString(), reader["ShiftName"].ToString(), cbt_representative.Text, cbt_phone.Text, date_booking.Value.ToString(), date_wedding.Value.ToString(), cbt_groom.Text, cbt_bride.Text, cbt_table.Text, cbt_contigency.Text, 0, cbt_deposit.Text, id };
+                            row.ItemArray = new object[] { 
+                                reader["LobbyName"].ToString(), 
+                                reader["ShiftName"].ToString(), 
+                                cbt_representative.Text, 
+                                cbt_phone.Text, 
+                                date_booking.Value.ToString(), 
+                                date_wedding.Value.ToString(), 
+                                cbt_groom.Text, 
+                                cbt_bride.Text, 
+                                cbt_table.Text, 
+                                cbt_contigency.Text, 
+                                0, 
+                                cbt_deposit.Text, 
+                                id 
+                            };
                             table1.Rows.Add(row);
                         }
                     }
@@ -67,7 +81,7 @@ namespace WeddingManagement
         }
 
         void load_gridView_wedding()
-        {
+        {   
             DataColumn column;
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
@@ -82,7 +96,7 @@ namespace WeddingManagement
             column.DataType = System.Type.GetType("System.String");
             column.ColumnName = "shiftName";
             column.AutoIncrement = false;
-            column.Caption = "Shift";
+            column.Caption = "Shift Name";
             column.ReadOnly = false;
             column.Unique = false;
             table1.Columns.Add(column);
@@ -110,7 +124,7 @@ namespace WeddingManagement
             column.DateTimeMode = DataSetDateTime.Unspecified;
             column.ColumnName = "bookingDate";
             column.AutoIncrement = false;
-            column.Caption = "Booking date";
+            column.Caption = "Booking Date";
             column.ReadOnly = false;
             column.Unique = false;
             table1.Columns.Add(column);
@@ -120,7 +134,7 @@ namespace WeddingManagement
             column.DateTimeMode = DataSetDateTime.Unspecified;
             column.ColumnName = "weddingDate";
             column.AutoIncrement = false;
-            column.Caption = "Wedding date";
+            column.Caption = "Wedding Date";
             column.ReadOnly = false;
             column.Unique = false;
             table1.Columns.Add(column);
@@ -129,7 +143,7 @@ namespace WeddingManagement
             column.DataType = System.Type.GetType("System.String");
             column.ColumnName = "groomName";
             column.AutoIncrement = false;
-            column.Caption = "Groom name";
+            column.Caption = "Groom Name";
             column.ReadOnly = false;
             column.Unique = false;
             table1.Columns.Add(column);
@@ -138,7 +152,7 @@ namespace WeddingManagement
             column.DataType = System.Type.GetType("System.String");
             column.ColumnName = "brideName";
             column.AutoIncrement = false;
-            column.Caption = "Bride name";
+            column.Caption = "Bride Name";
             column.ReadOnly = false;
             column.Unique = false;
             table1.Columns.Add(column);
@@ -147,7 +161,7 @@ namespace WeddingManagement
             column.DataType = System.Type.GetType("System.Int32");
             column.ColumnName = "amountOfTable";
             column.AutoIncrement = false;
-            column.Caption = "Amount of table";
+            column.Caption = "Amount Of Table";
             column.ReadOnly = false;
             column.Unique = false;
             table1.Columns.Add(column);
@@ -156,7 +170,7 @@ namespace WeddingManagement
             column.DataType = System.Type.GetType("System.Int32");
             column.ColumnName = "amountOfContingencyTable";
             column.AutoIncrement = false;
-            column.Caption = "Amount of contingency table";
+            column.Caption = "Amount Of Contingency Table";
             column.ReadOnly = false;
             column.Unique = false;
             table1.Columns.Add(column);
@@ -165,7 +179,7 @@ namespace WeddingManagement
             column.DataType = System.Type.GetType("System.Int64");
             column.ColumnName = "tablePrice";
             column.AutoIncrement = false;
-            column.Caption = "Table price";
+            column.Caption = "Table Price";
             column.ReadOnly = false;
             column.Unique = false;
             table1.Columns.Add(column);
@@ -188,6 +202,50 @@ namespace WeddingManagement
             column.Unique = false;
             column.ColumnMapping = MappingType.Hidden;
             table1.Columns.Add(column);
+
+            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            {
+                sql.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT LobbyName, ShiftName, Representative, PhoneNumber, " +
+                    "BookingDate, WeddingDate, GroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, " +
+                    "Deposit, WeddingNo FROM LOBBY LB, SHIFT S, WEDDING WD WHERE WD.ShiftNo = S.ShiftNo AND " +
+                    "WD.LobbyNo = LB.LobbyNo", sql))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            cbt_representative.Text = reader.GetString(2);
+                            cbt_phone.Text = reader.GetString(3);
+                            date_booking.Value = reader.GetDateTime(4);
+                            date_wedding.Value = reader.GetDateTime(5);
+                            cbt_groom.Text = reader.GetString(6);
+                            cbt_bride.Text = reader.GetString(7);
+                            cbt_table.Text = reader.GetInt32(8).ToString();
+                            cbt_contigency.Text = reader.GetInt32(9).ToString();
+                            cbt_deposit.Text = reader.GetInt64(11).ToString();
+
+                            DataRow row = table1.NewRow();
+                            row.ItemArray = new object[] {
+                                reader["LobbyName"].ToString(),
+                                reader["ShiftName"].ToString(),
+                                cbt_representative.Text,
+                                cbt_phone.Text,
+                                date_booking.Value.ToString(),
+                                date_wedding.Value.ToString(),
+                                cbt_groom.Text,
+                                cbt_bride.Text,
+                                cbt_table.Text,
+                                cbt_contigency.Text,
+                                0,
+                                cbt_deposit.Text,
+                                reader["WeddingNo"].ToString()
+                            };
+                            table1.Rows.Add(row);
+                        }
+                    }
+                }
+            }
 
             dataWedding.DataSource = table1;
             foreach (DataGridViewColumn col in dataWedding.Columns)
@@ -247,7 +305,7 @@ namespace WeddingManagement
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT LobbyNo, LobbyNoType, LobbyName, MaxTable, Note FROM LOBBY " +
+                using (SqlCommand cmd = new SqlCommand("SELECT LobbyNo, LobbyTypeNo, LobbyName, MaxTable, Note FROM LOBBY " +
                     "WHERE Available > 0", sql))
                 {
                     using (var dr = cmd.ExecuteReader())
@@ -265,7 +323,7 @@ namespace WeddingManagement
                                 WeddingClient.listLobbies.Add(
                                     new Lobby(
                                         row["LobbyNo"].ToString(), 
-                                        row["LobbyNoType"].ToString(), 
+                                        row["LobbyTypeNo"].ToString(), 
                                         row["LobbyName"].ToString(), 
                                         Convert.ToInt32(row["MaxTable"]), 
                                         row["Note"].ToString()
@@ -278,6 +336,8 @@ namespace WeddingManagement
             }
         }
 
+        private bool _isDataSourceMenuChanging = false;
+        private bool _isDataSourceServiceChanging = false;
         void load_comboBox_menu()
         {
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
@@ -293,7 +353,9 @@ namespace WeddingManagement
                             WeddingClient.listItems = new List<Item>();
                             var dt = new DataTable();
                             dt.Load(dr);
+                            _isDataSourceMenuChanging = true;
                             cbb_item.DataSource = dt;
+                            _isDataSourceMenuChanging = false;
                             cbb_item.DisplayMember = "ItemName";
                             foreach (DataRow row in dt.Rows)
                             {
@@ -311,8 +373,6 @@ namespace WeddingManagement
             }
         }
 
-
-        // đổ dữ liệu từ db lên comboBox service
         void load_comboBox_service()
         {
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
@@ -328,7 +388,9 @@ namespace WeddingManagement
                             WeddingClient.listServices = new List<Service>();
                             var dt = new DataTable();
                             dt.Load(dr);
+                            _isDataSourceServiceChanging = true;
                             cbb_service.DataSource = dt;
+                            _isDataSourceServiceChanging = false;
                             cbb_service.DisplayMember = "ServiceName";
                             foreach (DataRow row in dt.Rows)
                             {
@@ -349,6 +411,7 @@ namespace WeddingManagement
 
         private void cbb_item_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (_isDataSourceMenuChanging) return;
             int index = cbb_item.SelectedIndex;
             Item dishes = WeddingClient.listItems[index];
             cbt_price_item.Text = dishes.ItemPrice.ToString() + " VND";
@@ -356,6 +419,7 @@ namespace WeddingManagement
 
         private void cbb_service_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (_isDataSourceServiceChanging) return;
             int index = cbb_service.SelectedIndex;
             Service service = WeddingClient.listServices[index];
             cbt_price_service.Text = service.ServicePrice.ToString() + " VND";
