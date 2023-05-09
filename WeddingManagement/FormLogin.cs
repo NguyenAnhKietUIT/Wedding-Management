@@ -133,5 +133,10 @@ namespace WeddingManagement
             Program.mainform = frm;
             Console.WriteLine("Client thread started");
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            textBoxUserName.Select();
+        }
     }
 }
