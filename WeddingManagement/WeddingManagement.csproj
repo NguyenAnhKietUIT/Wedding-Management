@@ -370,6 +370,9 @@
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormServices.resx">
+      <DependentUpon>FormServices.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormWedding.resx">
       <DependentUpon>FormWedding.cs</DependentUpon>
     </EmbeddedResource>
