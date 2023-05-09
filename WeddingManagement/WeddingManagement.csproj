@@ -343,6 +343,9 @@
     <EmbeddedResource Include="FormLobby.resx">
       <DependentUpon>FormLobby.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLobbyType.resx">
+      <DependentUpon>FormLobbyType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
