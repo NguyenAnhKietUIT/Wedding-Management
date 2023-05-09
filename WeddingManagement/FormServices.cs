@@ -123,7 +123,6 @@ namespace WeddingManagement
 
         private void dataService_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine("alo");
             if (e.RowIndex < 0 || e.RowIndex >= table.Rows.Count)
             {
                 currentServiceId = "";
