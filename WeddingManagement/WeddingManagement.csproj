@@ -334,6 +334,9 @@
     <EmbeddedResource Include="DropDownSearch.resx">
       <DependentUpon>DropDownSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
