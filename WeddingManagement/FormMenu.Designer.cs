@@ -73,7 +73,7 @@
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.ForeColor = System.Drawing.Color.Black;
-            this.label.Location = new System.Drawing.Point(262, 18);
+            this.label.Location = new System.Drawing.Point(477, 16);
             this.label.Margin = new System.Windows.Forms.Padding(0);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(88, 35);

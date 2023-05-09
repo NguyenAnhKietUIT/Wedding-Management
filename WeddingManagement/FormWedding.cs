@@ -850,5 +850,25 @@ namespace WeddingManagement
         {
             this.Close();
         }
+
+        private void btn_update_item_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_delete_item_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
