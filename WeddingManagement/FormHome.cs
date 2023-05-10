@@ -41,7 +41,7 @@ namespace WeddingManagement
         {
             this.dropDownSearch.Visible = false;
             this.panelNavigate.Top = this.btnService.Top;
-            FormServices frm = new FormServices();
+            FormService frm = new FormService();
             frm.ShowDialog();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace WeddingManagement
 {
-    partial class FormServices
+    partial class FormService
     {
         /// <summary>
         /// Required designer variable.

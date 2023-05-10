@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace WeddingManagement
 {
-    public partial class FormServices : Form
+    public partial class FormService : Form
     {
 
         public static string currentServiceId = "";
@@ -15,7 +15,7 @@ namespace WeddingManagement
         DataColumn column;
         DataRow row;
 
-        public FormServices()
+        public FormService()
         {
             InitializeComponent();
         }
@@ -231,7 +231,7 @@ namespace WeddingManagement
                         }
                     }
                 }
-                FormServices.currentServiceId = "";
+                FormService.currentServiceId = "";
             }
         }
 
@@ -316,7 +316,7 @@ namespace WeddingManagement
                             }
                         }
                     }
-                    FormServices.currentServiceId = "";
+                    FormService.currentServiceId = "";
                     load_data_service();
                 }
             }
