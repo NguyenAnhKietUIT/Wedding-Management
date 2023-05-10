@@ -19,7 +19,7 @@ namespace WeddingManagement
 
         private void btnMonth_Click(object sender, EventArgs e)
         {
-            RevenueReport frm = new RevenueReport();
+            FormReportMonth frm = new FormReportMonth();
             frm.ShowDialog();
             this.Visible = false;
         }
