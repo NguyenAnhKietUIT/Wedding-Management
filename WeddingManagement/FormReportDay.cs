@@ -5,13 +5,13 @@ using System.Data.SqlClient;
 
 namespace WeddingManagement
 {
-    public partial class FormReport : Form
+    public partial class FormReportDay : Form
     {
 
         public static string currentReportId = "";
         public static int currentReportDay = 0;
         DataTable table1 = new DataTable();
-        public FormReport()
+        public FormReportDay()
         {
             InitializeComponent();
             ReportLoad();

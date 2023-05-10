@@ -1,6 +1,6 @@
 ﻿namespace WeddingManagement
 {
-    partial class FormReport
+    partial class FormReportDay
     {
         /// <summary>
         /// Required designer variable.
