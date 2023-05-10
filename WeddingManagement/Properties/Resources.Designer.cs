@@ -129,5 +129,25 @@ namespace WeddingManagement.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UC_MenuItem_KhoaiLangChien {
+            get {
+                object obj = ResourceManager.GetObject("UC_MenuItem_KhoaiLangChien", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap US_MenuItem_TrashCan {
+            get {
+                object obj = ResourceManager.GetObject("US_MenuItem_TrashCan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
