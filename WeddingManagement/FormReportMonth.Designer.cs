@@ -53,7 +53,7 @@
             this.labelRReport.Location = new System.Drawing.Point(226, 16);
             this.labelRReport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRReport.Name = "labelRReport";
-            this.labelRReport.Size = new System.Drawing.Size(388, 40);
+            this.labelRReport.Size = new System.Drawing.Size(380, 40);
             this.labelRReport.TabIndex = 0;
             this.labelRReport.Text = "REVENUE REPORT MONTH";
             // 
@@ -166,11 +166,12 @@
             // 
             // img_close_service
             // 
+            this.img_close_service.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.img_close_service.AutoSize = true;
             this.img_close_service.BackColor = System.Drawing.Color.Gray;
             this.img_close_service.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.img_close_service.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.img_close_service.Location = new System.Drawing.Point(824, 0);
+            this.img_close_service.Location = new System.Drawing.Point(830, 0);
             this.img_close_service.Name = "img_close_service";
             this.img_close_service.Size = new System.Drawing.Size(28, 25);
             this.img_close_service.TabIndex = 88;

@@ -64,7 +64,7 @@
             // btn_delete_account
             // 
             this.btn_delete_account.BackColor = System.Drawing.Color.DarkOrange;
-            this.btn_delete_account.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_account.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_account.ForeColor = System.Drawing.Color.White;
             this.btn_delete_account.Location = new System.Drawing.Point(862, 384);
             this.btn_delete_account.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -78,7 +78,7 @@
             // btn_add_account
             // 
             this.btn_add_account.BackColor = System.Drawing.Color.DarkOrange;
-            this.btn_add_account.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_account.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_account.ForeColor = System.Drawing.Color.White;
             this.btn_add_account.Location = new System.Drawing.Point(679, 384);
             this.btn_add_account.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -92,7 +92,7 @@
             // btn_update_account
             // 
             this.btn_update_account.BackColor = System.Drawing.Color.DarkOrange;
-            this.btn_update_account.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update_account.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update_account.ForeColor = System.Drawing.Color.White;
             this.btn_update_account.Location = new System.Drawing.Point(771, 384);
             this.btn_update_account.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -238,7 +238,7 @@
             // btn_search
             // 
             this.btn_search.BackColor = System.Drawing.Color.DarkOrange;
-            this.btn_search.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_search.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search.ForeColor = System.Drawing.Color.White;
             this.btn_search.Location = new System.Drawing.Point(588, 384);
             this.btn_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

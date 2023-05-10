@@ -12,6 +12,7 @@ namespace WeddingManagement
         {
             return curChildForm;
         }
+
         public FormHome()
         {
             InitializeComponent();

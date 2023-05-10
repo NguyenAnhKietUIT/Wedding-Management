@@ -13,7 +13,7 @@ namespace WeddingManagement
         private void btnDay_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            ReportDay frm = new ReportDay();
+            FormReportDay frm = new FormReportDay();
             frm.ShowDialog();
         }
 

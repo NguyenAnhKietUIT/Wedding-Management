@@ -61,7 +61,7 @@ namespace WeddingManagement
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, InvoiceDate iDate, PaymentDate pDate, " +
+                    cmd.CommandText = "SELECT W.WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, InvoiceDate iDate, PaymentDate pDate, " +
                         "Representative, GroomName, BrideName, PhoneNumber, LobbyName, ShiftName, " +
                         "FORMAT(InvoiceDate, 'dd/MM/yyyy') InvoiceDate, TablePriceTotal, ServicePriceTotal, Total, " +
                         "FORMAT(PaymentDate, 'dd/MM/yyyy') PaymentDate, MoneyLeft from WEDDING W, BILL B, LOBBY LB, " +
@@ -69,7 +69,6 @@ namespace WeddingManagement
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         table1 = new DataTable();
-                        adapter.Fill(table1);
                         table1.Columns["WeddingNo"].ColumnMapping = MappingType.Hidden;
                         table1.Columns["ShiftNo"].ColumnMapping = MappingType.Hidden;
                         table1.Columns["BillNo"].ColumnMapping = MappingType.Hidden;

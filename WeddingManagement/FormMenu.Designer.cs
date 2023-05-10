@@ -106,9 +106,9 @@
             // 
             // btn_add_item
             // 
-            this.btn_add_item.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_add_item.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btn_add_item.ForeColor = System.Drawing.Color.Crimson;
+            this.btn_add_item.BackColor = System.Drawing.Color.DarkOrange;
+            this.btn_add_item.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_item.ForeColor = System.Drawing.Color.White;
             this.btn_add_item.Location = new System.Drawing.Point(648, 372);
             this.btn_add_item.Name = "btn_add_item";
             this.btn_add_item.Size = new System.Drawing.Size(85, 39);
@@ -119,9 +119,9 @@
             // 
             // btn_delete_item
             // 
-            this.btn_delete_item.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_delete_item.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete_item.ForeColor = System.Drawing.Color.Crimson;
+            this.btn_delete_item.BackColor = System.Drawing.Color.DarkOrange;
+            this.btn_delete_item.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_item.ForeColor = System.Drawing.Color.White;
             this.btn_delete_item.Location = new System.Drawing.Point(902, 372);
             this.btn_delete_item.Name = "btn_delete_item";
             this.btn_delete_item.Size = new System.Drawing.Size(85, 39);
@@ -144,7 +144,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_search.BackColor = System.Drawing.Color.DarkOrange;
             this.btn_search.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search.ForeColor = System.Drawing.Color.White;
             this.btn_search.Location = new System.Drawing.Point(903, 80);
@@ -189,9 +189,9 @@
             // 
             // btn_update_item
             // 
-            this.btn_update_item.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_update_item.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btn_update_item.ForeColor = System.Drawing.Color.Crimson;
+            this.btn_update_item.BackColor = System.Drawing.Color.DarkOrange;
+            this.btn_update_item.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update_item.ForeColor = System.Drawing.Color.White;
             this.btn_update_item.Location = new System.Drawing.Point(778, 372);
             this.btn_update_item.Name = "btn_update_item";
             this.btn_update_item.Size = new System.Drawing.Size(85, 39);

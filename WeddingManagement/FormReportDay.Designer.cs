@@ -56,7 +56,7 @@
             this.labelRReport.ForeColor = System.Drawing.Color.Black;
             this.labelRReport.Location = new System.Drawing.Point(265, 9);
             this.labelRReport.Name = "labelRReport";
-            this.labelRReport.Size = new System.Drawing.Size(345, 40);
+            this.labelRReport.Size = new System.Drawing.Size(337, 40);
             this.labelRReport.TabIndex = 2;
             this.labelRReport.Text = "REVENUE REPORT DAY";
             // 
@@ -236,13 +236,12 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Gray;
             this.label6.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(829, -1);
+            this.label6.Location = new System.Drawing.Point(834, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 25);
             this.label6.TabIndex = 72;
@@ -297,7 +296,7 @@
             this.rBtn_day.Text = "Day";
             this.rBtn_day.UseVisualStyleBackColor = true;
             // 
-            // FormReport
+            // FormReportDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -326,7 +325,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximumSize = new System.Drawing.Size(857, 577);
-            this.Name = "FormReport";
+            this.Name = "FormReportDay";
             this.Text = "FormReport";
             this.Load += new System.EventHandler(this.ReportDay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataRPD)).EndInit();

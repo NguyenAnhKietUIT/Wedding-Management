@@ -48,7 +48,7 @@
             // btn_delete_service
             // 
             this.btn_delete_service.BackColor = System.Drawing.Color.DarkOrange;
-            this.btn_delete_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_service.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_service.ForeColor = System.Drawing.Color.White;
             this.btn_delete_service.Location = new System.Drawing.Point(755, 371);
             this.btn_delete_service.Name = "btn_delete_service";
@@ -61,7 +61,7 @@
             // btn_add_service
             // 
             this.btn_add_service.BackColor = System.Drawing.Color.DarkOrange;
-            this.btn_add_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_service.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_service.ForeColor = System.Drawing.Color.White;
             this.btn_add_service.Location = new System.Drawing.Point(500, 371);
             this.btn_add_service.Name = "btn_add_service";
@@ -175,7 +175,7 @@
             // btn_search_service
             // 
             this.btn_search_service.BackColor = System.Drawing.Color.DarkOrange;
-            this.btn_search_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_search_service.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search_service.ForeColor = System.Drawing.Color.White;
             this.btn_search_service.Location = new System.Drawing.Point(755, 84);
             this.btn_search_service.Name = "btn_search_service";
@@ -188,7 +188,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnUpdate.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Location = new System.Drawing.Point(626, 371);
             this.btnUpdate.Name = "btnUpdate";
@@ -198,7 +198,7 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // FormServices
+            // FormService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -220,7 +220,7 @@
             this.Controls.Add(this.dataService);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1000, 443);
-            this.Name = "FormServices";
+            this.Name = "FormService";
             this.Text = "FormServices";
             this.Load += new System.EventHandler(this.form_service_load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);

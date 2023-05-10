@@ -280,11 +280,11 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReport.cs">
+    <Compile Include="FormReportDay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormReport.Designer.cs">
-      <DependentUpon>FormReport.cs</DependentUpon>
+    <Compile Include="FormReportDay.Designer.cs">
+      <DependentUpon>FormReportDay.cs</DependentUpon>
     </Compile>
     <Compile Include="FormWedding.cs">
       <SubType>Form</SubType>
@@ -334,17 +334,11 @@
     <Compile Include="DropDownSearch.Designer.cs">
       <DependentUpon>DropDownSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportDay.cs">
+    <Compile Include="FormReportMonth.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportDay.Designer.cs">
-      <DependentUpon>ReportDay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RevenueReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RevenueReport.Designer.cs">
-      <DependentUpon>RevenueReport.cs</DependentUpon>
+    <Compile Include="FormReportMonth.Designer.cs">
+      <DependentUpon>FormReportMonth.cs</DependentUpon>
     </Compile>
     <Compile Include="Service.cs" />
     <Compile Include="Shift.cs" />
@@ -397,8 +391,11 @@
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReport.resx">
-      <DependentUpon>FormReport.cs</DependentUpon>
+    <EmbeddedResource Include="FormReportDay.resx">
+      <DependentUpon>FormReportDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportMonth.resx">
+      <DependentUpon>FormReportMonth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearchWedding.resx">
       <DependentUpon>FormSearchWedding.cs</DependentUpon>
