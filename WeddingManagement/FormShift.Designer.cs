@@ -132,7 +132,6 @@
             this.tbEnd.Name = "tbEnd";
             this.tbEnd.Size = new System.Drawing.Size(194, 30);
             this.tbEnd.TabIndex = 7;
-            this.tbEnd.TextChanged += new System.EventHandler(this.tbEnd_TextChanged);
             // 
             // tbStart
             // 

@@ -1,4 +1,6 @@
-﻿namespace WeddingManagement
+﻿using System.Windows.Forms;
+
+namespace WeddingManagement
 {
     partial class UCShift
     {
@@ -41,7 +43,7 @@
             // 
             this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.ForeColor = System.Drawing.Color.White;
+            this.lbName.ForeColor = System.Drawing.Color.Chocolate;
             this.lbName.Location = new System.Drawing.Point(61, 12);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(0, 25);
@@ -51,7 +53,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Chocolate;
             this.label2.Location = new System.Drawing.Point(3, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 28);
@@ -62,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Chocolate;
             this.label3.Location = new System.Drawing.Point(3, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 28);
@@ -73,7 +75,7 @@
             // 
             this.lbStart.AutoSize = true;
             this.lbStart.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStart.ForeColor = System.Drawing.Color.White;
+            this.lbStart.ForeColor = System.Drawing.Color.Chocolate;
             this.lbStart.Location = new System.Drawing.Point(109, 75);
             this.lbStart.Name = "lbStart";
             this.lbStart.Size = new System.Drawing.Size(0, 20);
@@ -83,7 +85,7 @@
             // 
             this.lbEnd.AutoSize = true;
             this.lbEnd.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEnd.ForeColor = System.Drawing.Color.White;
+            this.lbEnd.ForeColor = System.Drawing.Color.Chocolate;
             this.lbEnd.Location = new System.Drawing.Point(109, 112);
             this.lbEnd.Name = "lbEnd";
             this.lbEnd.Size = new System.Drawing.Size(0, 20);
@@ -105,7 +107,7 @@
             this.btnCheck.BackgroundImage = global::WeddingManagement.Properties.Resources.ShiftCheck;
             this.btnCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheck.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCheck.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.btnCheck.Location = new System.Drawing.Point(166, 147);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(51, 48);

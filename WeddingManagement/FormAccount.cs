@@ -110,7 +110,8 @@ namespace WeddingManagement
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM ACCOUNT WHERE Username = @username", sql))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM ACCOUNT WHERE " +
+                    "Username = @username", sql))
                 {
                     cmd.Parameters.AddWithValue("@username", tb_username.Text);
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -122,8 +123,9 @@ namespace WeddingManagement
                         }
                     }
                 }
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO ACCOUNT (AccountNo, Username, Name, Password, Priority) " +
-                    "VALUES (@accountno, @username, @name, @password, @priority)", sql))
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO ACCOUNT (AccountNo, Username, " +
+                    "Name, Password, Priority, Identification) VALUES (@accountno, @username, @name, " +
+                    "@password, @priority, @identification)", sql))
                 {
                     long newId = WeddingClient.GetNewACCOUNTSId();
                     string newPass = tb_password.Text == "" ? CryptSharp.Crypter.Blowfish.Crypt("123") : 
@@ -131,6 +133,7 @@ namespace WeddingManagement
                     cmd.Parameters.AddWithValue("@accountno", newId);
                     cmd.Parameters.AddWithValue("@username", tb_username.Text);
                     cmd.Parameters.AddWithValue("@name", tb_name.Text);
+                    cmd.Parameters.AddWithValue("@identification", tb_iden.Text);
                     cmd.Parameters.AddWithValue("@password", newPass);
                     cmd.Parameters.AddWithValue("@priority", WeddingClient.client_priority + cbb_level.SelectedIndex + 1);
                     if (cmd.ExecuteNonQuery() > 0)
@@ -138,6 +141,8 @@ namespace WeddingManagement
                         DataRow row = table.NewRow();
                         row["AccountNo"] = newId;
                         row["Username"] = tb_username.Text;
+                        row["Name"] = tb_name.Text;
+                        row["Identification"] = tb_iden.Text;
                         row["Password"] = newPass;
                         row["Priority"] = cbb_level.SelectedIndex + 1 + WeddingClient.client_priority;
                         table.Rows.Add(row);
@@ -172,7 +177,6 @@ namespace WeddingManagement
             }
             selectedId = -1;
         }
-
         private void gv_act_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex >= gv_act.Rows.Count)
@@ -194,7 +198,6 @@ namespace WeddingManagement
         {
             this.Close();
         }
-
         private void btn_search_Click(object sender, EventArgs e)
         {
             if (tb_username.Text == "") return;

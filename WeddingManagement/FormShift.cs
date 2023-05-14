@@ -251,9 +251,5 @@ namespace WeddingManagement
             tbName.Text = s._lbName;
             tbStart.Text = s._lbStart;
         }
-        private void tbEnd_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
