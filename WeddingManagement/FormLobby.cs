@@ -349,19 +349,22 @@ namespace WeddingManagement
                             using (SqlCommand cm = new SqlCommand("SELECT * from LOBBY_TYPE where LobbyName = @name", sql))
                             {
                                 cm.Parameters.AddWithValue("@name", lobbyTypeCombobox.Text);
-                                SqlDataReader rd = cm.ExecuteReader();
+                                SqlDataReader rd = cm.ExecuteReader( );
                                 while (rd.Read())
                                 {
                                     ID = rd["LobbytypeNo"].ToString();
                                 }
+                                rd.Close();
                             }
+
                             using (SqlCommand cmd = new SqlCommand("UPDATE LOBBY SET LobbyTypeNo = @idlt, LobbyName = @name, " +
-                                "MaxTable = @table WHERE LobbyNo = @LobbyNo", sql))
+                                "MaxTable = @table, Note = @note WHERE LobbyNo = @LobbyNo", sql))
                             {
                                 cmd.Parameters.AddWithValue("@LobbyNo", currentLobbyId);
                                 cmd.Parameters.AddWithValue("@idlt", ID);
                                 cmd.Parameters.AddWithValue("@name", nameTextBox.Text);
                                 cmd.Parameters.AddWithValue("@table", int.Parse(maxTableTextBox.Text));
+                                cmd.Parameters.AddWithValue("@note", noteTextBox.Text);
                                 if (cmd.ExecuteNonQuery() > 0)
                                 {
                                     MessageBox.Show("Lobby Update!", "SUCESS", MessageBoxButtons.OK);

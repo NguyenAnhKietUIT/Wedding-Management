@@ -19,7 +19,7 @@ namespace WeddingManagement
             // first column
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "LobbyTypeName";
+            column.ColumnName = "Name Of Lobby Type";
             column.AutoIncrement = false;
             column.Caption = "Type";
             column.ReadOnly = true;
@@ -29,7 +29,7 @@ namespace WeddingManagement
             // second column
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.Int64");
-            column.ColumnName = "MinTablePrice";
+            column.ColumnName = "Min Of Table Price";
             column.AutoIncrement = false;
             column.Caption = "Minimum Table Price";
             column.ReadOnly = true;
@@ -81,8 +81,8 @@ namespace WeddingManagement
             foreach (LobbyType lobbyType in lobbyTypes)
             {
                 row = table.NewRow();
-                row["LobbyTypeName"] = lobbyType.LobbyName;
-                row["MinTablePrice"] = lobbyType.MinTablePrice;
+                row["Name Of Lobby Type"] = lobbyType.LobbyName;
+                row["Min Of Table Price"] = lobbyType.MinTablePrice;
                 row["LobbyTypeNo"] = lobbyType.LobbyTypeNo;
                 table.Rows.Add(row);
             }
@@ -147,8 +147,8 @@ namespace WeddingManagement
                             if (cmd.ExecuteNonQuery() > 0)
                             {
                                 row = table.NewRow();
-                                row["LobbyTypeName"] = comboBox1.Text;
-                                row["MinTablePrice"] = price;
+                                row["Name Of Lobby Type"] = comboBox1.Text;
+                                row["Min Of Table Price"] = price;
                                 row["LobbyTypeNo"] = newTypeId;
                                 table.Rows.Add(row);
                                 MessageBox.Show("New type added!");
@@ -182,7 +182,7 @@ namespace WeddingManagement
                         using (SqlCommand cmd = new SqlCommand("UPDATE LOBBY_TYPE " +
                             "SET Available = 0 WHERE LobbyTypeNo = @LobbyTypeNo", sql))
                         {
-                            cmd.Parameters.AddWithValue("@IdLobbyType", currentTypeId);
+                            cmd.Parameters.AddWithValue("@LobbyTypeNo", currentTypeId);
                             if (cmd.ExecuteNonQuery() > 0)
                             {
                                 foreach (LobbyType lobbyType in WeddingClient.listLobbyTypes)

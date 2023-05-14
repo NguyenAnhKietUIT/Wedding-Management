@@ -9,6 +9,8 @@ namespace WeddingManagement
     {
         public delegate void HandleClick(UCShift s);
         public static HandleClick onclick;
+        Point lastPoint = new Point();
+
         public FormShift()
         {
             InitializeComponent();
@@ -222,6 +224,9 @@ namespace WeddingManagement
                                             }
                                         }
                                     }
+                                    tbEnd.Text = "";
+                                    tbName.Text = "";
+                                    tbStart.Text = "";
                                     MessageBox.Show("Update shift successfully", "SUCCESS", MessageBoxButtons.OK);
                                 }
                             }
@@ -230,7 +235,7 @@ namespace WeddingManagement
                 }
             }
         }
-        Point lastPoint = new Point();
+        
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
@@ -245,6 +250,7 @@ namespace WeddingManagement
                 this.Top += e.Y - lastPoint.Y;
             }
         }
+
         private void ShiftClick(UCShift s)
         {
             tbEnd.Text = s._lbEnd;

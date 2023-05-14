@@ -139,24 +139,24 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(18, 121);
+            this.label3.Location = new System.Drawing.Point(12, 121);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 24);
+            this.label3.Size = new System.Drawing.Size(152, 24);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Min Table Price";
+            this.label3.Text = "Min Of Table Price";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(18, 60);
+            this.label2.Location = new System.Drawing.Point(12, 60);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 24);
+            this.label2.Size = new System.Drawing.Size(174, 24);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Name Lobby Type";
+            this.label2.Text = "Name Of Lobby Type";
             // 
             // groupBox2
             // 

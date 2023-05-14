@@ -179,7 +179,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.LightBlue;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(470, 484);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(470, 446);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -189,7 +189,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(882, 484);
+            this.ClientSize = new System.Drawing.Size(882, 446);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
