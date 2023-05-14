@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxPassWord = new System.Windows.Forms.TextBox();
-            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.checkboxRemPW = new System.Windows.Forms.CheckBox();
+            this.rememberMeCheckBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,12 +45,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightBlue;
-            this.panel1.Controls.Add(this.textBoxPassWord);
-            this.panel1.Controls.Add(this.textBoxUserName);
+            this.panel1.Controls.Add(this.passwordTextBox);
+            this.panel1.Controls.Add(this.usernameTextBox);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.buttonLogin);
-            this.panel1.Controls.Add(this.checkboxRemPW);
+            this.panel1.Controls.Add(this.rememberMeCheckBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -64,24 +64,24 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseMove);
             // 
-            // textBoxPassWord
+            // passwordTextBox
             // 
-            this.textBoxPassWord.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassWord.Location = new System.Drawing.Point(158, 323);
-            this.textBoxPassWord.Name = "textBoxPassWord";
-            this.textBoxPassWord.Size = new System.Drawing.Size(206, 27);
-            this.textBoxPassWord.TabIndex = 11;
-            this.textBoxPassWord.UseSystemPasswordChar = true;
-            this.textBoxPassWord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxPassWord_KeyDown);
+            this.passwordTextBox.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.Location = new System.Drawing.Point(158, 323);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(206, 27);
+            this.passwordTextBox.TabIndex = 11;
+            this.passwordTextBox.UseSystemPasswordChar = true;
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxPassWord_KeyDown);
             // 
-            // textBoxUserName
+            // usernameTextBox
             // 
-            this.textBoxUserName.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(158, 250);
-            this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(206, 27);
-            this.textBoxUserName.TabIndex = 10;
-            this.textBoxUserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxUserName_KeyDown);
+            this.usernameTextBox.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTextBox.Location = new System.Drawing.Point(158, 250);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(206, 27);
+            this.usernameTextBox.TabIndex = 10;
+            this.usernameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxUserName_KeyDown);
             // 
             // label4
             // 
@@ -123,17 +123,18 @@
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.Login);
             // 
-            // checkboxRemPW
+            // rememberMeCheckBox
             // 
-            this.checkboxRemPW.AutoSize = true;
-            this.checkboxRemPW.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxRemPW.Location = new System.Drawing.Point(158, 381);
-            this.checkboxRemPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkboxRemPW.Name = "checkboxRemPW";
-            this.checkboxRemPW.Size = new System.Drawing.Size(115, 24);
-            this.checkboxRemPW.TabIndex = 5;
-            this.checkboxRemPW.Text = "Remember me";
-            this.checkboxRemPW.UseVisualStyleBackColor = true;
+            this.rememberMeCheckBox.AutoSize = true;
+            this.rememberMeCheckBox.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rememberMeCheckBox.Location = new System.Drawing.Point(158, 381);
+            this.rememberMeCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rememberMeCheckBox.Name = "rememberMeCheckBox";
+            this.rememberMeCheckBox.Size = new System.Drawing.Size(115, 24);
+            this.rememberMeCheckBox.TabIndex = 5;
+            this.rememberMeCheckBox.Text = "Remember me";
+            this.rememberMeCheckBox.UseVisualStyleBackColor = true;
+            this.rememberMeCheckBox.CheckedChanged += new System.EventHandler(this.rememberMeCheckBox_CheckedChanged);
             // 
             // label2
             // 
@@ -198,11 +199,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.CheckBox checkboxRemPW;
+        private System.Windows.Forms.CheckBox rememberMeCheckBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxPassWord;
-        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
