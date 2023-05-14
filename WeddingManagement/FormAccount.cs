@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WeddingManagement
 {
@@ -56,7 +57,6 @@ namespace WeddingManagement
                 }
             }
         }
-
         private void btn_update_account_Click(object sender, EventArgs e)
         {
             if (selectedId == -1) { MessageBox.Show("Please select an account"); return; }
@@ -103,7 +103,6 @@ namespace WeddingManagement
                 Reset();
             }
         }
-
         private void btn_add_account_Click(object sender, EventArgs e)
         {
             if (tb_username.Text == "") return;
@@ -152,7 +151,6 @@ namespace WeddingManagement
                 }
             }
         }
-
         private void btn_delete_account_Click(object sender, EventArgs e)
         {
             if (selectedId == -1) { MessageBox.Show("Please select an account"); return; }
@@ -200,15 +198,33 @@ namespace WeddingManagement
         }
         private void btn_search_Click(object sender, EventArgs e)
         {
-            if (tb_username.Text == "") return;
+            if (string.IsNullOrEmpty(tb_username.Text.Trim())
+                && string.IsNullOrEmpty(tb_name.Text.Trim())
+                && string.IsNullOrEmpty(tb_iden.Text.Trim()))
+            { return; }
             this.table = new DataTable();
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT AccountNo, Username, Name, Priority, Identification, Password " +
-                    "FROM ACCOUNT WHERE Username = @username", sql))
+                using (SqlCommand cmd = new SqlCommand("SELECT AccountNo, Username, Name, Priority, " +
+                    "Identification, Password FROM ACCOUNT WHERE Priority > @priority AND " +
+                    "(Username LIKE @searchACC OR Name LIKE @searchACC OR Identification " +
+                    "LIKE @searchACC)", sql))
                 {
-                    cmd.Parameters.AddWithValue("@username", tb_username.Text);
+                    var search_acc = "";
+                    if (!string.IsNullOrEmpty(tb_username.Text.Trim()))
+                    {
+                        search_acc = tb_username.Text;
+                    } else if (!string.IsNullOrEmpty(tb_name.Text.Trim()))
+                    {
+                        search_acc = tb_name.Text;
+                    } else if (!string.IsNullOrEmpty(tb_iden.Text.Trim()))
+                    {
+                        search_acc = tb_iden.Text;
+                    }
+
+                    cmd.Parameters.AddWithValue("@searchACC", "%" + search_acc + "%");
+                    cmd.Parameters.AddWithValue("@priority", WeddingClient.client_priority);
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(table);
                     table.Columns[0].ColumnMapping = MappingType.Hidden;
