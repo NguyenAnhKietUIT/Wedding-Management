@@ -10,6 +10,7 @@ namespace WeddingManagement
     public partial class FormMenu : Form
     {
         public static string currentTypeId = "";
+        Point lastPoint = new Point();
         DataTable table = new DataTable();
         DataColumn column;
         DataRow row;
@@ -81,7 +82,8 @@ namespace WeddingManagement
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM MENU WHERE Available > 0", sql))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM MENU WHERE Available > 0" +
+                    " ORDER BY ItemName", sql))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -163,8 +165,9 @@ namespace WeddingManagement
                         sql.Open();
                         try
                         {
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO MENU (ItemNo, ItemName, ItemPrice, Note, " +
-                                "Available) VALUES (@ItemNo, @ItemName, @ItemPrice, @Note, 1)", sql))
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO MENU (ItemNo, " +
+                                "ItemName, ItemPrice, Note, Available) VALUES (@ItemNo, " +
+                                "@ItemName, @ItemPrice, @Note, 1)", sql))
                             {
                                 string newDishesId = "MN" + WeddingClient.GetNewIdFromTable("MN").ToString().PadLeft(19, '0');
                                 cmd.Parameters.AddWithValue("@ItemNo", newDishesId);
@@ -247,8 +250,9 @@ namespace WeddingManagement
         {
             using (SqlConnection sqlconn = new SqlConnection(WeddingClient.sqlConnectionString))
             {
-                string sqlquery = "SELECT ItemName, ItemPrice, Note FROM MENU WHERE ItemName LIKE @searchMN " +
-                    "OR ItemPrice LIKE @searchMN OR Note LIKE @searchMN";
+                string sqlquery = "SELECT ItemName, ItemPrice, Note FROM MENU " +
+                    "WHERE Available > 0 AND (ItemName LIKE @searchMN OR ItemPrice LIKE " +
+                    "@searchMN OR Note LIKE @searchMN) ORDER BY ItemName";
                 sqlconn.Open();
                 using (SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn))
                 {
@@ -266,7 +270,7 @@ namespace WeddingManagement
                 }
             }
         }
-        Point lastPoint = new Point();
+        
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
@@ -325,6 +329,7 @@ namespace WeddingManagement
                 }
             }
         }
+
         private void FormMenu_Load(object sender, EventArgs e)
         {
             load_data_Dishes();

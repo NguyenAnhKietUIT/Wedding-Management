@@ -83,7 +83,8 @@ namespace WeddingManagement
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM SERVICE WHERE Available > 0", sql))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM SERVICE WHERE " +
+                    "Available > 0 ORDER BY ServiceName", sql))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -158,8 +159,9 @@ namespace WeddingManagement
                         sql.Open();
                         try
                         {
-                            using (SqlCommand cmd = new SqlCommand("INSERT INTO SERVICE (ServiceNo, ServiceName, ServicePrice, " +
-                                "Note, Available) VALUES (@ServiceNo, @ServiceName, @ServicePrice, @Note, 1)", sql))
+                            using (SqlCommand cmd = new SqlCommand("INSERT INTO SERVICE " +
+                                "(ServiceNo, ServiceName, ServicePrice, Note, Available) " +
+                                "VALUES (@ServiceNo, @ServiceName, @ServicePrice, @Note, 1)", sql))
                             {
                                 string newServiceId = "SV" + WeddingClient.GetNewIdFromTable("SV").ToString().PadLeft(19, '0');
                                 cmd.Parameters.AddWithValue("@ServiceNo", newServiceId);
@@ -239,8 +241,9 @@ namespace WeddingManagement
         {
             using (SqlConnection sqlconn = new SqlConnection(WeddingClient.sqlConnectionString))
             {
-                string sqlquery = "SELECT ServiceName, ServicePrice, Note, ServiceNo FROM SERVICE WHERE ServiceName " +
-                    "LIKE @searchSV OR ServicePrice LIKE @searchSV OR Note LIKE @searchSV";
+                string sqlquery = "SELECT ServiceName, ServicePrice, Note, ServiceNo FROM " +
+                    "SERVICE WHERE ServiceName LIKE @searchSV OR ServicePrice LIKE @searchSV " +
+                    "OR Note LIKE @searchSV ORDER BY ServiceName";
                 sqlconn.Open();
                 using (SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn))
                 {
@@ -303,7 +306,9 @@ namespace WeddingManagement
                         using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
                         {
                             sql.Open();
-                            using (SqlCommand cmd = new SqlCommand("UPDATE SERVICE SET ServiceName=@name,ServicePrice=@price,Note=@note WHERE ServiceNo = @ServiceNo", sql))
+                            using (SqlCommand cmd = new SqlCommand("UPDATE SERVICE " +
+                                "SET ServiceName=@name,ServicePrice=@price,Note=@note " +
+                                "WHERE ServiceNo = @ServiceNo", sql))
                             {
                                 cmd.Parameters.AddWithValue("@ServiceNo", currentServiceId);
                                 cmd.Parameters.AddWithValue("@price", long.Parse(tb_service_price.Text));
