@@ -33,13 +33,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.TextBox();
+            this.minTable = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
+            this.cbName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -59,11 +59,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbName);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.minTable);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
@@ -118,21 +118,13 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // minTable
             // 
-            this.textBox1.Location = new System.Drawing.Point(196, 120);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 29);
-            this.textBox1.TabIndex = 4;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Location = new System.Drawing.Point(196, 59);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 29);
-            this.comboBox1.TabIndex = 3;
+            this.minTable.Location = new System.Drawing.Point(196, 120);
+            this.minTable.Margin = new System.Windows.Forms.Padding(4);
+            this.minTable.Name = "minTable";
+            this.minTable.Size = new System.Drawing.Size(187, 29);
+            this.minTable.TabIndex = 4;
             // 
             // label3
             // 
@@ -195,6 +187,20 @@
             this.label6.Text = "X";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // cbName
+            // 
+            this.cbName.FormattingEnabled = true;
+            this.cbName.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"});
+            this.cbName.Location = new System.Drawing.Point(196, 60);
+            this.cbName.Name = "cbName";
+            this.cbName.Size = new System.Drawing.Size(187, 29);
+            this.cbName.TabIndex = 9;
+            // 
             // FormLobbyType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -226,12 +232,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox comboBox1;
+        private System.Windows.Forms.TextBox minTable;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cbName;
     }
 }

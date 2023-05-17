@@ -18,27 +18,24 @@ namespace WeddingManagement
             table = new DataTable();
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "LobbyName";
+            column.ColumnName = "Lobby Name";
             column.AutoIncrement = false;
-            column.Caption = "Lobby Name";
             column.ReadOnly = true;
             column.Unique = false;
             table.Columns.Add(column);
 
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "LobbyType";
+            column.ColumnName = "Lobby Type";
             column.AutoIncrement = false;
-            column.Caption = "Lobby Type";
             column.ReadOnly = true;
             column.Unique = false;
             table.Columns.Add(column);
 
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.Int64");
-            column.ColumnName = "MaxTable";
+            column.ColumnName = "Max Table";
             column.AutoIncrement = false;
-            column.Caption = "Max Table";
             column.ReadOnly = true;
             column.Unique = false;
             table.Columns.Add(column);
@@ -56,7 +53,6 @@ namespace WeddingManagement
             column.DataType = System.Type.GetType("System.String");
             column.ColumnName = "LobbyNo";
             column.AutoIncrement = false;
-            column.Caption = "LobbyNo";
             column.ReadOnly = true;
             column.Unique = true;
             column.ColumnMapping = MappingType.Hidden;
@@ -128,9 +124,9 @@ namespace WeddingManagement
                                 reader["Note"].ToString())
                                 );
                             row = table.NewRow();
-                            row["LobbyName"] = reader["LobbyName"].ToString();
-                            row["LobbyType"] = reader["LobbyType"].ToString();
-                            row["MaxTable"] = Convert.ToInt32(reader["MaxTable"]);
+                            row["Lobby Name"] = reader["LobbyName"].ToString();
+                            row["Lobby Type"] = reader["LobbyType"].ToString();
+                            row["Max Table"] = Convert.ToInt32(reader["MaxTable"]);
                             row["Note"] = reader["Note"].ToString();
                             row["LobbyNo"] = reader["LobbyNo"].ToString();
                             row["LobbyTypeNo"] = reader["LobbyTypeNo"].ToString();
@@ -156,8 +152,8 @@ namespace WeddingManagement
             DataRow row = table.Rows[index];
 
             currentLobbyId = row["LobbyNo"].ToString();
-            nameTextBox.Text = row["LobbyName"].ToString();
-            maxTableTextBox.Text = (row["MaxTable"]).ToString();
+            nameTextBox.Text = row["Lobby Name"].ToString();
+            maxTableTextBox.Text = (row["Max Table"]).ToString();
             noteTextBox.Text = row["Note"].ToString();
 
             lobbyTypeCombobox.SelectedIndex = WeddingClient.listLobbyTypes.FindIndex(
@@ -267,10 +263,10 @@ namespace WeddingManagement
                             if (cmd.ExecuteNonQuery() > 0)
                             {
                                 row = table.NewRow();
-                                row["LobbyName"] = nameTextBox.Text;
+                                row["Lobby Name"] = nameTextBox.Text;
                                 row["LobbyType"] = WeddingClient.listLobbyTypes.Find(
                                     x => { if (x.LobbyTypeNo == idLobbyType) return true; else return false; }).LobbyName;
-                                row["MaxTable"] = maxTable;
+                                row["Max Table"] = maxTable;
                                 row["Note"] = noteTextBox.Text;
                                 row["LobbyNo"] = newTypeId;
                                 row["LobbyTypeNo"] = idLobbyType;
@@ -352,7 +348,7 @@ namespace WeddingManagement
                                 SqlDataReader rd = cm.ExecuteReader( );
                                 while (rd.Read())
                                 {
-                                    ID = rd["LobbytypeNo"].ToString();
+                                    ID = rd["LobbyTypeNo"].ToString();
                                 }
                                 rd.Close();
                             }

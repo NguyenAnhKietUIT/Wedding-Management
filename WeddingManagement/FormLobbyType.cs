@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WeddingManagement
 {
@@ -90,6 +91,7 @@ namespace WeddingManagement
         public FormLobbyType()
         {
             InitializeComponent();
+            cbName.SelectedIndex = 0;
         }
 
         private void FormLobbyType_Load(object sender, EventArgs e)
@@ -107,8 +109,16 @@ namespace WeddingManagement
             var rowItem = (DataRowView)dataGridView1.Rows[e.RowIndex].DataBoundItem;
             int i = table.Rows.IndexOf(rowItem.Row);
             DataRow row = table.Rows[i];
-            comboBox1.Text = row[0].ToString();
-            textBox1.Text = row[1].ToString();
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count - 1)
+            {
+                // Lấy giá trị của ô đầu trong dòng đã chọn
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                string value = selectedRow.Cells[0].Value.ToString();
+
+                // Binding giá trị với ComboBox
+                cbName.Text = value;
+            }
+            minTable.Text = row[1].ToString();
             if (i < WeddingClient.listLobbyTypes.Count)
             {
                 currentTypeId = WeddingClient.listLobbyTypes[i].LobbyTypeNo;
@@ -121,42 +131,57 @@ namespace WeddingManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (WeddingClient.client_priority > 2)
+            if (int.TryParse(minTable.Text, out int number))
             {
-                MessageBox.Show("You don't have permission to do this!", "NOT PERMIT", MessageBoxButtons.OK);
-                return;
-            }
-            else
-            {
-                if (comboBox1.Text == "" || !long.TryParse(textBox1.Text, out long price))
+                // Kiểm tra nếu giá trị nhỏ hơn hoặc bằng 0
+                if (number <= 0)
                 {
-                    MessageBox.Show("Please fill all the fields!", "LACK", MessageBoxButtons.OK);
-                }
-                else
+                    MessageBox.Show("The value in the textbox should be a number greater than 0.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } else
                 {
-                    using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+                    if (WeddingClient.client_priority > 2)
                     {
-                        sql.Open();
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO LOBBY_TYPE (LobbyTypeNo, LobbyName, MinTablePrice, " +
-                            "Available) VALUES (@LobbyTypeNo, @LobbyName, @MinTablePrice, 1)", sql))
+                        MessageBox.Show("You don't have permission to do this!", "NOT PERMIT", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        if (!long.TryParse(minTable.Text, out long price))
                         {
-                            string newTypeId = "LT" + WeddingClient.GetNewIdFromTable("LT").ToString().PadLeft(19, '0');
-                            cmd.Parameters.AddWithValue("@LobbyTypeNo", newTypeId);
-                            cmd.Parameters.AddWithValue("@LobbyName", comboBox1.Text);
-                            cmd.Parameters.AddWithValue("@MinTablePrice", price);
-                            if (cmd.ExecuteNonQuery() > 0)
+                            MessageBox.Show("Please fill all the fields!", "LACK", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
                             {
-                                row = table.NewRow();
-                                row["Name Of Lobby Type"] = comboBox1.Text;
-                                row["Min Of Table Price"] = price;
-                                row["LobbyTypeNo"] = newTypeId;
-                                table.Rows.Add(row);
-                                MessageBox.Show("New type added!");
-                                WeddingClient.listLobbyTypes.Add(new LobbyType(newTypeId, comboBox1.Text, price));
+                                sql.Open();
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO LOBBY_TYPE (LobbyTypeNo, LobbyName, MinTablePrice, " +
+                                    "Available) VALUES (@LobbyTypeNo, @LobbyName, @MinTablePrice, 1)", sql))
+                                {
+                                    string newTypeId = "LT" + WeddingClient.GetNewIdFromTable("LT").ToString().PadLeft(19, '0');
+                                    cmd.Parameters.AddWithValue("@LobbyTypeNo", newTypeId);
+                                    cmd.Parameters.AddWithValue("@LobbyName", cbName.Text);
+                                    cmd.Parameters.AddWithValue("@MinTablePrice", price);
+                                    if (cmd.ExecuteNonQuery() > 0)
+                                    {
+                                        row = table.NewRow();
+                                        row["Name Of Lobby Type"] = cbName.Text;
+                                        row["Min Of Table Price"] = price;
+                                        row["LobbyTypeNo"] = newTypeId;
+                                        table.Rows.Add(row);
+                                        MessageBox.Show("New type added!");
+                                        WeddingClient.listLobbyTypes.Add(new LobbyType(newTypeId, cbName.Text, price));
+                                    }
+                                }
                             }
                         }
                     }
                 }
+            }
+            else
+            {
+                // Hiển thị thông báo nếu giá trị không hợp lệ
+                MessageBox.Show("Please enter a valid integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -211,44 +236,61 @@ namespace WeddingManagement
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (WeddingClient.client_priority > 2)
+            // Get the value from the textbox
+            if (int.TryParse(minTable.Text, out int number))
             {
-                MessageBox.Show("You don't have permission to do this!", "NOT PERMIT", MessageBoxButtons.OK);
-                return;
-            }
-            else
-            {
-                if (comboBox1.Text == "" || !long.TryParse(textBox1.Text, out long price))
+                // Check if the value is less than or equal to 0
+                if (number <= 0)
                 {
-                    MessageBox.Show("Please fill all the fields!", "LACK", MessageBoxButtons.OK);
+                    MessageBox.Show("The value in the textbox should be a number greater than 0.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    if (currentTypeId == "")
+                    if (WeddingClient.client_priority > 2)
                     {
-                        MessageBox.Show("Please select a type!", "LACK", MessageBoxButtons.OK);
+                        MessageBox.Show("You don't have permission to do this!", "NOT PERMIT", MessageBoxButtons.OK);
+                        return;
                     }
                     else
                     {
-                        using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+                        if (!long.TryParse(minTable.Text, out long price))
                         {
-                            sql.Open();
-                            using (SqlCommand cmd = new SqlCommand("UPDATE LOBBY_TYPE " +
-                                "SET LobbyName=@name, MinTablePrice=@price WHERE LobbyTypeNo = @LobbyTypeNo", sql))
+                            MessageBox.Show("Please fill all the fields!", "LACK", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            if (currentTypeId == "")
                             {
-                                cmd.Parameters.AddWithValue("@LobbyTypeNo", currentTypeId);
-                                cmd.Parameters.AddWithValue("@name", comboBox1.Text);
-                                cmd.Parameters.AddWithValue("@price", long.Parse(textBox1.Text));
-                                if (cmd.ExecuteNonQuery() > 0)
+                                MessageBox.Show("Please select a type!", "LACK", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
                                 {
-                                    MessageBox.Show("Type Update!", "SUCCESS", MessageBoxButtons.OK);
+                                    sql.Open();
+                                    using (SqlCommand cmd = new SqlCommand("UPDATE LOBBY_TYPE " +
+                                        "SET LobbyName=@name, MinTablePrice=@price WHERE LobbyTypeNo = @LobbyTypeNo", sql))
+                                    {
+                                        cmd.Parameters.AddWithValue("@LobbyTypeNo", currentTypeId);
+                                        cmd.Parameters.AddWithValue("@name", cbName.Text);
+                                        cmd.Parameters.AddWithValue("@price", long.Parse(minTable.Text));
+                                        if (cmd.ExecuteNonQuery() > 0)
+                                        {
+                                            MessageBox.Show("Type Update!", "SUCCESS", MessageBoxButtons.OK);
+                                        }
+                                    }
                                 }
                             }
+                            FormLobbyType.currentTypeId = "";
+                            load_data_LobbyType();
                         }
                     }
-                    FormLobbyType.currentTypeId = "";
-                    load_data_LobbyType();
                 }
+            }
+            else
+            {
+                // Display an error message if the value is invalid
+                MessageBox.Show("Please enter a valid integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
