@@ -39,12 +39,13 @@
             this.gv_act = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbb_level = new System.Windows.Forms.ComboBox();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.tb_iden = new WeddingManagement.CustomBorderTextbox();
             this.tb_name = new WeddingManagement.CustomBorderTextbox();
             this.tb_password = new WeddingManagement.CustomBorderTextbox();
             this.tb_username = new WeddingManagement.CustomBorderTextbox();
-            this.cbb_level = new System.Windows.Forms.ComboBox();
-            this.btn_search = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gv_act)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.label6.BackColor = System.Drawing.Color.Gray;
             this.label6.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(943, 0);
+            this.label6.Location = new System.Drawing.Point(1026, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 25);
             this.label6.TabIndex = 13;
@@ -66,7 +67,7 @@
             this.btn_delete_account.BackColor = System.Drawing.Color.DarkOrange;
             this.btn_delete_account.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_account.ForeColor = System.Drawing.Color.White;
-            this.btn_delete_account.Location = new System.Drawing.Point(862, 384);
+            this.btn_delete_account.Location = new System.Drawing.Point(856, 395);
             this.btn_delete_account.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_delete_account.Name = "btn_delete_account";
             this.btn_delete_account.Size = new System.Drawing.Size(85, 39);
@@ -80,7 +81,7 @@
             this.btn_add_account.BackColor = System.Drawing.Color.DarkOrange;
             this.btn_add_account.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_account.ForeColor = System.Drawing.Color.White;
-            this.btn_add_account.Location = new System.Drawing.Point(679, 384);
+            this.btn_add_account.Location = new System.Drawing.Point(673, 395);
             this.btn_add_account.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add_account.Name = "btn_add_account";
             this.btn_add_account.Size = new System.Drawing.Size(85, 39);
@@ -94,7 +95,7 @@
             this.btn_update_account.BackColor = System.Drawing.Color.DarkOrange;
             this.btn_update_account.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update_account.ForeColor = System.Drawing.Color.White;
-            this.btn_update_account.Location = new System.Drawing.Point(771, 384);
+            this.btn_update_account.Location = new System.Drawing.Point(765, 395);
             this.btn_update_account.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_update_account.Name = "btn_update_account";
             this.btn_update_account.Size = new System.Drawing.Size(85, 39);
@@ -108,7 +109,7 @@
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.ForeColor = System.Drawing.Color.Black;
-            this.name.Location = new System.Drawing.Point(584, 208);
+            this.name.Location = new System.Drawing.Point(633, 197);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(54, 24);
             this.name.TabIndex = 85;
@@ -119,7 +120,7 @@
             this.Password.AutoSize = true;
             this.Password.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Password.ForeColor = System.Drawing.Color.Black;
-            this.Password.Location = new System.Drawing.Point(584, 140);
+            this.Password.Location = new System.Drawing.Point(633, 131);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(87, 24);
             this.Password.TabIndex = 83;
@@ -130,7 +131,7 @@
             this.username.AutoSize = true;
             this.username.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.ForeColor = System.Drawing.Color.Black;
-            this.username.Location = new System.Drawing.Point(583, 75);
+            this.username.Location = new System.Drawing.Point(632, 65);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(88, 24);
             this.username.TabIndex = 81;
@@ -167,7 +168,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(584, 271);
+            this.label1.Location = new System.Drawing.Point(633, 262);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 24);
             this.label1.TabIndex = 92;
@@ -178,48 +179,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(587, 334);
+            this.label2.Location = new System.Drawing.Point(636, 327);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 24);
             this.label2.TabIndex = 94;
             this.label2.Text = "Level";
-            // 
-            // tb_iden
-            // 
-            this.tb_iden.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_iden.Location = new System.Drawing.Point(712, 268);
-            this.tb_iden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_iden.Name = "tb_iden";
-            this.tb_iden.Size = new System.Drawing.Size(235, 30);
-            this.tb_iden.TabIndex = 3;
-            // 
-            // tb_name
-            // 
-            this.tb_name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_name.Location = new System.Drawing.Point(712, 205);
-            this.tb_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_name.Name = "tb_name";
-            this.tb_name.Size = new System.Drawing.Size(235, 30);
-            this.tb_name.TabIndex = 2;
-            // 
-            // tb_password
-            // 
-            this.tb_password.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_password.Location = new System.Drawing.Point(712, 137);
-            this.tb_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_password.Name = "tb_password";
-            this.tb_password.PasswordChar = '*';
-            this.tb_password.Size = new System.Drawing.Size(235, 30);
-            this.tb_password.TabIndex = 1;
-            // 
-            // tb_username
-            // 
-            this.tb_username.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_username.Location = new System.Drawing.Point(712, 72);
-            this.tb_username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_username.Name = "tb_username";
-            this.tb_username.Size = new System.Drawing.Size(235, 30);
-            this.tb_username.TabIndex = 0;
             // 
             // cbb_level
             // 
@@ -229,7 +193,7 @@
             "Director",
             "Manager",
             "Staff"});
-            this.cbb_level.Location = new System.Drawing.Point(712, 331);
+            this.cbb_level.Location = new System.Drawing.Point(761, 324);
             this.cbb_level.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_level.Name = "cbb_level";
             this.cbb_level.Size = new System.Drawing.Size(235, 32);
@@ -240,7 +204,7 @@
             this.btn_search.BackColor = System.Drawing.Color.DarkOrange;
             this.btn_search.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search.ForeColor = System.Drawing.Color.White;
-            this.btn_search.Location = new System.Drawing.Point(588, 384);
+            this.btn_search.Location = new System.Drawing.Point(582, 395);
             this.btn_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(85, 39);
@@ -249,12 +213,64 @@
             this.btn_search.UseVisualStyleBackColor = false;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(947, 395);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(85, 39);
+            this.btnRefresh.TabIndex = 96;
+            this.btnRefresh.Text = "REFRESH";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // tb_iden
+            // 
+            this.tb_iden.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_iden.Location = new System.Drawing.Point(761, 259);
+            this.tb_iden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_iden.Name = "tb_iden";
+            this.tb_iden.Size = new System.Drawing.Size(235, 30);
+            this.tb_iden.TabIndex = 3;
+            // 
+            // tb_name
+            // 
+            this.tb_name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_name.Location = new System.Drawing.Point(761, 194);
+            this.tb_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_name.Name = "tb_name";
+            this.tb_name.Size = new System.Drawing.Size(235, 30);
+            this.tb_name.TabIndex = 2;
+            // 
+            // tb_password
+            // 
+            this.tb_password.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_password.Location = new System.Drawing.Point(761, 128);
+            this.tb_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_password.Name = "tb_password";
+            this.tb_password.PasswordChar = '*';
+            this.tb_password.Size = new System.Drawing.Size(235, 30);
+            this.tb_password.TabIndex = 1;
+            // 
+            // tb_username
+            // 
+            this.tb_username.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_username.Location = new System.Drawing.Point(761, 62);
+            this.tb_username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_username.Name = "tb_username";
+            this.tb_username.Size = new System.Drawing.Size(235, 30);
+            this.tb_username.TabIndex = 0;
+            // 
             // FormAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(971, 450);
+            this.ClientSize = new System.Drawing.Size(1054, 450);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.cbb_level);
             this.Controls.Add(this.label2);
@@ -274,7 +290,7 @@
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(1044, 554);
+            this.MaximumSize = new System.Drawing.Size(1200, 554);
             this.Name = "FormAccount";
             this.Text = "FormAccount";
             ((System.ComponentModel.ISupportInitialize)(this.gv_act)).EndInit();
@@ -301,5 +317,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbb_level;
         private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

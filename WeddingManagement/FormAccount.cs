@@ -201,38 +201,78 @@ namespace WeddingManagement
             if (string.IsNullOrEmpty(tb_username.Text.Trim())
                 && string.IsNullOrEmpty(tb_name.Text.Trim())
                 && string.IsNullOrEmpty(tb_iden.Text.Trim()))
-            { return; }
-            this.table = new DataTable();
-            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
-                sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT AccountNo, Username, Name, Priority, " +
-                    "Identification, Password FROM ACCOUNT WHERE Priority > @priority AND " +
-                    "(Username LIKE @searchACC OR Name LIKE @searchACC OR Identification " +
-                    "LIKE @searchACC)", sql))
+                this.table = new DataTable();
+                using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
                 {
-                    var search_acc = "";
-                    if (!string.IsNullOrEmpty(tb_username.Text.Trim()))
+                    sql.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT AccountNo, Username, Name, Priority, " +
+                        "Identification, Password FROM ACCOUNT WHERE Priority = @priority", sql))
                     {
-                        search_acc = tb_username.Text;
-                    } else if (!string.IsNullOrEmpty(tb_name.Text.Trim()))
-                    {
-                        search_acc = tb_name.Text;
-                    } else if (!string.IsNullOrEmpty(tb_iden.Text.Trim()))
-                    {
-                        search_acc = tb_iden.Text;
-                    }
+                        var level = cbb_level.SelectedItem.ToString();
+                        int priority = -1;
 
-                    cmd.Parameters.AddWithValue("@searchACC", "%" + search_acc + "%");
-                    cmd.Parameters.AddWithValue("@priority", WeddingClient.client_priority);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(table);
-                    table.Columns[0].ColumnMapping = MappingType.Hidden;
-                    table.Columns[5].Caption = "Password";
-                    gv_act.DataSource = table;
-                    gv_act.Columns["Password"].HeaderText = "Password";
+                        if (level == "Director")
+                        {
+                            priority = 1;
+                        } else if (level == "Manager")
+                        {
+                            priority = 2;
+                        } else
+                        {
+                            priority = 3;
+                        }
+
+                        cmd.Parameters.AddWithValue("@priority", priority);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(table);
+                        table.Columns[0].ColumnMapping = MappingType.Hidden;
+                        table.Columns[5].Caption = "Password";
+                        gv_act.DataSource = table;
+                        gv_act.Columns["Password"].HeaderText = "Password";
+                    }
+                }
+            } else
+            {
+                using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+                {
+                    this.table = new DataTable();
+                    sql.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT AccountNo, Username, Name, Priority, " +
+                        "Identification, Password FROM ACCOUNT WHERE Priority > @priority AND " +
+                        "(Username LIKE @searchACC OR Name LIKE @searchACC OR Identification " +
+                        "LIKE @searchACC)", sql))
+                    {
+                        var search_acc = "";
+                        if (!string.IsNullOrEmpty(tb_username.Text.Trim()))
+                        {
+                            search_acc = tb_username.Text;
+                        }
+                        else if (!string.IsNullOrEmpty(tb_name.Text.Trim()))
+                        {
+                            search_acc = tb_name.Text;
+                        }
+                        else if (!string.IsNullOrEmpty(tb_iden.Text.Trim()))
+                        {
+                            search_acc = tb_iden.Text;
+                        }
+
+                        cmd.Parameters.AddWithValue("@searchACC", "%" + search_acc + "%");
+                        cmd.Parameters.AddWithValue("@priority", WeddingClient.client_priority);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(table);
+                        table.Columns[0].ColumnMapping = MappingType.Hidden;
+                        table.Columns[5].Caption = "Password";
+                        gv_act.DataSource = table;
+                        gv_act.Columns["Password"].HeaderText = "Password";
+                    }
                 }
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 }
