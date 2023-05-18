@@ -9,7 +9,6 @@ namespace WeddingManagement
     public partial class FormWedding : Form
     {
         public static string currentWeddingId = "";
-        SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table1 = new DataTable();
 
         public FormWedding()
@@ -20,12 +19,16 @@ namespace WeddingManagement
             load_comboBox_lobby();
             load_comboBox_menu();
             load_comboBox_service();
+            date_booking.Value = DateTime.Now;
+            date_wedding.Value = DateTime.Now;
         }
 
         public FormWedding(string id) : this()
         {
             FormWedding.currentWeddingId = id;
             Load_data_wedding(id);
+            date_booking.Value = DateTime.Now;
+            date_wedding.Value = DateTime.Now;
         }
 
         void Load_data_wedding(string id)
@@ -34,7 +37,7 @@ namespace WeddingManagement
             {
                 sql.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT LobbyName, ShiftName, Representative, PhoneNumber, BookingDate, " +
-                    "WeddingDate, GroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, Deposit, " +
+                    "WeddingDate, BroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, Deposit, " +
                     "WD.LobbyNo, S.ShiftNo FROM LOBBY LB, SHIFT S, WEDDING WD WHERE WD.ShiftNo = S.ShiftNo AND " +
                     "WD.LobbyNo = LB.LobbyNo AND WD.WeddingNo = @id", sql))
                 {
@@ -141,7 +144,7 @@ namespace WeddingManagement
 
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "groomName";
+            column.ColumnName = "BroomName";
             column.AutoIncrement = false;
             column.Caption = "Groom Name";
             column.ReadOnly = false;
@@ -207,7 +210,7 @@ namespace WeddingManagement
             {
                 sql.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT LobbyName, ShiftName, Representative, PhoneNumber, " +
-                    "BookingDate, WeddingDate, GroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, " +
+                    "BookingDate, WeddingDate, BroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, " +
                     "Deposit, WeddingNo FROM LOBBY LB, SHIFT S, WEDDING WD WHERE WD.ShiftNo = S.ShiftNo AND " +
                     "WD.LobbyNo = LB.LobbyNo", sql))
                 {
@@ -736,9 +739,9 @@ namespace WeddingManagement
                 long basePrice = typePrice * (Convert.ToInt32(cbt_table.Text) + Convert.ToInt32(cbt_contigency.Text));
                 string newId = "WD" + WeddingClient.GetNewIdFromTable("WD").ToString().PadLeft(19, '0');
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO WEDDING (WeddingNo, LobbyNo, ShiftNo, BookingDate, " +
-                    "WeddingDate, PhoneNumber, GroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, " +
+                    "WeddingDate, PhoneNumber, BroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, " +
                     "Deposit, Representative) VALUES (@WeddingNo, @LobbyNo, @ShiftNo, @BookingDate, @WeddingDate, " +
-                    "@PhoneNumber, @GroomName, @BrideName, @AmountOfTable, @AmountOfContingencyTable, @TablePrice, @Deposit, " +
+                    "@PhoneNumber, @BroomName, @BrideName, @AmountOfTable, @AmountOfContingencyTable, @TablePrice, @Deposit, " +
                     "@representative )", sql))
                 {
                     cmd.Parameters.AddWithValue("@WeddingNo", newId);
@@ -747,7 +750,7 @@ namespace WeddingManagement
                     cmd.Parameters.AddWithValue("@BookingDate", date_booking.Value);
                     cmd.Parameters.AddWithValue("@WeddingDate", date_wedding.Value);
                     cmd.Parameters.AddWithValue("@PhoneNumber", cbt_phone.Text);
-                    cmd.Parameters.AddWithValue("@GroomName", cbt_groom.Text);
+                    cmd.Parameters.AddWithValue("@BroomName", cbt_groom.Text);
                     cmd.Parameters.AddWithValue("@BrideName", cbt_bride.Text);
                     cmd.Parameters.AddWithValue("@AmountOfTable", Convert.ToInt32(cbt_table.Text));
                     cmd.Parameters.AddWithValue("@AmountOfContingencyTable", Convert.ToInt32(cbt_contigency.Text));

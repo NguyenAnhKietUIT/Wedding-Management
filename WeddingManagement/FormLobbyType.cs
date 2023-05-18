@@ -70,7 +70,7 @@ namespace WeddingManagement
                             lobbyTypes.Add(
                                 new LobbyType(
                                     reader["LobbyTypeNo"].ToString(), 
-                                    reader["LobbyName"].ToString(), 
+                                    reader["LobbyTypeName"].ToString(), 
                                     Convert.ToInt64(reader["MinTablePrice"])
                                     )
                                 );
@@ -82,7 +82,7 @@ namespace WeddingManagement
             foreach (LobbyType lobbyType in lobbyTypes)
             {
                 row = table.NewRow();
-                row["Name Of Lobby Type"] = lobbyType.LobbyName;
+                row["Name Of Lobby Type"] = lobbyType.LobbyTypeName;
                 row["Min Of Table Price"] = lobbyType.MinTablePrice;
                 row["LobbyTypeNo"] = lobbyType.LobbyTypeNo;
                 table.Rows.Add(row);
@@ -155,12 +155,12 @@ namespace WeddingManagement
                             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
                             {
                                 sql.Open();
-                                using (SqlCommand cmd = new SqlCommand("INSERT INTO LOBBY_TYPE (LobbyTypeNo, LobbyName, MinTablePrice, " +
-                                    "Available) VALUES (@LobbyTypeNo, @LobbyName, @MinTablePrice, 1)", sql))
+                                using (SqlCommand cmd = new SqlCommand("INSERT INTO LOBBY_TYPE (LobbyTypeNo, LobbyTypeName, MinTablePrice, " +
+                                    "Available) VALUES (@LobbyTypeNo, @LobbyTypeName, @MinTablePrice, 1)", sql))
                                 {
                                     string newTypeId = "LT" + WeddingClient.GetNewIdFromTable("LT").ToString().PadLeft(19, '0');
                                     cmd.Parameters.AddWithValue("@LobbyTypeNo", newTypeId);
-                                    cmd.Parameters.AddWithValue("@LobbyName", cbName.Text);
+                                    cmd.Parameters.AddWithValue("@LobbyTypeName", cbName.Text);
                                     cmd.Parameters.AddWithValue("@MinTablePrice", price);
                                     if (cmd.ExecuteNonQuery() > 0)
                                     {
@@ -269,7 +269,7 @@ namespace WeddingManagement
                                 {
                                     sql.Open();
                                     using (SqlCommand cmd = new SqlCommand("UPDATE LOBBY_TYPE " +
-                                        "SET LobbyName=@name, MinTablePrice=@price WHERE LobbyTypeNo = @LobbyTypeNo", sql))
+                                        "SET LobbyTypeName=@name, MinTablePrice=@price WHERE LobbyTypeNo = @LobbyTypeNo", sql))
                                     {
                                         cmd.Parameters.AddWithValue("@LobbyTypeNo", currentTypeId);
                                         cmd.Parameters.AddWithValue("@name", cbName.Text);

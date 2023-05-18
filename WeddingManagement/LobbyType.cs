@@ -3,13 +3,13 @@
     internal class LobbyType
     {
         public string LobbyTypeNo { get; set; }
-        public string LobbyName { get; set; }
+        public string LobbyTypeName { get; set; }
         public long MinTablePrice { get; set; }
 
-        public LobbyType(string LobbyTypeNo, string LobbyName, long MinTablePrice)
+        public LobbyType(string LobbyTypeNo, string LobbyTypeName, long MinTablePrice)
         {
             this.LobbyTypeNo = LobbyTypeNo;
-            this.LobbyName = LobbyName;
+            this.LobbyTypeName = LobbyTypeName;
             this.MinTablePrice = MinTablePrice;
         }
 

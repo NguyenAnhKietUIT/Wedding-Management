@@ -30,7 +30,7 @@ namespace WeddingManagement
                 {
                     cmd.CommandText = "SELECT WeddingNo, WD.LobbyNo, WD.ShiftNo, BookingDate bDate, WeddingDate wDate, LobbyName, " +
                         "ShiftName, Representative, PhoneNumber, FORMAT(BookingDate, 'dd/MM/yyyy') BookingDate, " +
-                        "FORMAT(WeddingDate, 'dd/MM/yyyy') WeddingDate, GroomName, BrideName, AmountOfTable, " +
+                        "FORMAT(WeddingDate, 'dd/MM/yyyy') WeddingDate, BroomName, BrideName, AmountOfTable, " +
                         "AmountOfContingencyTable, TablePrice, Deposit FROM LOBBY LB, SHIFT S, WEDDING WD " +
                         "WHERE WD.ShiftNo = S.ShiftNo AND WD.LobbyNo = LB.LobbyNo ";
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
@@ -62,7 +62,7 @@ namespace WeddingManagement
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "SELECT W.WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, " +
-                        "InvoiceDate iDate, PaymentDate pDate, Representative, GroomName, " +
+                        "InvoiceDate iDate, PaymentDate pDate, Representative, BroomName, " +
                         "BrideName, PhoneNumber, LobbyName, ShiftName, " +
                         "FORMAT(InvoiceDate, 'dd/MM/yyyy') InvoiceDate, TablePriceTotal, " +
                         "ServicePriceTotal, Total, FORMAT(PaymentDate, 'dd/MM/yyyy') " +
@@ -103,9 +103,9 @@ namespace WeddingManagement
                 {
                     string sqlquery = "SELECT WeddingNo, WD.LobbyNo, WD.ShiftNo, BookingDate bDate, WeddingDate wDate, LobbyName, " +
                         "ShiftName, Representative, PhoneNumber, FORMAT(BookingDate, 'dd/MM/yyyy') BookingDate, " +
-                        "FORMAT(WeddingDate, 'dd/MM/yyyy') WeddingDate, GroomName, BrideName, AmountOfTable, " +
+                        "FORMAT(WeddingDate, 'dd/MM/yyyy') WeddingDate, BroomName, BrideName, AmountOfTable, " +
                         "AmountOfContingencyTable, TablePrice, Deposit FROM LOBBY LB, SHIFT S, WEDDING WD " +
-                        "WHERE WD.ShiftNo = S.ShiftNo AND WD.LobbyNo = LB.LobbyNo AND (GroomName LIKE @searchWD " +
+                        "WHERE WD.ShiftNo = S.ShiftNo AND WD.LobbyNo = LB.LobbyNo AND (BroomName LIKE @searchWD " +
                         "OR BrideName LIKE @searchWD OR Representative LIKE @searchWD)";
                     sql.Open();
                     using (SqlCommand sqlcomm = sql.CreateCommand())
@@ -141,7 +141,7 @@ namespace WeddingManagement
                 {
                     string sqlquery = "SELECT WeddingNo, WD.LobbyNo, WD.ShiftNo, BookingDate bDate, WeddingDate wDate, LobbyName, " +
                         "ShiftName, Representative, PhoneNumber, FORMAT(BookingDate, 'dd/MM/yyyy') BookingDate, " +
-                        "FORMAT(WeddingDate, 'dd/MM/yyyy') WeddingDate, GroomName, BrideName, AmountOfTable, " +
+                        "FORMAT(WeddingDate, 'dd/MM/yyyy') WeddingDate, BroomName, BrideName, AmountOfTable, " +
                         "AmountOfContingencyTable, TablePrice, Deposit FROM LOBBY LB, SHIFT S, WEDDING WD " +
                         "WHERE WD.ShiftNo = S.ShiftNo AND WD.LobbyNo = LB.LobbyNo AND (CONVERT(NVARCHAR(MAX), BookingDate, 103) " +
                         "LIKE @searchWD OR CONVERT(NVARCHAR(MAX), WeddingDate, 103) LIKE @searchWD)";
@@ -185,11 +185,11 @@ namespace WeddingManagement
                 using (SqlConnection sqlconn = new SqlConnection(WeddingClient.sqlConnectionString))
                 {
                     string sqlquery = "SELECT WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, InvoiceDate iDate, PaymentDate pDate, " +
-                        "Representative, GroomName, BrideName, PhoneNumber, LobbyName, ShiftName, " +
+                        "Representative, BroomName, BrideName, PhoneNumber, LobbyName, ShiftName, " +
                         "FORMAT(InvoiceDate, 'dd/MM/yyyy') InvoiceDate, TablePriceTotal, ServicePriceTotal, Total, " +
                         "FORMAT(PaymentDate, 'dd/MM/yyyy') PaymentDate, MoneyLeft from WEDDING W, BILL B, LOBBY LB, SHIFT S " +
                         "WHERE B.BillNo = W.WeddingNo AND W.LobbyNo = LB.LobbyNo AND W.ShiftNo = S.ShiftNo AND " +
-                        "(GroomName LIKE @searchB OR BrideName LIKE @searchB OR Representative LIKE @searchB)";
+                        "(BroomName LIKE @searchB OR BrideName LIKE @searchB OR Representative LIKE @searchB)";
                     sqlconn.Open();
                     using (SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn))
                     {
@@ -219,7 +219,7 @@ namespace WeddingManagement
                 SqlConnection sqlconn = new SqlConnection(WeddingClient.sqlConnectionString))
                 {
                     string sqlquery = "SELECT WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, InvoiceDate iDate, PaymentDate pDate, " +
-                        "Representative, GroomName, BrideName, PhoneNumber, LobbyName, ShiftName, " +
+                        "Representative, BroomName, BrideName, PhoneNumber, LobbyName, ShiftName, " +
                         "FORMAT(InvoiceDate, 'dd/MM/yyyy') InvoiceDate, TablePriceTotal, ServicePriceTotal, Total, " +
                         "FORMAT(PaymentDate, 'dd/MM/yyyy') PaymentDate, MoneyLeft from WEDDING W, BILL B, LOBBY LB, SHIFT S " +
                         "WHERE B.BillNo = W.WeddingNo AND W.LobbyNo = LB.LobbyNo AND W.ShiftNo = S.ShiftNo AND " +

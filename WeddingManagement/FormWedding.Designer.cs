@@ -166,9 +166,9 @@
             this.label_groom.ForeColor = System.Drawing.Color.Black;
             this.label_groom.Location = new System.Drawing.Point(350, 30);
             this.label_groom.Name = "label_groom";
-            this.label_groom.Size = new System.Drawing.Size(110, 24);
+            this.label_groom.Size = new System.Drawing.Size(109, 24);
             this.label_groom.TabIndex = 21;
-            this.label_groom.Text = "Groom name";
+            this.label_groom.Text = "Broom name";
             // 
             // label_weddingdate
             // 
@@ -544,9 +544,9 @@
             this.label_menu.ForeColor = System.Drawing.Color.Black;
             this.label_menu.Location = new System.Drawing.Point(19, 41);
             this.label_menu.Name = "label_menu";
-            this.label_menu.Size = new System.Drawing.Size(63, 24);
+            this.label_menu.Size = new System.Drawing.Size(42, 24);
             this.label_menu.TabIndex = 36;
-            this.label_menu.Text = "Dishes";
+            this.label_menu.Text = "Item";
             // 
             // groupBox2
             // 
