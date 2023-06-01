@@ -40,11 +40,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataItems.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dataItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataItems.Location = new System.Drawing.Point(2, 1);
+            this.dataItems.Location = new System.Drawing.Point(-1, 1);
             this.dataItems.Name = "dataItems";
             this.dataItems.RowHeadersWidth = 51;
             this.dataItems.RowTemplate.Height = 24;
-            this.dataItems.Size = new System.Drawing.Size(780, 356);
+            this.dataItems.Size = new System.Drawing.Size(779, 346);
             this.dataItems.TabIndex = 0;
             // 
             // label6

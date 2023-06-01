@@ -127,26 +127,26 @@
             // 
             // tbEnd
             // 
-            this.tbEnd.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEnd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEnd.Location = new System.Drawing.Point(132, 124);
             this.tbEnd.Name = "tbEnd";
-            this.tbEnd.Size = new System.Drawing.Size(194, 30);
+            this.tbEnd.Size = new System.Drawing.Size(194, 34);
             this.tbEnd.TabIndex = 7;
             // 
             // tbStart
             // 
-            this.tbStart.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbStart.Location = new System.Drawing.Point(132, 71);
             this.tbStart.Name = "tbStart";
-            this.tbStart.Size = new System.Drawing.Size(194, 30);
+            this.tbStart.Size = new System.Drawing.Size(194, 34);
             this.tbStart.TabIndex = 6;
             // 
             // tbName
             // 
-            this.tbName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.Location = new System.Drawing.Point(132, 15);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(194, 30);
+            this.tbName.Size = new System.Drawing.Size(194, 34);
             this.tbName.TabIndex = 5;
             // 
             // label1

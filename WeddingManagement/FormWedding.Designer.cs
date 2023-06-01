@@ -1,4 +1,6 @@
-﻿namespace WeddingManagement
+﻿using System.Windows.Forms;
+
+namespace WeddingManagement
 {
     partial class FormWedding
     {
@@ -43,13 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbb_shift = new System.Windows.Forms.ComboBox();
             this.label_shift = new System.Windows.Forms.Label();
-            this.cbt_deposit = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_representative = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_phone = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_contigency = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_table = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_groom = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_bride = new WeddingManagement.CustomBorderTextbox();
             this.date_booking = new System.Windows.Forms.DateTimePicker();
             this.date_wedding = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -58,8 +53,6 @@
             this.btn_delete_wedding = new System.Windows.Forms.Button();
             this.groupBox_menu = new System.Windows.Forms.GroupBox();
             this.btn_detail_item = new System.Windows.Forms.Button();
-            this.cbt_item_price = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_price_item = new WeddingManagement.CustomBorderTextbox();
             this.btn_add_menu = new System.Windows.Forms.Button();
             this.label_item_price = new System.Windows.Forms.Label();
             this.label_amount_item = new System.Windows.Forms.Label();
@@ -67,8 +60,6 @@
             this.label_menu = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_detail_service = new System.Windows.Forms.Button();
-            this.cbt_service_price = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_price_service = new WeddingManagement.CustomBorderTextbox();
             this.btn_add_service = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -81,15 +72,26 @@
             this.btn_update_item = new System.Windows.Forms.Button();
             this.dgv_menu_detail = new System.Windows.Forms.DataGridView();
             this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_delete_service = new System.Windows.Forms.Button();
             this.dgv_service_detail = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_update_service = new System.Windows.Forms.Button();
+            this.cbt_amount_service = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_price_service = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_amount_item = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_price_item = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_deposit = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_representative = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_phone = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_contigency = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_table = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_groom = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_bride = new WeddingManagement.CustomBorderTextbox();
             this.Wedding.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox_menu.SuspendLayout();
@@ -106,7 +108,7 @@
             this.label_bookdate.AutoSize = true;
             this.label_bookdate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_bookdate.ForeColor = System.Drawing.Color.Black;
-            this.label_bookdate.Location = new System.Drawing.Point(16, 20);
+            this.label_bookdate.Location = new System.Drawing.Point(16, 18);
             this.label_bookdate.Name = "label_bookdate";
             this.label_bookdate.Size = new System.Drawing.Size(113, 24);
             this.label_bookdate.TabIndex = 16;
@@ -131,7 +133,7 @@
             this.label_phone.AutoSize = true;
             this.label_phone.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_phone.ForeColor = System.Drawing.Color.Black;
-            this.label_phone.Location = new System.Drawing.Point(17, 73);
+            this.label_phone.Location = new System.Drawing.Point(17, 69);
             this.label_phone.Name = "label_phone";
             this.label_phone.Size = new System.Drawing.Size(124, 24);
             this.label_phone.TabIndex = 14;
@@ -142,7 +144,7 @@
             this.label_representative.AutoSize = true;
             this.label_representative.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_representative.ForeColor = System.Drawing.Color.Black;
-            this.label_representative.Location = new System.Drawing.Point(15, 28);
+            this.label_representative.Location = new System.Drawing.Point(15, 24);
             this.label_representative.Name = "label_representative";
             this.label_representative.Size = new System.Drawing.Size(125, 24);
             this.label_representative.TabIndex = 13;
@@ -153,7 +155,7 @@
             this.label_bride.AutoSize = true;
             this.label_bride.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_bride.ForeColor = System.Drawing.Color.Black;
-            this.label_bride.Location = new System.Drawing.Point(350, 71);
+            this.label_bride.Location = new System.Drawing.Point(350, 67);
             this.label_bride.Name = "label_bride";
             this.label_bride.Size = new System.Drawing.Size(98, 24);
             this.label_bride.TabIndex = 22;
@@ -164,7 +166,7 @@
             this.label_groom.AutoSize = true;
             this.label_groom.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_groom.ForeColor = System.Drawing.Color.Black;
-            this.label_groom.Location = new System.Drawing.Point(350, 30);
+            this.label_groom.Location = new System.Drawing.Point(350, 26);
             this.label_groom.Name = "label_groom";
             this.label_groom.Size = new System.Drawing.Size(109, 24);
             this.label_groom.TabIndex = 21;
@@ -175,7 +177,7 @@
             this.label_weddingdate.AutoSize = true;
             this.label_weddingdate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_weddingdate.ForeColor = System.Drawing.Color.Black;
-            this.label_weddingdate.Location = new System.Drawing.Point(316, 20);
+            this.label_weddingdate.Location = new System.Drawing.Point(316, 18);
             this.label_weddingdate.Name = "label_weddingdate";
             this.label_weddingdate.Size = new System.Drawing.Size(116, 24);
             this.label_weddingdate.TabIndex = 20;
@@ -186,7 +188,7 @@
             this.label_deposit.AutoSize = true;
             this.label_deposit.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_deposit.ForeColor = System.Drawing.Color.Black;
-            this.label_deposit.Location = new System.Drawing.Point(350, 113);
+            this.label_deposit.Location = new System.Drawing.Point(350, 109);
             this.label_deposit.Name = "label_deposit";
             this.label_deposit.Size = new System.Drawing.Size(69, 24);
             this.label_deposit.TabIndex = 30;
@@ -197,7 +199,7 @@
             this.label_contingency.AutoSize = true;
             this.label_contingency.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_contingency.ForeColor = System.Drawing.Color.Black;
-            this.label_contingency.Location = new System.Drawing.Point(17, 153);
+            this.label_contingency.Location = new System.Drawing.Point(17, 149);
             this.label_contingency.Name = "label_contingency";
             this.label_contingency.Size = new System.Drawing.Size(108, 24);
             this.label_contingency.TabIndex = 28;
@@ -208,7 +210,7 @@
             this.label_table.AutoSize = true;
             this.label_table.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_table.ForeColor = System.Drawing.Color.Black;
-            this.label_table.Location = new System.Drawing.Point(17, 113);
+            this.label_table.Location = new System.Drawing.Point(17, 109);
             this.label_table.Name = "label_table";
             this.label_table.Size = new System.Drawing.Size(52, 24);
             this.label_table.TabIndex = 26;
@@ -248,12 +250,12 @@
             // 
             this.cbb_lobby.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbb_lobby.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_lobby.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_lobby.FormattingEnabled = true;
-            this.cbb_lobby.Location = new System.Drawing.Point(583, 151);
+            this.cbb_lobby.Location = new System.Drawing.Point(583, 147);
             this.cbb_lobby.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_lobby.Name = "cbb_lobby";
-            this.cbb_lobby.Size = new System.Drawing.Size(102, 32);
+            this.cbb_lobby.Size = new System.Drawing.Size(102, 36);
             this.cbb_lobby.TabIndex = 37;
             // 
             // label1
@@ -263,7 +265,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(518, 154);
+            this.label1.Location = new System.Drawing.Point(518, 150);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 24);
             this.label1.TabIndex = 36;
@@ -271,12 +273,12 @@
             // 
             // cbb_shift
             // 
-            this.cbb_shift.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_shift.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_shift.FormattingEnabled = true;
-            this.cbb_shift.Location = new System.Drawing.Point(406, 151);
+            this.cbb_shift.Location = new System.Drawing.Point(406, 147);
             this.cbb_shift.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_shift.Name = "cbb_shift";
-            this.cbb_shift.Size = new System.Drawing.Size(106, 32);
+            this.cbb_shift.Size = new System.Drawing.Size(106, 36);
             this.cbb_shift.TabIndex = 35;
             // 
             // label_shift
@@ -284,100 +286,31 @@
             this.label_shift.AutoSize = true;
             this.label_shift.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_shift.ForeColor = System.Drawing.Color.Black;
-            this.label_shift.Location = new System.Drawing.Point(350, 153);
+            this.label_shift.Location = new System.Drawing.Point(350, 149);
             this.label_shift.Name = "label_shift";
             this.label_shift.Size = new System.Drawing.Size(45, 24);
             this.label_shift.TabIndex = 34;
             this.label_shift.Text = "Shift";
             // 
-            // cbt_deposit
-            // 
-            this.cbt_deposit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbt_deposit.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_deposit.Location = new System.Drawing.Point(475, 110);
-            this.cbt_deposit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_deposit.Name = "cbt_deposit";
-            this.cbt_deposit.Size = new System.Drawing.Size(210, 30);
-            this.cbt_deposit.TabIndex = 33;
-            // 
-            // cbt_representative
-            // 
-            this.cbt_representative.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_representative.Location = new System.Drawing.Point(162, 25);
-            this.cbt_representative.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_representative.Name = "cbt_representative";
-            this.cbt_representative.Size = new System.Drawing.Size(162, 30);
-            this.cbt_representative.TabIndex = 17;
-            // 
-            // cbt_phone
-            // 
-            this.cbt_phone.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_phone.Location = new System.Drawing.Point(162, 70);
-            this.cbt_phone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_phone.Name = "cbt_phone";
-            this.cbt_phone.Size = new System.Drawing.Size(162, 30);
-            this.cbt_phone.TabIndex = 18;
-            // 
-            // cbt_contigency
-            // 
-            this.cbt_contigency.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_contigency.Location = new System.Drawing.Point(162, 150);
-            this.cbt_contigency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_contigency.Name = "cbt_contigency";
-            this.cbt_contigency.Size = new System.Drawing.Size(162, 30);
-            this.cbt_contigency.TabIndex = 31;
-            // 
-            // cbt_table
-            // 
-            this.cbt_table.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_table.Location = new System.Drawing.Point(162, 110);
-            this.cbt_table.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_table.Name = "cbt_table";
-            this.cbt_table.Size = new System.Drawing.Size(162, 30);
-            this.cbt_table.TabIndex = 27;
-            // 
-            // cbt_groom
-            // 
-            this.cbt_groom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbt_groom.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_groom.Location = new System.Drawing.Point(475, 27);
-            this.cbt_groom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_groom.Name = "cbt_groom";
-            this.cbt_groom.Size = new System.Drawing.Size(210, 30);
-            this.cbt_groom.TabIndex = 24;
-            // 
-            // cbt_bride
-            // 
-            this.cbt_bride.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbt_bride.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_bride.Location = new System.Drawing.Point(475, 68);
-            this.cbt_bride.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_bride.Name = "cbt_bride";
-            this.cbt_bride.Size = new System.Drawing.Size(210, 30);
-            this.cbt_bride.TabIndex = 25;
-            // 
             // date_booking
             // 
             this.date_booking.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date_booking.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_booking.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_booking.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_booking.Location = new System.Drawing.Point(140, 15);
+            this.date_booking.Location = new System.Drawing.Point(140, 13);
             this.date_booking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.date_booking.Name = "date_booking";
-            this.date_booking.Size = new System.Drawing.Size(134, 27);
+            this.date_booking.Size = new System.Drawing.Size(134, 30);
             this.date_booking.TabIndex = 34;
             // 
             // date_wedding
             // 
-            this.date_wedding.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_wedding.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_wedding.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_wedding.Location = new System.Drawing.Point(443, 15);
+            this.date_wedding.Location = new System.Drawing.Point(443, 13);
             this.date_wedding.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.date_wedding.Name = "date_wedding";
-            this.date_wedding.Size = new System.Drawing.Size(134, 27);
+            this.date_wedding.Size = new System.Drawing.Size(134, 30);
             this.date_wedding.TabIndex = 45;
             // 
             // groupBox1
@@ -439,7 +372,7 @@
             // 
             this.groupBox_menu.BackColor = System.Drawing.Color.MistyRose;
             this.groupBox_menu.Controls.Add(this.btn_detail_item);
-            this.groupBox_menu.Controls.Add(this.cbt_item_price);
+            this.groupBox_menu.Controls.Add(this.cbt_amount_item);
             this.groupBox_menu.Controls.Add(this.cbt_price_item);
             this.groupBox_menu.Controls.Add(this.btn_add_menu);
             this.groupBox_menu.Controls.Add(this.label_item_price);
@@ -460,45 +393,24 @@
             this.btn_detail_item.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_detail_item.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_detail_item.ForeColor = System.Drawing.Color.White;
-            this.btn_detail_item.Location = new System.Drawing.Point(244, 160);
+            this.btn_detail_item.Location = new System.Drawing.Point(244, 165);
             this.btn_detail_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_detail_item.Name = "btn_detail_item";
-            this.btn_detail_item.Size = new System.Drawing.Size(85, 32);
+            this.btn_detail_item.Size = new System.Drawing.Size(85, 39);
             this.btn_detail_item.TabIndex = 61;
             this.btn_detail_item.Text = "DETAIL";
             this.btn_detail_item.UseVisualStyleBackColor = false;
             this.btn_detail_item.Click += new System.EventHandler(this.btn_detail_item_Click);
-            // 
-            // cbt_item_price
-            // 
-            this.cbt_item_price.BackColor = System.Drawing.Color.White;
-            this.cbt_item_price.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_item_price.Location = new System.Drawing.Point(121, 76);
-            this.cbt_item_price.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_item_price.Name = "cbt_item_price";
-            this.cbt_item_price.Size = new System.Drawing.Size(208, 30);
-            this.cbt_item_price.TabIndex = 60;
-            // 
-            // cbt_price_item
-            // 
-            this.cbt_price_item.BackColor = System.Drawing.Color.White;
-            this.cbt_price_item.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_price_item.Location = new System.Drawing.Point(121, 119);
-            this.cbt_price_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_price_item.Name = "cbt_price_item";
-            this.cbt_price_item.ReadOnly = true;
-            this.cbt_price_item.Size = new System.Drawing.Size(208, 30);
-            this.cbt_price_item.TabIndex = 38;
             // 
             // btn_add_menu
             // 
             this.btn_add_menu.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_add_menu.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_menu.ForeColor = System.Drawing.Color.White;
-            this.btn_add_menu.Location = new System.Drawing.Point(121, 159);
+            this.btn_add_menu.Location = new System.Drawing.Point(121, 164);
             this.btn_add_menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add_menu.Name = "btn_add_menu";
-            this.btn_add_menu.Size = new System.Drawing.Size(85, 32);
+            this.btn_add_menu.Size = new System.Drawing.Size(85, 39);
             this.btn_add_menu.TabIndex = 59;
             this.btn_add_menu.Text = "ADD";
             this.btn_add_menu.UseVisualStyleBackColor = false;
@@ -528,12 +440,12 @@
             // 
             // cbb_item
             // 
-            this.cbb_item.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_item.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_item.FormattingEnabled = true;
             this.cbb_item.Location = new System.Drawing.Point(121, 33);
             this.cbb_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_item.Name = "cbb_item";
-            this.cbb_item.Size = new System.Drawing.Size(208, 32);
+            this.cbb_item.Size = new System.Drawing.Size(208, 36);
             this.cbb_item.TabIndex = 37;
             this.cbb_item.SelectedIndexChanged += new System.EventHandler(this.cbb_item_SelectedIndexChanged);
             // 
@@ -552,7 +464,7 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Linen;
             this.groupBox2.Controls.Add(this.btn_detail_service);
-            this.groupBox2.Controls.Add(this.cbt_service_price);
+            this.groupBox2.Controls.Add(this.cbt_amount_service);
             this.groupBox2.Controls.Add(this.cbt_price_service);
             this.groupBox2.Controls.Add(this.btn_add_service);
             this.groupBox2.Controls.Add(this.label2);
@@ -573,46 +485,24 @@
             this.btn_detail_service.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_detail_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_detail_service.ForeColor = System.Drawing.Color.White;
-            this.btn_detail_service.Location = new System.Drawing.Point(244, 174);
+            this.btn_detail_service.Location = new System.Drawing.Point(244, 179);
             this.btn_detail_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_detail_service.Name = "btn_detail_service";
-            this.btn_detail_service.Size = new System.Drawing.Size(85, 32);
+            this.btn_detail_service.Size = new System.Drawing.Size(85, 39);
             this.btn_detail_service.TabIndex = 62;
             this.btn_detail_service.Text = "DETAIL";
             this.btn_detail_service.UseVisualStyleBackColor = false;
             this.btn_detail_service.Click += new System.EventHandler(this.btn_detail_service_Click);
-            // 
-            // cbt_service_price
-            // 
-            this.cbt_service_price.BackColor = System.Drawing.Color.White;
-            this.cbt_service_price.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_service_price.ForeColor = System.Drawing.SystemColors.Window;
-            this.cbt_service_price.Location = new System.Drawing.Point(121, 89);
-            this.cbt_service_price.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_service_price.Name = "cbt_service_price";
-            this.cbt_service_price.Size = new System.Drawing.Size(208, 30);
-            this.cbt_service_price.TabIndex = 61;
-            // 
-            // cbt_price_service
-            // 
-            this.cbt_price_service.BackColor = System.Drawing.Color.White;
-            this.cbt_price_service.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_price_service.Location = new System.Drawing.Point(121, 130);
-            this.cbt_price_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_price_service.Name = "cbt_price_service";
-            this.cbt_price_service.ReadOnly = true;
-            this.cbt_price_service.Size = new System.Drawing.Size(208, 30);
-            this.cbt_price_service.TabIndex = 60;
             // 
             // btn_add_service
             // 
             this.btn_add_service.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_add_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_service.ForeColor = System.Drawing.Color.White;
-            this.btn_add_service.Location = new System.Drawing.Point(121, 174);
+            this.btn_add_service.Location = new System.Drawing.Point(121, 179);
             this.btn_add_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add_service.Name = "btn_add_service";
-            this.btn_add_service.Size = new System.Drawing.Size(85, 32);
+            this.btn_add_service.Size = new System.Drawing.Size(85, 39);
             this.btn_add_service.TabIndex = 59;
             this.btn_add_service.Text = "ADD";
             this.btn_add_service.UseVisualStyleBackColor = false;
@@ -642,12 +532,12 @@
             // 
             // cbb_service
             // 
-            this.cbb_service.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_service.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_service.FormattingEnabled = true;
             this.cbb_service.Location = new System.Drawing.Point(121, 45);
             this.cbb_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_service.Name = "cbb_service";
-            this.cbb_service.Size = new System.Drawing.Size(208, 32);
+            this.cbb_service.Size = new System.Drawing.Size(208, 36);
             this.cbb_service.TabIndex = 37;
             this.cbb_service.SelectedIndexChanged += new System.EventHandler(this.cbb_service_SelectedIndexChanged);
             // 
@@ -673,6 +563,7 @@
             this.dataWedding.RowTemplate.Height = 24;
             this.dataWedding.Size = new System.Drawing.Size(708, 231);
             this.dataWedding.TabIndex = 57;
+            this.dataWedding.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataWedding_CellClick);
             // 
             // label6
             // 
@@ -714,7 +605,6 @@
             this.btn_delete_item.TabIndex = 63;
             this.btn_delete_item.Text = "DELETE";
             this.btn_delete_item.UseVisualStyleBackColor = false;
-            this.btn_delete_item.Click += new System.EventHandler(this.btn_delete_item_Click);
             // 
             // btn_update_item
             // 
@@ -728,19 +618,17 @@
             this.btn_update_item.TabIndex = 62;
             this.btn_update_item.Text = "UPDATE";
             this.btn_update_item.UseVisualStyleBackColor = false;
-            this.btn_update_item.Click += new System.EventHandler(this.btn_update_item_Click);
             // 
             // dgv_menu_detail
             // 
             this.dgv_menu_detail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_menu_detail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_menu_detail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_menu_detail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.itemName,
-            this.itemPrice,
-            this.note});
+            this.itemAmount,
+            this.itemPrice});
             this.dgv_menu_detail.Location = new System.Drawing.Point(6, 21);
             this.dgv_menu_detail.Name = "dgv_menu_detail";
             this.dgv_menu_detail.RowHeadersWidth = 51;
@@ -754,6 +642,15 @@
             this.itemName.MinimumWidth = 6;
             this.itemName.Name = "itemName";
             this.itemName.ReadOnly = true;
+            this.itemName.Width = 97;
+            // 
+            // itemAmount
+            // 
+            this.itemAmount.HeaderText = "Item Amount";
+            this.itemAmount.MinimumWidth = 6;
+            this.itemAmount.Name = "itemAmount";
+            this.itemAmount.ReadOnly = true;
+            this.itemAmount.Width = 98;
             // 
             // itemPrice
             // 
@@ -761,13 +658,7 @@
             this.itemPrice.MinimumWidth = 6;
             this.itemPrice.Name = "itemPrice";
             this.itemPrice.ReadOnly = true;
-            // 
-            // note
-            // 
-            this.note.HeaderText = "Note";
-            this.note.MinimumWidth = 6;
-            this.note.Name = "note";
-            this.note.ReadOnly = true;
+            this.itemPrice.Width = 97;
             // 
             // groupBox3
             // 
@@ -795,18 +686,16 @@
             this.btn_delete_service.TabIndex = 65;
             this.btn_delete_service.Text = "DELETE";
             this.btn_delete_service.UseVisualStyleBackColor = false;
-            this.btn_delete_service.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgv_service_detail
             // 
             this.dgv_service_detail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_service_detail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_service_detail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_service_detail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.serviceName,
+            this.serviceAmount,
+            this.servicePrice});
             this.dgv_service_detail.Location = new System.Drawing.Point(6, 21);
             this.dgv_service_detail.Name = "dgv_service_detail";
             this.dgv_service_detail.RowHeadersWidth = 51;
@@ -814,26 +703,29 @@
             this.dgv_service_detail.Size = new System.Drawing.Size(440, 178);
             this.dgv_service_detail.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
+            // serviceName
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Service Name";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.serviceName.HeaderText = "Service Name";
+            this.serviceName.MinimumWidth = 6;
+            this.serviceName.Name = "serviceName";
+            this.serviceName.ReadOnly = true;
+            this.serviceName.Width = 97;
             // 
-            // dataGridViewTextBoxColumn2
+            // serviceAmount
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Service Price";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.serviceAmount.HeaderText = "Service Amount";
+            this.serviceAmount.MinimumWidth = 6;
+            this.serviceAmount.Name = "serviceAmount";
+            this.serviceAmount.ReadOnly = true;
+            this.serviceAmount.Width = 97;
             // 
-            // dataGridViewTextBoxColumn3
+            // servicePrice
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Note";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.servicePrice.HeaderText = "Service Price";
+            this.servicePrice.MinimumWidth = 6;
+            this.servicePrice.Name = "servicePrice";
+            this.servicePrice.ReadOnly = true;
+            this.servicePrice.Width = 96;
             // 
             // btn_update_service
             // 
@@ -847,7 +739,120 @@
             this.btn_update_service.TabIndex = 64;
             this.btn_update_service.Text = "UPDATE";
             this.btn_update_service.UseVisualStyleBackColor = false;
-            this.btn_update_service.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cbt_amount_service
+            // 
+            this.cbt_amount_service.BackColor = System.Drawing.Color.White;
+            this.cbt_amount_service.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_amount_service.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbt_amount_service.Location = new System.Drawing.Point(121, 89);
+            this.cbt_amount_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_amount_service.Name = "cbt_amount_service";
+            this.cbt_amount_service.Size = new System.Drawing.Size(208, 34);
+            this.cbt_amount_service.TabIndex = 61;
+            // 
+            // cbt_price_service
+            // 
+            this.cbt_price_service.BackColor = System.Drawing.Color.White;
+            this.cbt_price_service.Enabled = false;
+            this.cbt_price_service.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_price_service.Location = new System.Drawing.Point(121, 130);
+            this.cbt_price_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_price_service.Name = "cbt_price_service";
+            this.cbt_price_service.ReadOnly = true;
+            this.cbt_price_service.Size = new System.Drawing.Size(208, 34);
+            this.cbt_price_service.TabIndex = 60;
+            // 
+            // cbt_amount_item
+            // 
+            this.cbt_amount_item.BackColor = System.Drawing.Color.White;
+            this.cbt_amount_item.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_amount_item.Location = new System.Drawing.Point(121, 76);
+            this.cbt_amount_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_amount_item.Name = "cbt_amount_item";
+            this.cbt_amount_item.Size = new System.Drawing.Size(208, 34);
+            this.cbt_amount_item.TabIndex = 60;
+            // 
+            // cbt_price_item
+            // 
+            this.cbt_price_item.BackColor = System.Drawing.Color.White;
+            this.cbt_price_item.Enabled = false;
+            this.cbt_price_item.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_price_item.Location = new System.Drawing.Point(121, 119);
+            this.cbt_price_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_price_item.Name = "cbt_price_item";
+            this.cbt_price_item.ReadOnly = true;
+            this.cbt_price_item.Size = new System.Drawing.Size(208, 34);
+            this.cbt_price_item.TabIndex = 38;
+            // 
+            // cbt_deposit
+            // 
+            this.cbt_deposit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbt_deposit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_deposit.Location = new System.Drawing.Point(475, 106);
+            this.cbt_deposit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_deposit.Name = "cbt_deposit";
+            this.cbt_deposit.Size = new System.Drawing.Size(210, 34);
+            this.cbt_deposit.TabIndex = 33;
+            // 
+            // cbt_representative
+            // 
+            this.cbt_representative.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_representative.Location = new System.Drawing.Point(162, 21);
+            this.cbt_representative.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_representative.Name = "cbt_representative";
+            this.cbt_representative.Size = new System.Drawing.Size(162, 34);
+            this.cbt_representative.TabIndex = 17;
+            // 
+            // cbt_phone
+            // 
+            this.cbt_phone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_phone.Location = new System.Drawing.Point(162, 66);
+            this.cbt_phone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_phone.Name = "cbt_phone";
+            this.cbt_phone.Size = new System.Drawing.Size(162, 34);
+            this.cbt_phone.TabIndex = 18;
+            // 
+            // cbt_contigency
+            // 
+            this.cbt_contigency.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_contigency.Location = new System.Drawing.Point(162, 146);
+            this.cbt_contigency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_contigency.Name = "cbt_contigency";
+            this.cbt_contigency.Size = new System.Drawing.Size(162, 34);
+            this.cbt_contigency.TabIndex = 31;
+            // 
+            // cbt_table
+            // 
+            this.cbt_table.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_table.Location = new System.Drawing.Point(162, 106);
+            this.cbt_table.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_table.Name = "cbt_table";
+            this.cbt_table.Size = new System.Drawing.Size(162, 34);
+            this.cbt_table.TabIndex = 27;
+            // 
+            // cbt_groom
+            // 
+            this.cbt_groom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbt_groom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_groom.Location = new System.Drawing.Point(475, 23);
+            this.cbt_groom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_groom.Name = "cbt_groom";
+            this.cbt_groom.Size = new System.Drawing.Size(210, 34);
+            this.cbt_groom.TabIndex = 24;
+            // 
+            // cbt_bride
+            // 
+            this.cbt_bride.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbt_bride.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_bride.Location = new System.Drawing.Point(475, 64);
+            this.cbt_bride.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_bride.Name = "cbt_bride";
+            this.cbt_bride.Size = new System.Drawing.Size(210, 34);
+            this.cbt_bride.TabIndex = 25;
             // 
             // FormWedding
             // 
@@ -934,8 +939,8 @@
         private System.Windows.Forms.ComboBox cbb_service;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataWedding;
-        private CustomBorderTextbox cbt_item_price;
-        private CustomBorderTextbox cbt_service_price;
+        private CustomBorderTextbox cbt_amount_item;
+        private CustomBorderTextbox cbt_amount_service;
         private System.Windows.Forms.Button btn_detail_item;
         private System.Windows.Forms.Button btn_detail_service;
         private System.Windows.Forms.Label label6;
@@ -943,12 +948,12 @@
         private System.Windows.Forms.DataGridView dgv_menu_detail;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemAmount;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgv_service_detail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serviceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn servicePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serviceAmount;
         private System.Windows.Forms.Button btn_delete_item;
         private System.Windows.Forms.Button btn_update_item;
         private System.Windows.Forms.Button btn_delete_service;

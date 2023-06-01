@@ -157,7 +157,7 @@
             // 
             // cbt_search_item
             // 
-            this.cbt_search_item.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_search_item.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbt_search_item.Location = new System.Drawing.Point(648, 81);
             this.cbt_search_item.Name = "cbt_search_item";
             this.cbt_search_item.Size = new System.Drawing.Size(238, 34);
@@ -165,26 +165,26 @@
             // 
             // cbt_item_note
             // 
-            this.cbt_item_note.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_item_note.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbt_item_note.Location = new System.Drawing.Point(716, 307);
             this.cbt_item_note.Name = "cbt_item_note";
-            this.cbt_item_note.Size = new System.Drawing.Size(271, 30);
+            this.cbt_item_note.Size = new System.Drawing.Size(271, 34);
             this.cbt_item_note.TabIndex = 71;
             // 
             // cbt_item_price
             // 
-            this.cbt_item_price.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_item_price.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbt_item_price.Location = new System.Drawing.Point(716, 238);
             this.cbt_item_price.Name = "cbt_item_price";
-            this.cbt_item_price.Size = new System.Drawing.Size(271, 30);
+            this.cbt_item_price.Size = new System.Drawing.Size(271, 34);
             this.cbt_item_price.TabIndex = 69;
             // 
             // cbt_item_name
             // 
-            this.cbt_item_name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_item_name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbt_item_name.Location = new System.Drawing.Point(716, 169);
             this.cbt_item_name.Name = "cbt_item_name";
-            this.cbt_item_name.Size = new System.Drawing.Size(272, 30);
+            this.cbt_item_name.Size = new System.Drawing.Size(272, 34);
             this.cbt_item_name.TabIndex = 67;
             // 
             // btn_update_item

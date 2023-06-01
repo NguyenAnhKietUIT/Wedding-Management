@@ -85,7 +85,6 @@ namespace WeddingManagement
                     {
                         while (reader.Read())
                         {
-                            Console.WriteLine(reader["LobbyTypeNo"].ToString());
                             WeddingClient.listLobbyTypes.Add(
                                 new LobbyType(
                                     reader["LobbyTypeNo"].ToString(), 
@@ -115,7 +114,6 @@ namespace WeddingManagement
                     {
                         while (reader.Read())
                         {
-                            Console.WriteLine(reader["LobbyNo"].ToString());
                             WeddingClient.listLobbies.Add(
                                 new Lobby(reader["LobbyNo"].ToString(), 
                                 reader["LobbyTypeNo"].ToString(), 

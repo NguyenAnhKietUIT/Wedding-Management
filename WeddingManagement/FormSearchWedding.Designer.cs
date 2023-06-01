@@ -128,21 +128,21 @@
             // tb_search_bill
             // 
             this.tb_search_bill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_search_bill.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_bill.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_search_bill.Location = new System.Drawing.Point(671, 68);
             this.tb_search_bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_search_bill.Name = "tb_search_bill";
-            this.tb_search_bill.Size = new System.Drawing.Size(343, 30);
+            this.tb_search_bill.Size = new System.Drawing.Size(343, 34);
             this.tb_search_bill.TabIndex = 18;
             this.tb_search_bill.TextChanged += new System.EventHandler(this.tb_search_bill_textChange);
             // 
             // tb_search_wd
             // 
-            this.tb_search_wd.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_wd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_search_wd.Location = new System.Drawing.Point(103, 68);
             this.tb_search_wd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_search_wd.Name = "tb_search_wd";
-            this.tb_search_wd.Size = new System.Drawing.Size(343, 30);
+            this.tb_search_wd.Size = new System.Drawing.Size(343, 34);
             this.tb_search_wd.TabIndex = 0;
             this.tb_search_wd.TextChanged += new System.EventHandler(this.tb_search_wd_textChange);
             // 

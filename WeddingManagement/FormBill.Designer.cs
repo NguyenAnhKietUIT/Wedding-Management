@@ -94,11 +94,12 @@ namespace WeddingManagement
             // 
             // invoiceDTP
             // 
+            this.invoiceDTP.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceDTP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.invoiceDTP.Location = new System.Drawing.Point(1043, 59);
             this.invoiceDTP.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.invoiceDTP.Name = "invoiceDTP";
-            this.invoiceDTP.Size = new System.Drawing.Size(140, 30);
+            this.invoiceDTP.Size = new System.Drawing.Size(140, 34);
             this.invoiceDTP.TabIndex = 21;
             // 
             // label_invoice_date
@@ -199,64 +200,65 @@ namespace WeddingManagement
             // 
             // paymentDTP
             // 
+            this.paymentDTP.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentDTP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.paymentDTP.Location = new System.Drawing.Point(519, 105);
             this.paymentDTP.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.paymentDTP.Name = "paymentDTP";
-            this.paymentDTP.Size = new System.Drawing.Size(212, 30);
+            this.paymentDTP.Size = new System.Drawing.Size(212, 34);
             this.paymentDTP.TabIndex = 35;
             // 
             // tb_serviceTotal
             // 
-            this.tb_serviceTotal.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_serviceTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_serviceTotal.Location = new System.Drawing.Point(141, 111);
             this.tb_serviceTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tb_serviceTotal.Name = "tb_serviceTotal";
             this.tb_serviceTotal.ReadOnly = true;
-            this.tb_serviceTotal.Size = new System.Drawing.Size(233, 30);
+            this.tb_serviceTotal.Size = new System.Drawing.Size(233, 34);
             this.tb_serviceTotal.TabIndex = 27;
             this.tb_serviceTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_lobby_price
             // 
-            this.tb_lobby_price.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_lobby_price.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_lobby_price.Location = new System.Drawing.Point(141, 167);
             this.tb_lobby_price.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tb_lobby_price.Name = "tb_lobby_price";
             this.tb_lobby_price.ReadOnly = true;
-            this.tb_lobby_price.Size = new System.Drawing.Size(233, 30);
+            this.tb_lobby_price.Size = new System.Drawing.Size(233, 34);
             this.tb_lobby_price.TabIndex = 33;
             this.tb_lobby_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_moneyLeft
             // 
-            this.tb_moneyLeft.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_moneyLeft.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_moneyLeft.Location = new System.Drawing.Point(519, 167);
             this.tb_moneyLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tb_moneyLeft.Name = "tb_moneyLeft";
             this.tb_moneyLeft.ReadOnly = true;
-            this.tb_moneyLeft.Size = new System.Drawing.Size(210, 30);
+            this.tb_moneyLeft.Size = new System.Drawing.Size(210, 34);
             this.tb_moneyLeft.TabIndex = 25;
             // 
             // tb_tableTotal
             // 
-            this.tb_tableTotal.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_tableTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_tableTotal.Location = new System.Drawing.Point(141, 47);
             this.tb_tableTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tb_tableTotal.Name = "tb_tableTotal";
             this.tb_tableTotal.ReadOnly = true;
-            this.tb_tableTotal.Size = new System.Drawing.Size(233, 30);
+            this.tb_tableTotal.Size = new System.Drawing.Size(233, 34);
             this.tb_tableTotal.TabIndex = 24;
             this.tb_tableTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_penalty
             // 
-            this.tb_penalty.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_penalty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_penalty.Location = new System.Drawing.Point(1006, 373);
             this.tb_penalty.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tb_penalty.Name = "tb_penalty";
             this.tb_penalty.ReadOnly = true;
-            this.tb_penalty.Size = new System.Drawing.Size(177, 30);
+            this.tb_penalty.Size = new System.Drawing.Size(177, 34);
             this.tb_penalty.TabIndex = 23;
             // 
             // rBtn_yes
@@ -304,12 +306,12 @@ namespace WeddingManagement
             // 
             // tb_representative
             // 
-            this.tb_representative.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_representative.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_representative.Location = new System.Drawing.Point(149, 111);
             this.tb_representative.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tb_representative.Name = "tb_representative";
             this.tb_representative.ReadOnly = true;
-            this.tb_representative.Size = new System.Drawing.Size(271, 30);
+            this.tb_representative.Size = new System.Drawing.Size(271, 34);
             this.tb_representative.TabIndex = 51;
             // 
             // label3
@@ -326,23 +328,23 @@ namespace WeddingManagement
             // 
             // cbb_staff
             // 
-            this.cbb_staff.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_staff.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_staff.FormattingEnabled = true;
             this.cbb_staff.Location = new System.Drawing.Point(149, 48);
             this.cbb_staff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbb_staff.Name = "cbb_staff";
-            this.cbb_staff.Size = new System.Drawing.Size(271, 32);
+            this.cbb_staff.Size = new System.Drawing.Size(271, 36);
             this.cbb_staff.TabIndex = 49;
             this.cbb_staff.Visible = false;
             // 
             // tb_phone
             // 
-            this.tb_phone.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_phone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_phone.Location = new System.Drawing.Point(149, 175);
             this.tb_phone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tb_phone.Name = "tb_phone";
             this.tb_phone.ReadOnly = true;
-            this.tb_phone.Size = new System.Drawing.Size(271, 30);
+            this.tb_phone.Size = new System.Drawing.Size(271, 34);
             this.tb_phone.TabIndex = 48;
             // 
             // label2
@@ -395,12 +397,12 @@ namespace WeddingManagement
             // 
             // tb_total
             // 
-            this.tb_total.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_total.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_total.Location = new System.Drawing.Point(519, 47);
             this.tb_total.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tb_total.Name = "tb_total";
             this.tb_total.ReadOnly = true;
-            this.tb_total.Size = new System.Drawing.Size(212, 30);
+            this.tb_total.Size = new System.Drawing.Size(212, 34);
             this.tb_total.TabIndex = 66;
             // 
             // label4

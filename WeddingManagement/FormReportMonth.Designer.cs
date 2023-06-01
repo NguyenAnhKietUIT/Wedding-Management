@@ -59,11 +59,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(290, 176);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 30);
+            this.textBox1.Size = new System.Drawing.Size(133, 34);
             this.textBox1.TabIndex = 7;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -81,12 +81,12 @@
             // 
             // textBoxRTotal
             // 
-            this.textBoxRTotal.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRTotal.Location = new System.Drawing.Point(575, 176);
             this.textBoxRTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRTotal.Name = "textBoxRTotal";
             this.textBoxRTotal.ReadOnly = true;
-            this.textBoxRTotal.Size = new System.Drawing.Size(157, 30);
+            this.textBoxRTotal.Size = new System.Drawing.Size(157, 34);
             this.textBoxRTotal.TabIndex = 3;
             // 
             // comboBoxMonth
@@ -95,7 +95,7 @@
             this.comboBoxMonth.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMonth.DropDownWidth = 133;
-            this.comboBoxMonth.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxMonth.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMonth.FormattingEnabled = true;
             this.comboBoxMonth.Items.AddRange(new object[] {
             "1",
@@ -113,7 +113,7 @@
             this.comboBoxMonth.Location = new System.Drawing.Point(77, 174);
             this.comboBoxMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMonth.Name = "comboBoxMonth";
-            this.comboBoxMonth.Size = new System.Drawing.Size(133, 32);
+            this.comboBoxMonth.Size = new System.Drawing.Size(133, 36);
             this.comboBoxMonth.TabIndex = 6;
             // 
             // labelRTotal
@@ -206,11 +206,11 @@
             // 
             // tb_seacrh_rpMonth
             // 
-            this.tb_seacrh_rpMonth.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_seacrh_rpMonth.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_seacrh_rpMonth.Location = new System.Drawing.Point(544, 77);
             this.tb_seacrh_rpMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_seacrh_rpMonth.Name = "tb_seacrh_rpMonth";
-            this.tb_seacrh_rpMonth.Size = new System.Drawing.Size(215, 30);
+            this.tb_seacrh_rpMonth.Size = new System.Drawing.Size(215, 34);
             this.tb_seacrh_rpMonth.TabIndex = 89;
             // 
             // btn_search_rpMonth

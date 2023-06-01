@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbName = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -75,6 +75,21 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Information";
+            // 
+            // cbName
+            // 
+            this.cbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbName.FormattingEnabled = true;
+            this.cbName.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"});
+            this.cbName.Location = new System.Drawing.Point(196, 60);
+            this.cbName.Name = "cbName";
+            this.cbName.Size = new System.Drawing.Size(187, 36);
+            this.cbName.TabIndex = 9;
             // 
             // button3
             // 
@@ -120,10 +135,11 @@
             // 
             // minTable
             // 
+            this.minTable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minTable.Location = new System.Drawing.Point(196, 120);
             this.minTable.Margin = new System.Windows.Forms.Padding(4);
             this.minTable.Name = "minTable";
-            this.minTable.Size = new System.Drawing.Size(187, 29);
+            this.minTable.Size = new System.Drawing.Size(187, 34);
             this.minTable.TabIndex = 4;
             // 
             // label3
@@ -186,20 +202,6 @@
             this.label6.TabIndex = 72;
             this.label6.Text = "X";
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // cbName
-            // 
-            this.cbName.FormattingEnabled = true;
-            this.cbName.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E"});
-            this.cbName.Location = new System.Drawing.Point(196, 60);
-            this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(187, 29);
-            this.cbName.TabIndex = 9;
             // 
             // FormLobbyType
             // 

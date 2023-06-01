@@ -62,7 +62,7 @@
             // 
             // comboBoxMonth
             // 
-            this.comboBoxMonth.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxMonth.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMonth.FormattingEnabled = true;
             this.comboBoxMonth.Items.AddRange(new object[] {
             "1",
@@ -79,7 +79,7 @@
             "12"});
             this.comboBoxMonth.Location = new System.Drawing.Point(320, 165);
             this.comboBoxMonth.Name = "comboBoxMonth";
-            this.comboBoxMonth.Size = new System.Drawing.Size(161, 32);
+            this.comboBoxMonth.Size = new System.Drawing.Size(161, 36);
             this.comboBoxMonth.TabIndex = 10;
             // 
             // labelmonth
@@ -95,20 +95,20 @@
             // 
             // textBoxAOW
             // 
-            this.textBoxAOW.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAOW.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAOW.Location = new System.Drawing.Point(622, 236);
             this.textBoxAOW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxAOW.Name = "textBoxAOW";
-            this.textBoxAOW.Size = new System.Drawing.Size(223, 30);
+            this.textBoxAOW.Size = new System.Drawing.Size(223, 34);
             this.textBoxAOW.TabIndex = 7;
             // 
             // textBoxYear
             // 
-            this.textBoxYear.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxYear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxYear.Location = new System.Drawing.Point(569, 165);
             this.textBoxYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxYear.Name = "textBoxYear";
-            this.textBoxYear.Size = new System.Drawing.Size(161, 30);
+            this.textBoxYear.Size = new System.Drawing.Size(161, 34);
             this.textBoxYear.TabIndex = 6;
             // 
             // labelAOW
@@ -135,18 +135,18 @@
             // 
             // textBoxDayRevenue
             // 
-            this.textBoxDayRevenue.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDayRevenue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDayRevenue.Location = new System.Drawing.Point(147, 236);
             this.textBoxDayRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDayRevenue.Name = "textBoxDayRevenue";
             this.textBoxDayRevenue.ReadOnly = true;
-            this.textBoxDayRevenue.Size = new System.Drawing.Size(223, 30);
+            this.textBoxDayRevenue.Size = new System.Drawing.Size(223, 34);
             this.textBoxDayRevenue.TabIndex = 3;
             // 
             // comboBoxDay
             // 
             this.comboBoxDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDay.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxDay.FormattingEnabled = true;
             this.comboBoxDay.Items.AddRange(new object[] {
             "1",
@@ -183,7 +183,7 @@
             this.comboBoxDay.Location = new System.Drawing.Point(55, 165);
             this.comboBoxDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxDay.Name = "comboBoxDay";
-            this.comboBoxDay.Size = new System.Drawing.Size(161, 32);
+            this.comboBoxDay.Size = new System.Drawing.Size(161, 36);
             this.comboBoxDay.TabIndex = 8;
             // 
             // labelDayRevenue
@@ -263,11 +263,11 @@
             // 
             // tb_seacrh_rpDay
             // 
-            this.tb_seacrh_rpDay.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_seacrh_rpDay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_seacrh_rpDay.Location = new System.Drawing.Point(549, 73);
             this.tb_seacrh_rpDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_seacrh_rpDay.Name = "tb_seacrh_rpDay";
-            this.tb_seacrh_rpDay.Size = new System.Drawing.Size(215, 30);
+            this.tb_seacrh_rpDay.Size = new System.Drawing.Size(215, 34);
             this.tb_seacrh_rpDay.TabIndex = 11;
             // 
             // rBtn_amount

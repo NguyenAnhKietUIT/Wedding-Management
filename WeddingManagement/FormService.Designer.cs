@@ -142,34 +142,34 @@
             // 
             // tb_search_service
             // 
-            this.tb_search_service.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_service.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_search_service.Location = new System.Drawing.Point(500, 87);
             this.tb_search_service.Name = "tb_search_service";
-            this.tb_search_service.Size = new System.Drawing.Size(231, 30);
+            this.tb_search_service.Size = new System.Drawing.Size(231, 34);
             this.tb_search_service.TabIndex = 94;
             // 
             // tb_service_note
             // 
-            this.tb_service_note.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_service_note.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_service_note.Location = new System.Drawing.Point(586, 301);
             this.tb_service_note.Name = "tb_service_note";
-            this.tb_service_note.Size = new System.Drawing.Size(254, 30);
+            this.tb_service_note.Size = new System.Drawing.Size(254, 34);
             this.tb_service_note.TabIndex = 92;
             // 
             // tb_service_price
             // 
-            this.tb_service_price.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_service_price.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_service_price.Location = new System.Drawing.Point(586, 227);
             this.tb_service_price.Name = "tb_service_price";
-            this.tb_service_price.Size = new System.Drawing.Size(254, 30);
+            this.tb_service_price.Size = new System.Drawing.Size(254, 34);
             this.tb_service_price.TabIndex = 90;
             // 
             // tb_service_name
             // 
-            this.tb_service_name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_service_name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_service_name.Location = new System.Drawing.Point(586, 153);
             this.tb_service_name.Name = "tb_service_name";
-            this.tb_service_name.Size = new System.Drawing.Size(254, 30);
+            this.tb_service_name.Size = new System.Drawing.Size(254, 34);
             this.tb_service_name.TabIndex = 88;
             // 
             // btn_search_service

@@ -119,18 +119,20 @@
             // 
             // noteTextBox
             // 
+            this.noteTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noteTextBox.Location = new System.Drawing.Point(497, 74);
             this.noteTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.noteTextBox.Name = "noteTextBox";
-            this.noteTextBox.Size = new System.Drawing.Size(451, 29);
+            this.noteTextBox.Size = new System.Drawing.Size(451, 34);
             this.noteTextBox.TabIndex = 28;
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.Location = new System.Drawing.Point(497, 19);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(156, 29);
+            this.nameTextBox.Size = new System.Drawing.Size(156, 34);
             this.nameTextBox.TabIndex = 27;
             // 
             // label5
@@ -211,19 +213,21 @@
             // 
             // lobbyTypeCombobox
             // 
+            this.lobbyTypeCombobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lobbyTypeCombobox.FormattingEnabled = true;
             this.lobbyTypeCombobox.Location = new System.Drawing.Point(143, 19);
             this.lobbyTypeCombobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lobbyTypeCombobox.Name = "lobbyTypeCombobox";
-            this.lobbyTypeCombobox.Size = new System.Drawing.Size(156, 29);
+            this.lobbyTypeCombobox.Size = new System.Drawing.Size(156, 36);
             this.lobbyTypeCombobox.TabIndex = 9;
             // 
             // maxTableTextBox
             // 
+            this.maxTableTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxTableTextBox.Location = new System.Drawing.Point(143, 75);
             this.maxTableTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maxTableTextBox.Name = "maxTableTextBox";
-            this.maxTableTextBox.Size = new System.Drawing.Size(156, 29);
+            this.maxTableTextBox.Size = new System.Drawing.Size(156, 34);
             this.maxTableTextBox.TabIndex = 11;
             // 
             // panel1

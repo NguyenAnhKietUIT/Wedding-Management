@@ -44,6 +44,7 @@
             this.dataService.RowTemplate.Height = 24;
             this.dataService.Size = new System.Drawing.Size(676, 307);
             this.dataService.TabIndex = 0;
+            this.dataService.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             // 
             // label6
             // 
