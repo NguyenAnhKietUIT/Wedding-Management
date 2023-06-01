@@ -33,7 +33,6 @@ namespace WeddingManagement
                     command.Parameters.AddWithValue("@username", username);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        Console.WriteLine("After avatar");
                         if (reader.Read())
                         {
                             if (password == reader["Password"].ToString() || 
@@ -198,8 +197,6 @@ namespace WeddingManagement
 
         private static bool check_existed_id(string table, string idColumn, string key)
         {
-            Console.WriteLine(key);
-            Console.WriteLine(key.PadLeft(19, '0'));
             string query = "select top 1 * from " + table + " where " + idColumn + "=@id";
             using (SqlConnection sql = new SqlConnection(sqlConnectionString))
             {

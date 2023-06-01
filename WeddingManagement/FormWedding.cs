@@ -267,7 +267,6 @@ namespace WeddingManagement
             int index = table1.Rows.IndexOf(rowItem.Row);
             DataRow row = table1.Rows[index];
             FormWedding.currentWeddingId = row["WeddingNo"].ToString();
-            Console.WriteLine(FormWedding.currentWeddingId);
         }
 
         void load_comboBox_shift()

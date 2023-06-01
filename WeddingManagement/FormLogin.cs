@@ -96,7 +96,7 @@ namespace WeddingManagement
             {
                 if (EmptyTextBoxes())
                 {
-                    Console.WriteLine("Something is missing!");
+                    MessageBox.Show("Something is missing!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -104,28 +104,27 @@ namespace WeddingManagement
             {
                 if (CheckInvalidUsernameCharacter())
                 {
-                    Console.WriteLine("Invalid username");
+                    MessageBox.Show("Invalid username!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
                 {
                     if (CheckInvalidPasswordCharacter())
                     {
-                        Console.WriteLine("Invalid characters in password");
+                        MessageBox.Show("Invalid characters in password!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     else
                     {
                         if (!CorrectPassword())
                         {
-                            Console.WriteLine("Incorrect password");
+                            MessageBox.Show("Incorrect password!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                     }
                 }
             }
 
-            Console.WriteLine("Form creating");
             var frm = new FormHome();
             frm.Location = new System.Drawing.Point(Screen.FromControl(this).WorkingArea.Width / 4, Screen.FromControl(this).WorkingArea.Height / 4);
             frm.StartPosition = FormStartPosition.CenterScreen;
@@ -133,7 +132,6 @@ namespace WeddingManagement
             frm.Show();
             this.Hide();
             Program.mainform = frm;
-            Console.WriteLine("Client thread started");
         }
 
         private void FormLogin_Load(object sender, EventArgs e)

@@ -98,7 +98,6 @@ namespace WeddingManagement
             }
             if (rBtn_name.Checked)
             {
-                Console.WriteLine(tb_search_wd.Text);
                 using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
                 {
                     string sqlquery = "SELECT WeddingNo, WD.LobbyNo, WD.ShiftNo, BookingDate bDate, WeddingDate wDate, LobbyName, " +
@@ -112,7 +111,6 @@ namespace WeddingManagement
                     {
                         sqlcomm.CommandText = sqlquery;
                         sqlcomm.Parameters.AddWithValue("@searchWD", "%"+tb_search_wd.Text+"%");
-                        Console.WriteLine(sqlcomm.ToString());
                         using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlcomm))
                         {
                             table = new DataTable();

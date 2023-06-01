@@ -23,7 +23,6 @@ namespace WeddingManagement
         private void dataWedding_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             currentReportId = table1.Rows[e.RowIndex]["ReportNo"].ToString();
-            Console.WriteLine(FormWedding.currentWeddingId);
         }
         private void button1_Click(object sender, EventArgs e)
         {

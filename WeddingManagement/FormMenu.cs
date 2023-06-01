@@ -116,7 +116,6 @@ namespace WeddingManagement
 
         private void dgv_menu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine("Clicked");
             if (e.RowIndex < 0 || e.RowIndex >= table.Rows.Count)
             {
                 currentTypeId = "";
