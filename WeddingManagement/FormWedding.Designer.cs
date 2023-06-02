@@ -90,7 +90,7 @@ namespace WeddingManagement
             this.cbt_phone = new WeddingManagement.CustomBorderTextbox();
             this.cbt_contigency = new WeddingManagement.CustomBorderTextbox();
             this.cbt_table = new WeddingManagement.CustomBorderTextbox();
-            this.cbt_groom = new WeddingManagement.CustomBorderTextbox();
+            this.cbt_broom = new WeddingManagement.CustomBorderTextbox();
             this.cbt_bride = new WeddingManagement.CustomBorderTextbox();
             this.Wedding.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -233,7 +233,7 @@ namespace WeddingManagement
             this.Wedding.Controls.Add(this.label_bride);
             this.Wedding.Controls.Add(this.label_contingency);
             this.Wedding.Controls.Add(this.cbt_table);
-            this.Wedding.Controls.Add(this.cbt_groom);
+            this.Wedding.Controls.Add(this.cbt_broom);
             this.Wedding.Controls.Add(this.label_table);
             this.Wedding.Controls.Add(this.cbt_bride);
             this.Wedding.ForeColor = System.Drawing.Color.Black;
@@ -353,6 +353,7 @@ namespace WeddingManagement
             this.btn_update_wedding.TabIndex = 55;
             this.btn_update_wedding.Text = "UPDATE";
             this.btn_update_wedding.UseVisualStyleBackColor = false;
+            this.btn_update_wedding.Click += new System.EventHandler(this.btn_update_wedding_Click);
             // 
             // btn_delete_wedding
             // 
@@ -371,7 +372,8 @@ namespace WeddingManagement
             // groupBox_menu
             // 
             this.groupBox_menu.BackColor = System.Drawing.Color.MistyRose;
-            this.groupBox_menu.Controls.Add(this.btn_detail_item);
+            this.groupBox_menu.Controls.Add(this.btn_update_item);
+            this.groupBox_menu.Controls.Add(this.btn_delete_item);
             this.groupBox_menu.Controls.Add(this.cbt_amount_item);
             this.groupBox_menu.Controls.Add(this.cbt_price_item);
             this.groupBox_menu.Controls.Add(this.btn_add_menu);
@@ -393,10 +395,10 @@ namespace WeddingManagement
             this.btn_detail_item.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_detail_item.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_detail_item.ForeColor = System.Drawing.Color.White;
-            this.btn_detail_item.Location = new System.Drawing.Point(244, 165);
+            this.btn_detail_item.Location = new System.Drawing.Point(363, 186);
             this.btn_detail_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_detail_item.Name = "btn_detail_item";
-            this.btn_detail_item.Size = new System.Drawing.Size(85, 39);
+            this.btn_detail_item.Size = new System.Drawing.Size(85, 32);
             this.btn_detail_item.TabIndex = 61;
             this.btn_detail_item.Text = "DETAIL";
             this.btn_detail_item.UseVisualStyleBackColor = false;
@@ -407,7 +409,7 @@ namespace WeddingManagement
             this.btn_add_menu.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_add_menu.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_menu.ForeColor = System.Drawing.Color.White;
-            this.btn_add_menu.Location = new System.Drawing.Point(121, 164);
+            this.btn_add_menu.Location = new System.Drawing.Point(62, 168);
             this.btn_add_menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add_menu.Name = "btn_add_menu";
             this.btn_add_menu.Size = new System.Drawing.Size(85, 39);
@@ -423,9 +425,9 @@ namespace WeddingManagement
             this.label_item_price.ForeColor = System.Drawing.Color.Black;
             this.label_item_price.Location = new System.Drawing.Point(19, 122);
             this.label_item_price.Name = "label_item_price";
-            this.label_item_price.Size = new System.Drawing.Size(49, 24);
+            this.label_item_price.Size = new System.Drawing.Size(86, 24);
             this.label_item_price.TabIndex = 40;
-            this.label_item_price.Text = "Price";
+            this.label_item_price.Text = "Item Price";
             // 
             // label_amount_item
             // 
@@ -442,10 +444,10 @@ namespace WeddingManagement
             // 
             this.cbb_item.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_item.FormattingEnabled = true;
-            this.cbb_item.Location = new System.Drawing.Point(121, 33);
+            this.cbb_item.Location = new System.Drawing.Point(136, 33);
             this.cbb_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_item.Name = "cbb_item";
-            this.cbb_item.Size = new System.Drawing.Size(208, 36);
+            this.cbb_item.Size = new System.Drawing.Size(193, 36);
             this.cbb_item.TabIndex = 37;
             this.cbb_item.SelectedIndexChanged += new System.EventHandler(this.cbb_item_SelectedIndexChanged);
             // 
@@ -463,8 +465,9 @@ namespace WeddingManagement
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Linen;
-            this.groupBox2.Controls.Add(this.btn_detail_service);
+            this.groupBox2.Controls.Add(this.btn_delete_service);
             this.groupBox2.Controls.Add(this.cbt_amount_service);
+            this.groupBox2.Controls.Add(this.btn_update_service);
             this.groupBox2.Controls.Add(this.cbt_price_service);
             this.groupBox2.Controls.Add(this.btn_add_service);
             this.groupBox2.Controls.Add(this.label2);
@@ -485,10 +488,10 @@ namespace WeddingManagement
             this.btn_detail_service.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_detail_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_detail_service.ForeColor = System.Drawing.Color.White;
-            this.btn_detail_service.Location = new System.Drawing.Point(244, 179);
+            this.btn_detail_service.Location = new System.Drawing.Point(361, 203);
             this.btn_detail_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_detail_service.Name = "btn_detail_service";
-            this.btn_detail_service.Size = new System.Drawing.Size(85, 39);
+            this.btn_detail_service.Size = new System.Drawing.Size(85, 32);
             this.btn_detail_service.TabIndex = 62;
             this.btn_detail_service.Text = "DETAIL";
             this.btn_detail_service.UseVisualStyleBackColor = false;
@@ -499,7 +502,7 @@ namespace WeddingManagement
             this.btn_add_service.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_add_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_service.ForeColor = System.Drawing.Color.White;
-            this.btn_add_service.Location = new System.Drawing.Point(121, 179);
+            this.btn_add_service.Location = new System.Drawing.Point(62, 179);
             this.btn_add_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add_service.Name = "btn_add_service";
             this.btn_add_service.Size = new System.Drawing.Size(85, 39);
@@ -515,9 +518,9 @@ namespace WeddingManagement
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(19, 133);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 24);
+            this.label2.Size = new System.Drawing.Size(111, 24);
             this.label2.TabIndex = 40;
-            this.label2.Text = "Price";
+            this.label2.Text = "Service Price";
             // 
             // label3
             // 
@@ -534,10 +537,10 @@ namespace WeddingManagement
             // 
             this.cbb_service.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_service.FormattingEnabled = true;
-            this.cbb_service.Location = new System.Drawing.Point(121, 45);
+            this.cbb_service.Location = new System.Drawing.Point(136, 45);
             this.cbb_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_service.Name = "cbb_service";
-            this.cbb_service.Size = new System.Drawing.Size(208, 36);
+            this.cbb_service.Size = new System.Drawing.Size(193, 36);
             this.cbb_service.TabIndex = 37;
             this.cbb_service.SelectedIndexChanged += new System.EventHandler(this.cbb_service_SelectedIndexChanged);
             // 
@@ -583,8 +586,7 @@ namespace WeddingManagement
             // 
             this.gb_menu_detail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gb_menu_detail.Controls.Add(this.btn_delete_item);
-            this.gb_menu_detail.Controls.Add(this.btn_update_item);
+            this.gb_menu_detail.Controls.Add(this.btn_detail_item);
             this.gb_menu_detail.Controls.Add(this.dgv_menu_detail);
             this.gb_menu_detail.Location = new System.Drawing.Point(1085, 94);
             this.gb_menu_detail.Name = "gb_menu_detail";
@@ -598,26 +600,28 @@ namespace WeddingManagement
             this.btn_delete_item.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_delete_item.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_item.ForeColor = System.Drawing.Color.White;
-            this.btn_delete_item.Location = new System.Drawing.Point(361, 184);
+            this.btn_delete_item.Location = new System.Drawing.Point(244, 168);
             this.btn_delete_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_delete_item.Name = "btn_delete_item";
-            this.btn_delete_item.Size = new System.Drawing.Size(85, 32);
+            this.btn_delete_item.Size = new System.Drawing.Size(85, 39);
             this.btn_delete_item.TabIndex = 63;
             this.btn_delete_item.Text = "DELETE";
             this.btn_delete_item.UseVisualStyleBackColor = false;
+            this.btn_delete_item.Click += new System.EventHandler(this.btn_delete_item_Click);
             // 
             // btn_update_item
             // 
             this.btn_update_item.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_update_item.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update_item.ForeColor = System.Drawing.Color.White;
-            this.btn_update_item.Location = new System.Drawing.Point(261, 184);
+            this.btn_update_item.Location = new System.Drawing.Point(153, 168);
             this.btn_update_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_update_item.Name = "btn_update_item";
-            this.btn_update_item.Size = new System.Drawing.Size(85, 32);
+            this.btn_update_item.Size = new System.Drawing.Size(85, 39);
             this.btn_update_item.TabIndex = 62;
             this.btn_update_item.Text = "UPDATE";
             this.btn_update_item.UseVisualStyleBackColor = false;
+            this.btn_update_item.Click += new System.EventHandler(this.btn_update_item_Click);
             // 
             // dgv_menu_detail
             // 
@@ -635,6 +639,7 @@ namespace WeddingManagement
             this.dgv_menu_detail.RowTemplate.Height = 24;
             this.dgv_menu_detail.Size = new System.Drawing.Size(442, 161);
             this.dgv_menu_detail.TabIndex = 0;
+            this.dgv_menu_detail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_menu_detail_CellClick);
             // 
             // itemName
             // 
@@ -654,7 +659,7 @@ namespace WeddingManagement
             // 
             // itemPrice
             // 
-            this.itemPrice.HeaderText = "Item Price";
+            this.itemPrice.HeaderText = "Total Price";
             this.itemPrice.MinimumWidth = 6;
             this.itemPrice.Name = "itemPrice";
             this.itemPrice.ReadOnly = true;
@@ -664,9 +669,8 @@ namespace WeddingManagement
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.btn_delete_service);
+            this.groupBox3.Controls.Add(this.btn_detail_service);
             this.groupBox3.Controls.Add(this.dgv_service_detail);
-            this.groupBox3.Controls.Add(this.btn_update_service);
             this.groupBox3.Location = new System.Drawing.Point(1091, 319);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(452, 236);
@@ -679,13 +683,14 @@ namespace WeddingManagement
             this.btn_delete_service.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_delete_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_service.ForeColor = System.Drawing.Color.White;
-            this.btn_delete_service.Location = new System.Drawing.Point(366, 201);
+            this.btn_delete_service.Location = new System.Drawing.Point(244, 179);
             this.btn_delete_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_delete_service.Name = "btn_delete_service";
-            this.btn_delete_service.Size = new System.Drawing.Size(85, 32);
+            this.btn_delete_service.Size = new System.Drawing.Size(85, 39);
             this.btn_delete_service.TabIndex = 65;
             this.btn_delete_service.Text = "DELETE";
             this.btn_delete_service.UseVisualStyleBackColor = false;
+            this.btn_delete_service.Click += new System.EventHandler(this.btn_delete_service_Click);
             // 
             // dgv_service_detail
             // 
@@ -702,6 +707,7 @@ namespace WeddingManagement
             this.dgv_service_detail.RowTemplate.Height = 24;
             this.dgv_service_detail.Size = new System.Drawing.Size(440, 178);
             this.dgv_service_detail.TabIndex = 0;
+            this.dgv_service_detail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_service_detail_CellClick);
             // 
             // serviceName
             // 
@@ -721,7 +727,7 @@ namespace WeddingManagement
             // 
             // servicePrice
             // 
-            this.servicePrice.HeaderText = "Service Price";
+            this.servicePrice.HeaderText = "Total Price";
             this.servicePrice.MinimumWidth = 6;
             this.servicePrice.Name = "servicePrice";
             this.servicePrice.ReadOnly = true;
@@ -732,23 +738,24 @@ namespace WeddingManagement
             this.btn_update_service.BackColor = System.Drawing.Color.Goldenrod;
             this.btn_update_service.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update_service.ForeColor = System.Drawing.Color.White;
-            this.btn_update_service.Location = new System.Drawing.Point(266, 201);
+            this.btn_update_service.Location = new System.Drawing.Point(153, 179);
             this.btn_update_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_update_service.Name = "btn_update_service";
-            this.btn_update_service.Size = new System.Drawing.Size(85, 32);
+            this.btn_update_service.Size = new System.Drawing.Size(85, 39);
             this.btn_update_service.TabIndex = 64;
             this.btn_update_service.Text = "UPDATE";
             this.btn_update_service.UseVisualStyleBackColor = false;
+            this.btn_update_service.Click += new System.EventHandler(this.btn_update_service_Click);
             // 
             // cbt_amount_service
             // 
             this.cbt_amount_service.BackColor = System.Drawing.Color.White;
             this.cbt_amount_service.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbt_amount_service.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbt_amount_service.Location = new System.Drawing.Point(121, 89);
+            this.cbt_amount_service.Location = new System.Drawing.Point(136, 89);
             this.cbt_amount_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbt_amount_service.Name = "cbt_amount_service";
-            this.cbt_amount_service.Size = new System.Drawing.Size(208, 34);
+            this.cbt_amount_service.Size = new System.Drawing.Size(193, 34);
             this.cbt_amount_service.TabIndex = 61;
             // 
             // cbt_price_service
@@ -756,21 +763,21 @@ namespace WeddingManagement
             this.cbt_price_service.BackColor = System.Drawing.Color.White;
             this.cbt_price_service.Enabled = false;
             this.cbt_price_service.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_price_service.Location = new System.Drawing.Point(121, 130);
+            this.cbt_price_service.Location = new System.Drawing.Point(136, 130);
             this.cbt_price_service.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbt_price_service.Name = "cbt_price_service";
             this.cbt_price_service.ReadOnly = true;
-            this.cbt_price_service.Size = new System.Drawing.Size(208, 34);
+            this.cbt_price_service.Size = new System.Drawing.Size(193, 34);
             this.cbt_price_service.TabIndex = 60;
             // 
             // cbt_amount_item
             // 
             this.cbt_amount_item.BackColor = System.Drawing.Color.White;
             this.cbt_amount_item.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_amount_item.Location = new System.Drawing.Point(121, 76);
+            this.cbt_amount_item.Location = new System.Drawing.Point(136, 76);
             this.cbt_amount_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbt_amount_item.Name = "cbt_amount_item";
-            this.cbt_amount_item.Size = new System.Drawing.Size(208, 34);
+            this.cbt_amount_item.Size = new System.Drawing.Size(193, 34);
             this.cbt_amount_item.TabIndex = 60;
             // 
             // cbt_price_item
@@ -778,11 +785,11 @@ namespace WeddingManagement
             this.cbt_price_item.BackColor = System.Drawing.Color.White;
             this.cbt_price_item.Enabled = false;
             this.cbt_price_item.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_price_item.Location = new System.Drawing.Point(121, 119);
+            this.cbt_price_item.Location = new System.Drawing.Point(136, 119);
             this.cbt_price_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbt_price_item.Name = "cbt_price_item";
             this.cbt_price_item.ReadOnly = true;
-            this.cbt_price_item.Size = new System.Drawing.Size(208, 34);
+            this.cbt_price_item.Size = new System.Drawing.Size(193, 34);
             this.cbt_price_item.TabIndex = 38;
             // 
             // cbt_deposit
@@ -832,16 +839,16 @@ namespace WeddingManagement
             this.cbt_table.Size = new System.Drawing.Size(162, 34);
             this.cbt_table.TabIndex = 27;
             // 
-            // cbt_groom
+            // cbt_broom
             // 
-            this.cbt_groom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cbt_broom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbt_groom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbt_groom.Location = new System.Drawing.Point(475, 23);
-            this.cbt_groom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbt_groom.Name = "cbt_groom";
-            this.cbt_groom.Size = new System.Drawing.Size(210, 34);
-            this.cbt_groom.TabIndex = 24;
+            this.cbt_broom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbt_broom.Location = new System.Drawing.Point(475, 23);
+            this.cbt_broom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbt_broom.Name = "cbt_broom";
+            this.cbt_broom.Size = new System.Drawing.Size(210, 34);
+            this.cbt_broom.TabIndex = 24;
             // 
             // cbt_bride
             // 
@@ -903,7 +910,7 @@ namespace WeddingManagement
         private System.Windows.Forms.Label label_phone;
         private System.Windows.Forms.Label label_representative;
         private CustomBorderTextbox cbt_bride;
-        private CustomBorderTextbox cbt_groom;
+        private CustomBorderTextbox cbt_broom;
         private System.Windows.Forms.Label label_bride;
         private System.Windows.Forms.Label label_groom;
         private System.Windows.Forms.Label label_weddingdate;

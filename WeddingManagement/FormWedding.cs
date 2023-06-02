@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WeddingManagement
 {
     public partial class FormWedding : Form
     {
-        public static string currentWeddingId = "";
+        public static string currentWeddingNo = "";
         DataTable table1 = new DataTable();
 
         public FormWedding()
@@ -25,7 +26,7 @@ namespace WeddingManagement
 
         public FormWedding(string id) : this()
         {
-            currentWeddingId = id;
+            currentWeddingNo = id;
             Load_data_wedding(id);
             date_booking.Value = DateTime.Now;
             date_wedding.Value = DateTime.Now;
@@ -74,8 +75,8 @@ namespace WeddingManagement
             }
         }
 
-        void load_gridView_wedding()
-        {   
+        private void Initial_DataTable()
+        {
             DataColumn column;
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
@@ -196,6 +197,14 @@ namespace WeddingManagement
             column.Unique = false;
             column.ColumnMapping = MappingType.Hidden;
             table1.Columns.Add(column);
+        }
+
+        void load_gridView_wedding()
+        {
+            if (table1.Columns.Count == 0)
+            {
+                Initial_DataTable();
+            }
 
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
@@ -203,7 +212,7 @@ namespace WeddingManagement
                 using (SqlCommand cmd = new SqlCommand("SELECT LobbyName, ShiftName, Representative, PhoneNumber, " +
                     "BookingDate, WeddingDate, BroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, " +
                     "Deposit, WeddingNo FROM LOBBY LB, SHIFT S, WEDDING WD WHERE WD.ShiftNo = S.ShiftNo AND " +
-                    "WD.LobbyNo = LB.LobbyNo", sql))
+                    "WD.LobbyNo = LB.LobbyNo AND WD.Available > 0", sql))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -326,11 +335,16 @@ namespace WeddingManagement
                             WeddingClient.listItems = new List<Item>();
                             var dt = new DataTable();
                             dt.Load(dr);
+
+                            DataView dv = dt.DefaultView;
+                            dv.Sort = "ItemName ASC";
+                            DataTable sortedDt = dv.ToTable();
+
                             _isDataSourceMenuChanging = true;
-                            cbb_item.DataSource = dt;
+                            cbb_item.DataSource = sortedDt;
                             _isDataSourceMenuChanging = false;
                             cbb_item.DisplayMember = "ItemName";
-                            foreach (DataRow row in dt.Rows)
+                            foreach (DataRow row in sortedDt.Rows)
                             {
                                 WeddingClient.listItems.Add(new Item()
                                 {
@@ -361,11 +375,16 @@ namespace WeddingManagement
                             WeddingClient.listServices = new List<Service>();
                             var dt = new DataTable();
                             dt.Load(dr);
+
+                            DataView dv = dt.DefaultView;
+                            dv.Sort = "ServiceName ASC";
+                            DataTable sortedDt = dv.ToTable();
+
                             _isDataSourceServiceChanging = true;
-                            cbb_service.DataSource = dt;
+                            cbb_service.DataSource = sortedDt;
                             _isDataSourceServiceChanging = false;
                             cbb_service.DisplayMember = "ServiceName";
-                            foreach (DataRow row in dt.Rows)
+                            foreach (DataRow row in sortedDt.Rows)
                             {
                                 WeddingClient.listServices.Add(new Service()
                                 {
@@ -400,9 +419,9 @@ namespace WeddingManagement
 
         private void btn_detail_item_Click(object sender, EventArgs e)
         {
-            if (currentWeddingId != null && currentWeddingId.Length == 21)
+            if (currentWeddingNo != null && currentWeddingNo.Length == 21)
             {
-                FormGridViewItem show = new FormGridViewItem(currentWeddingId);
+                FormGridViewItem show = new FormGridViewItem(currentWeddingNo);
                 show.ShowDialog();
             }
             else
@@ -413,9 +432,9 @@ namespace WeddingManagement
 
         private void btn_detail_service_Click(object sender, EventArgs e)
         {
-            if (currentWeddingId != null && currentWeddingId.Length == 21)
+            if (currentWeddingNo != null && currentWeddingNo.Length == 21)
             {
-                FormGridViewService show = new FormGridViewService(currentWeddingId);
+                FormGridViewService show = new FormGridViewService(currentWeddingNo);
                 show.ShowDialog();
             }
             else
@@ -426,7 +445,7 @@ namespace WeddingManagement
 
         private void btn_add_menu_Click(object sender, EventArgs e)
         {
-            if (currentWeddingId != null && currentWeddingId.Length == 21)
+            if (currentWeddingNo != null && currentWeddingNo.Length == 21)
             {
                 int index = cbb_item.SelectedIndex;
                 Item dishes = WeddingClient.listItems[index];
@@ -439,7 +458,7 @@ namespace WeddingManagement
                         using (SqlCommand check = new SqlCommand("SELECT AmountOfItems FROM TABLE_DETAIL " +
                             "WHERE WeddingNo = @WeddingNo AND ItemNo = @ItemNo", sql))
                         {
-                            check.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                            check.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                             check.Parameters.AddWithValue("@ItemNo", dishes.ItemNo);
                             using (SqlDataReader reader = check.ExecuteReader())
                             {
@@ -460,7 +479,7 @@ namespace WeddingManagement
                                 "AmountOfItems, TotalItemsPrice, Note) VALUES (@WeddingNo, @ItemNo, @AmountOfItems, " +
                                 "@TotalItemsPrice, @Note)", sql))
                             {
-                                cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                                cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                                 cmd.Parameters.AddWithValue("@ItemNo", dishes.ItemNo);
                                 cmd.Parameters.AddWithValue("@AmountOfItems", Convert.ToInt32(cbt_amount_item.Text));
                                 cmd.Parameters.AddWithValue("@TotalItemsPrice", dishes.ItemPrice *
@@ -473,13 +492,13 @@ namespace WeddingManagement
                                         "TablePriceTotal + @tableChanged, Total = Total + @tableChanged WHERE " +
                                         "WeddingNo = @WeddingNo", sql))
                                     {
-                                        cmd2.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                                        cmd2.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                                         cmd2.Parameters.AddWithValue("@tableChanged", newDishesPrice);
                                         if (cmd2.ExecuteNonQuery() > 0)
                                         {
                                             MessageBox.Show("Add successfully!", "SUCCESS", MessageBoxButtons.OK);
                                             cbt_amount_item.Text = "";
-                                            Load_Menu_Detail(currentWeddingId);
+                                            Load_Menu_Detail(currentWeddingNo);
                                         }
                                         else
                                         {
@@ -500,7 +519,7 @@ namespace WeddingManagement
                                 "SET AmountOfItems = @AmountOfItems, TotalItemsPrice = @TotalItemsPrice " +
                                 "WHERE WeddingNo = @WeddingNo AND ItemNo = @ItemNo", sql))
                             {
-                                cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                                cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                                 cmd.Parameters.AddWithValue("@ItemNo", dishes.ItemNo);
                                 cmd.Parameters.AddWithValue("@AmountOfItems", Convert.ToInt32(cbt_amount_item.Text));
                                 cmd.Parameters.AddWithValue("@TotalItemsPrice", dishes.ItemPrice *
@@ -514,7 +533,7 @@ namespace WeddingManagement
                                         "Total = Total + @tableChanged, MoneyLeft = MoneyLeft + @tableChanged " +
                                         "WHERE WeddingNo = @WeddingNo", sql))
                                     {
-                                        cmd2.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                                        cmd2.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                                         cmd2.Parameters.AddWithValue("@tableChanged", changes);
                                         if (cmd2.ExecuteNonQuery() > 0)
                                         {
@@ -550,7 +569,7 @@ namespace WeddingManagement
 
         private void btn_add_service_Click(object sender, EventArgs e)
         {
-            if (currentWeddingId != null && currentWeddingId.Length == 21)
+            if (currentWeddingNo != null && currentWeddingNo.Length == 21)
             {
                 int index = cbb_service.SelectedIndex;
                 Service service = WeddingClient.listServices[index];
@@ -563,7 +582,7 @@ namespace WeddingManagement
                         using (SqlCommand check = new SqlCommand("SELECT AmountOfServices " +
                             "FROM SERVICE_DETAIL WHERE WeddingNo = @WeddingNo AND ServiceNo = @ServiceNo", sql))
                         {
-                            check.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                            check.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                             check.Parameters.AddWithValue("@ServiceNo", service.ServiceNo);
                             using (SqlDataReader reader = check.ExecuteReader())
                             {
@@ -584,7 +603,7 @@ namespace WeddingManagement
                                 "AmountOfServices, TotalServicesPrice, Note) VALUES (@WeddingNo, @ServiceNo, @AmountOfServices, " +
                                 "@TotalServicesPrice, @Note)", sql))
                             {
-                                cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                                cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                                 cmd.Parameters.AddWithValue("@ServiceNo", service.ServiceNo);
                                 cmd.Parameters.AddWithValue("@AmountOfServices", Convert.ToInt32(cbt_amount_service.Text));
                                 cmd.Parameters.AddWithValue("@TotalServicesPrice", service.ServicePrice * 
@@ -598,13 +617,13 @@ namespace WeddingManagement
                                         "Total = Total + @serviceChanged, MoneyLeft = MoneyLeft + @serviceChanged " +
                                         "WHERE WeddingNo = @WeddingNo", sql))
                                     {
-                                        cmd2.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                                        cmd2.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                                         cmd2.Parameters.AddWithValue("@serviceChanged", newServicePrice);
                                         if (cmd2.ExecuteNonQuery() > 0)
                                         {
                                             MessageBox.Show("Add successfully!", "SUCCESS", MessageBoxButtons.OK);
                                             cbt_amount_service.Text = "";
-                                            //Load_Service_Detail(currentWeddingId);
+                                            Load_Service_Detail(currentWeddingNo);
                                         }
                                         else
                                         {
@@ -624,7 +643,7 @@ namespace WeddingManagement
                                 "SET AmountOfServices = @AmountOfServices, TotalServicesPrice = @TotalServicesPrice " +
                                 "WHERE WeddingNo = @WeddingNo AND ServiceNo = @ServiceNo", sql))
                             {
-                                cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                                cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                                 cmd.Parameters.AddWithValue("@ServiceNo", service.ServiceNo);
                                 cmd.Parameters.AddWithValue("@AmountOfServices", Convert.ToInt32(cbt_amount_service.Text));
                                 cmd.Parameters.AddWithValue("@TotalServicesPrice", service.ServicePrice * Convert.ToInt32(cbt_amount_service.Text));
@@ -637,7 +656,7 @@ namespace WeddingManagement
                                         "Total = Total + @serviceChanged, MoneyLeft = MoneyLeft + @serviceChanged " +
                                         "WHERE WeddingNo = @WeddingNo", sql))
                                     {
-                                        cmd2.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                                        cmd2.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                                         cmd2.Parameters.AddWithValue("@serviceChanged", changes);
                                         if (cmd2.ExecuteNonQuery() > 0)
                                         {
@@ -713,8 +732,8 @@ namespace WeddingManagement
                 string newId = "WD" + WeddingClient.GetNewIdFromTable("WD").ToString().PadLeft(19, '0');
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO WEDDING (WeddingNo, LobbyNo, ShiftNo, BookingDate, " +
                     "WeddingDate, PhoneNumber, BroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, " +
-                    "Deposit, Representative) VALUES (@WeddingNo, @LobbyNo, @ShiftNo, @BookingDate, @WeddingDate, " +
-                    "@PhoneNumber, @BroomName, @BrideName, @AmountOfTable, @AmountOfContingencyTable, @TablePrice, @Deposit, " +
+                    "Deposit, Available, Representative) VALUES (@WeddingNo, @LobbyNo, @ShiftNo, @BookingDate, @WeddingDate, " +
+                    "@PhoneNumber, @BroomName, @BrideName, @AmountOfTable, @AmountOfContingencyTable, @TablePrice, @Deposit, 1, " +
                     "@representative )", sql))
                 {
                     cmd.Parameters.AddWithValue("@WeddingNo", newId);
@@ -723,7 +742,7 @@ namespace WeddingManagement
                     cmd.Parameters.AddWithValue("@BookingDate", date_booking.Value);
                     cmd.Parameters.AddWithValue("@WeddingDate", date_wedding.Value);
                     cmd.Parameters.AddWithValue("@PhoneNumber", cbt_phone.Text);
-                    cmd.Parameters.AddWithValue("@BroomName", cbt_groom.Text);
+                    cmd.Parameters.AddWithValue("@BroomName", cbt_broom.Text);
                     cmd.Parameters.AddWithValue("@BrideName", cbt_bride.Text);
                     cmd.Parameters.AddWithValue("@AmountOfTable", Convert.ToInt32(cbt_table.Text));
                     cmd.Parameters.AddWithValue("@AmountOfContingencyTable", Convert.ToInt32(cbt_contigency.Text));
@@ -734,18 +753,18 @@ namespace WeddingManagement
                     {
                         using (SqlCommand cmd2 = new SqlCommand("INSERT INTO BILL (BillNo, " +
                             "WeddingNo, InvoiceDate, TablePriceTotal, ServicePriceTotal, Total, " +
-                            "PaymentDate, MoneyLeft) VALUES (@BillNo, @InvoiceDate, " +
+                            "PaymentDate, MoneyLeft) VALUES (@BillNo, @WeddingNo, @InvoiceDate, " +
                             "@TablePricetotal, @ServicePriceTotal, @Total, @PaymentDate, " +
-                            "@MoneyLeft) ", sql))
+                            "@MoneyLeft)", sql))
                         {
-                            string newBillId = "B" + WeddingClient.GetNewIdFromTable("B").ToString().PadLeft(19, '0');
+                            string newBillId = "BI" + WeddingClient.GetNewIdFromTable("BI").ToString().PadLeft(19, '0');
                             cmd2.Parameters.AddWithValue("@BillNo", newBillId);
                             cmd2.Parameters.AddWithValue("@WeddingNo", newId);
                             cmd2.Parameters.AddWithValue("@InvoiceDate", date_wedding.Value);
                             cmd2.Parameters.AddWithValue("@TablePricetotal", 0);
                             cmd2.Parameters.AddWithValue("@ServicePriceTotal", 0);
                             cmd2.Parameters.AddWithValue("@Total", basePrice);
-                            cmd2.Parameters.AddWithValue("@PaymentDate", DBNull.Value);
+                            cmd2.Parameters.AddWithValue("@PaymentDate", DateTime.Now);
                             cmd2.Parameters.AddWithValue("@MoneyLeft", basePrice - Convert.ToInt64(cbt_deposit.Text));
                             if (cmd2.ExecuteNonQuery() > 0)
                             {
@@ -757,7 +776,7 @@ namespace WeddingManagement
                                     cbt_phone.Text, 
                                     date_booking.Value.ToString(), 
                                     date_wedding.Value.ToString(), 
-                                    cbt_groom.Text, 
+                                    cbt_broom.Text, 
                                     cbt_bride.Text, 
                                     cbt_table.Text, 
                                     cbt_contigency.Text, 
@@ -802,7 +821,7 @@ namespace WeddingManagement
 
         private void btn_delete_wedding_Click(object sender, EventArgs e)
         {
-            if (currentWeddingId != null && currentWeddingId.Length == 21)
+            if (currentWeddingNo != null && currentWeddingNo.Length == 21)
             {
                 using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
                 {
@@ -810,12 +829,12 @@ namespace WeddingManagement
                     using (SqlCommand cmd = new SqlCommand("UPDATE WEDDING set Available = 0 " +
                         "WHERE WeddingNo = @WeddingNo", sql))
                     {
-                        cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingId);
+                        cmd.Parameters.AddWithValue("@WeddingNo", currentWeddingNo);
                         if (cmd.ExecuteNonQuery() > 0)
                         {
                             table1.Rows.RemoveAt(dataWedding.CurrentRow.Index);
                             MessageBox.Show("Wedding deleted!", "SUCCESS", MessageBoxButtons.OK);
-                            currentWeddingId = "";
+                            currentWeddingNo = "";
                         }
                     }
                 }
@@ -891,26 +910,264 @@ namespace WeddingManagement
 
         private void dataWedding_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == dataWedding.Rows.Count - 1)
+            {
+                return;
+            }
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 DataRow selectedRow = table1.Rows[
                     table1.Rows.IndexOf(
                         ((DataRowView)dataWedding.Rows[e.RowIndex].DataBoundItem).Row)
                     ];
-                currentWeddingId = selectedRow["WeddingNo"].ToString();
+                currentWeddingNo = selectedRow["WeddingNo"].ToString();
 
                 cbt_representative.Text = selectedRow["representative"].ToString();
                 cbt_phone.Text = selectedRow["phoneNumber"].ToString();
                 date_booking.Value = (DateTime)selectedRow["bookingDate"];
                 date_wedding.Value = (DateTime)selectedRow["weddingDate"];
-                cbt_groom.Text = selectedRow["BroomName"].ToString();
+                cbt_broom.Text = selectedRow["BroomName"].ToString();
                 cbt_bride.Text = selectedRow["brideName"].ToString();
                 cbt_table.Text = selectedRow["amountOfTable"].ToString();
                 cbt_contigency.Text = selectedRow["amountOfContingencyTable"].ToString();
                 cbt_deposit.Text = selectedRow["deposit"].ToString();
+                cbb_shift.Text = selectedRow["shiftName"].ToString();
+                cbb_lobby.Text = selectedRow["lobbyName"].ToString();
 
-                Load_Menu_Detail(currentWeddingId);
-                //Load_Service_Detail(currentWeddingId);
+                Load_Menu_Detail(currentWeddingNo);
+                //Load_Service_Detail(currentWeddingNo);
+            }
+        }
+
+        private void Update_Wedding()
+        {
+            int index = cbb_shift.SelectedIndex;
+            if (index < 0 || index > WeddingClient.listShifts.Count)
+            {
+                MessageBox.Show("Please choose a shift!", "LACK", MessageBoxButtons.OK);
+                return;
+            }
+            Shift shift = WeddingClient.listShifts[index];
+
+            int indexLobby = cbb_lobby.SelectedIndex;
+            if (indexLobby < 0 || indexLobby > WeddingClient.listLobbies.Count)
+            {
+                MessageBox.Show("Please choose a lobby!", "LACK", MessageBoxButtons.OK);
+                return;
+            }
+            Lobby lobby = WeddingClient.listLobbies[indexLobby];
+
+            if (!IsLobbyAvailable(lobby.LobbyNo, shift.ShiftNo))
+            {
+                MessageBox.Show("This lobby is not available at this shift!", "LACK", MessageBoxButtons.OK);
+                return;
+            }
+
+            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            {
+                sql.Open();
+                string query = "UPDATE WEDDING SET ShiftNo = @shiftno, LobbyNo = @lobbyno, " +
+                                "Representative = @representative, " +
+                                "PhoneNumber = @phonenumber, AmountOfTable = @amountoftable," +
+                                "AmountOfContingencyTable = @amountofcontingencytable," +
+                                "BroomName = @broomname, BrideName = @bridename, " +
+                                "BookingDate = @bookingdate, WeddingDate = @weddingdate, " +
+                                "Deposit = @deposit WHERE WeddingNo = @weddingno";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.Parameters.AddWithValue("@shiftno", shift.ShiftNo);
+                    cmd.Parameters.AddWithValue("@lobbyno", lobby.LobbyNo);
+                    cmd.Parameters.AddWithValue("@representative", cbt_representative.Text);
+                    cmd.Parameters.AddWithValue("@phonenumber", cbt_phone.Text);
+                    cmd.Parameters.AddWithValue("@amountoftable", cbt_table.Text);
+                    cmd.Parameters.AddWithValue("@amountofcontingencytable", cbt_contigency.Text);
+                    cmd.Parameters.AddWithValue("@broomname", cbt_broom.Text);
+                    cmd.Parameters.AddWithValue("@bridename", cbt_bride.Text);
+                    cmd.Parameters.AddWithValue("@bookingdate", date_booking.Value);
+                    cmd.Parameters.AddWithValue("@weddingdate", date_wedding.Value);
+                    cmd.Parameters.AddWithValue("@deposit", cbt_deposit.Text);
+                    cmd.Parameters.AddWithValue("@weddingno", currentWeddingNo);
+
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Changes have been updated!", "SUCCESS", MessageBoxButtons.OK);
+                        table1.Rows.Clear();
+                        load_gridView_wedding();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail to update!", "FAIL", MessageBoxButtons.OK);
+                    }
+                }
+            }
+        }
+
+        private void btn_update_wedding_Click(object sender, EventArgs e)
+        {
+            Update_Wedding();
+        }
+
+        private void dgv_menu_detail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgv_menu_detail.Rows[e.RowIndex];
+
+                string value1 = selectedRow.Cells["itemName"].Value.ToString();
+                string value2 = selectedRow.Cells["itemAmount"].Value.ToString();
+                double column2Value = Convert.ToDouble(selectedRow.Cells["itemAmount"].Value);
+                double column3Value = Convert.ToDouble(selectedRow.Cells["itemPrice"].Value);
+                double value3 = column3Value / column2Value;
+
+                cbb_item.Text = value1;
+                cbt_amount_item.Text = value2;
+                cbt_price_item.Text = value3.ToString();
+            }
+        }
+
+        private void dgv_service_detail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgv_service_detail.Rows[e.RowIndex];
+
+                string value1 = selectedRow.Cells["serviceName"].Value.ToString();
+                string value2 = selectedRow.Cells["serviceAmount"].Value.ToString();
+                double column2Value = Convert.ToDouble(selectedRow.Cells["serviceAmount"].Value);
+                double column3Value = Convert.ToDouble(selectedRow.Cells["servicePrice"].Value);
+                double value3 = column3Value / column2Value;
+
+                cbb_service.Text = value1;
+                cbt_amount_service.Text = value2;
+                cbt_price_service.Text = value3.ToString();
+            }
+        }
+
+        private void btn_update_item_Click(object sender, EventArgs e)
+        {
+            int index = cbb_item.SelectedIndex;
+            Item item = WeddingClient.listItems[index];
+
+            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            {
+                sql.Open();
+                string query = "UPDATE TABLE_DETAIL " +
+                                "SET AmountOfItems = @amountofitems, " +
+                                "TotalItemsPrice = @totalitemsprice " +
+                                "WHERE WeddingNo = @weddingno AND ItemNo = @itemno";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.Parameters.AddWithValue("@amountofitems", 
+                        Convert.ToInt32(cbt_amount_item.Text));
+                    cmd.Parameters.AddWithValue("@totalitemsprice", 
+                        Convert.ToInt32(cbt_amount_item.Text) * Convert.ToInt32(cbt_price_item.Text));
+                    cmd.Parameters.AddWithValue("@weddingno", currentWeddingNo);
+                    cmd.Parameters.AddWithValue("@itemno", item.ItemNo);
+
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Changes have been updated!", "SUCCESS", MessageBoxButtons.OK);
+                        Load_Menu_Detail(currentWeddingNo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail to update!", "FAIL", MessageBoxButtons.OK);
+                    }
+                }
+            }
+        }
+
+        private void btn_update_service_Click(object sender, EventArgs e)
+        {
+            int index = cbb_service.SelectedIndex;
+            Service service = WeddingClient.listServices[index];
+
+            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            {
+                sql.Open();
+                string query = "UPDATE SERVICE_DETAIL " +
+                                "SET AmountOfServices = @amountofservices, " +
+                                "TotalServicesPrice = @totalservicesprice " +
+                                "WHERE WeddingNo = @weddingno AND ServiceNo = @serviceno";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.Parameters.AddWithValue("@amountofservices",
+                        Convert.ToInt32(cbt_amount_service.Text));
+                    cmd.Parameters.AddWithValue("@totalservicesprice",
+                        Convert.ToInt32(cbt_amount_service.Text) * 
+                        Convert.ToInt32(cbt_price_service.Text)
+                        );
+                    cmd.Parameters.AddWithValue("@weddingno", currentWeddingNo);
+                    cmd.Parameters.AddWithValue("@serviceno", service.ServiceNo);
+
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Changes have been updated!", "SUCCESS", MessageBoxButtons.OK);
+                        Load_Service_Detail(currentWeddingNo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail to update!", "FAIL", MessageBoxButtons.OK);
+                    }
+                }
+            }
+        }
+
+        private void btn_delete_item_Click(object sender, EventArgs e)
+        {
+            int index = cbb_item.SelectedIndex;
+            Item item = WeddingClient.listItems[index];
+
+            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            {
+                sql.Open();
+                string query = "DELETE FROM TABLE_DETAIL " +
+                                "WHERE WeddingNo = @weddingno AND ItemNo = @itemno";
+
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.Parameters.AddWithValue("@weddingno", currentWeddingNo);
+                    cmd.Parameters.AddWithValue("@itemno", item.ItemNo);
+
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Successful delete!", "SUCCESS", MessageBoxButtons.OK);
+                        Load_Menu_Detail(currentWeddingNo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail to delete!", "FAIL", MessageBoxButtons.OK);
+                    }
+                }
+            }
+        }
+
+        private void btn_delete_service_Click(object sender, EventArgs e)
+        {
+            int index = cbb_service.SelectedIndex;
+            Service service = WeddingClient.listServices[index];
+
+            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            {
+                sql.Open();
+                string query = "DELETE FROM SERVICE_DETAIL " +
+                                "WHERE WeddingNo = @weddingno AND ServiceNo = @serviceno";
+
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.Parameters.AddWithValue("@weddingno", currentWeddingNo);
+                    cmd.Parameters.AddWithValue("@serviceno", service.ServiceNo);
+
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Successful delete!", "SUCCESS", MessageBoxButtons.OK);
+                        Load_Service_Detail(currentWeddingNo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail to delete!", "FAIL", MessageBoxButtons.OK);
+                    }
+                }
             }
         }
     }
