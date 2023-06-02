@@ -286,17 +286,17 @@
     <Compile Include="FormReportDay.Designer.cs">
       <DependentUpon>FormReportDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearch.Designer.cs">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormWedding.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormWedding.Designer.cs">
       <DependentUpon>FormWedding.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSearchWedding.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSearchWedding.Designer.cs">
-      <DependentUpon>FormSearchWedding.cs</DependentUpon>
     </Compile>
     <Compile Include="FormService.cs">
       <SubType>Form</SubType>
@@ -397,8 +397,8 @@
     <EmbeddedResource Include="FormReportMonth.resx">
       <DependentUpon>FormReportMonth.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSearchWedding.resx">
-      <DependentUpon>FormSearchWedding.cs</DependentUpon>
+    <EmbeddedResource Include="FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormService.resx">
       <DependentUpon>FormService.cs</DependentUpon>

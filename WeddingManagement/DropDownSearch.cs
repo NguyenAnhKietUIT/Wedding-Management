@@ -32,14 +32,14 @@ namespace WeddingManagement
         private void btnWedding_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            FormSearchWedding frmS = new FormSearchWedding();
+            FormSearch frmS = new FormSearch();
             frmS.ShowDialog();
         }
 
         private void bill_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            FormSearchWedding frmS = new FormSearchWedding();
+            FormSearch frmS = new FormSearch();
             frmS.ShowDialog();
         }
 

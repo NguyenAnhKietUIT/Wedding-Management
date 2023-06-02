@@ -1,26 +1,28 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace WeddingManagement
 {
-    public partial class FormSearchWedding : Form
+    public partial class FormSearch : Form
     {
         DataTable table = new DataTable();
         DataTable table1 = new DataTable();
 
-        public FormSearchWedding()
+        public FormSearch()
         {
             InitializeComponent();
             load_gridView_wedding();
             load_gridView_bill();
-
-            dataWedding.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataBill.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-     
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         void load_gridView_wedding()
         {
             using (SqlConnection conn = new SqlConnection(WeddingClient.sqlConnectionString))
@@ -67,8 +69,8 @@ namespace WeddingManagement
                         "FORMAT(InvoiceDate, 'dd/MM/yyyy') InvoiceDate, TablePriceTotal, " +
                         "ServicePriceTotal, Total, FORMAT(PaymentDate, 'dd/MM/yyyy') " +
                         "PaymentDate, MoneyLeft from WEDDING W, BILL B, LOBBY LB, " +
-                        "SHIFT S WHERE B.BillNo = W.WeddingNo AND W.LobbyNo = LB.LobbyNo AND " +
-                        "W.ShiftNo = S.ShiftNo ";
+                        "SHIFT S WHERE B.WeddingNo = W.WeddingNo AND W.LobbyNo = LB.LobbyNo AND " +
+                        "W.ShiftNo = S.ShiftNo";
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         table1 = new DataTable();
@@ -79,7 +81,7 @@ namespace WeddingManagement
                         table1.Columns["LobbyNo"].ColumnMapping = MappingType.Hidden;
                         table1.Columns["iDate"].ColumnMapping = MappingType.Hidden;
                         table1.Columns["pDate"].ColumnMapping = MappingType.Hidden;
-                        dataBill.DataSource = table1; 
+                        dataBill.DataSource = table1;
                         foreach (DataGridViewColumn col in dataBill.Columns)
                         {
                             col.HeaderText = table1.Columns[col.DataPropertyName].Caption;
@@ -110,7 +112,7 @@ namespace WeddingManagement
                     using (SqlCommand sqlcomm = sql.CreateCommand())
                     {
                         sqlcomm.CommandText = sqlquery;
-                        sqlcomm.Parameters.AddWithValue("@searchWD", "%"+tb_search_wd.Text+"%");
+                        sqlcomm.Parameters.AddWithValue("@searchWD", "%" + tb_search_wd.Text + "%");
                         using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlcomm))
                         {
                             table = new DataTable();
@@ -128,7 +130,7 @@ namespace WeddingManagement
                             {
                                 col.HeaderText = table.Columns[col.DataPropertyName].Caption;
                             }
-                            
+
                         }
                     }
                 }
@@ -168,7 +170,7 @@ namespace WeddingManagement
                     }
                 }
             }
-           
+
         }
 
         private void tb_search_bill_textChange(object sender, EventArgs e)
@@ -202,7 +204,7 @@ namespace WeddingManagement
                             table1.Columns["LobbyNo"].ColumnMapping = MappingType.Hidden;
                             table1.Columns["iDate"].ColumnMapping = MappingType.Hidden;
                             table1.Columns["pDate"].ColumnMapping = MappingType.Hidden;
-                            dataBill.DataSource = table1; 
+                            dataBill.DataSource = table1;
                             foreach (DataGridViewColumn col in dataBill.Columns)
                             {
                                 col.HeaderText = table1.Columns[col.DataPropertyName].Caption;
@@ -258,7 +260,7 @@ namespace WeddingManagement
 
                 string id = row["WeddingNo"].ToString();
 
-                DialogResult dialogResult = MessageBox.Show("Do you want to edit wedding informations or pay for wedding?", 
+                DialogResult dialogResult = MessageBox.Show("Do you want to edit wedding informations or pay for wedding?",
                     "Edit", MessageBoxButtons.YesNoCancel);
                 if (dialogResult == DialogResult.No)
                 {
@@ -298,19 +300,6 @@ namespace WeddingManagement
                 dataBill.Size = new Size((formWidth - 18 - 39) / 2, dataBill.Size.Height);
                 dataBill.Location = new Point(dataWedding.Location.X + dataWedding.Size.Width + 39, dataBill.Location.Y);
             }
-        }
-
-        private void searchWedding_ResizeBegin(object sender, EventArgs e)
-        {
-        }
-        
-        private void searchWedding_ResizeEnd(object sender, EventArgs e)
-        {
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
