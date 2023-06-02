@@ -46,8 +46,6 @@
             this.tb_seacrh_rpDay = new System.Windows.Forms.TextBox();
             this.rBtn_amount = new System.Windows.Forms.RadioButton();
             this.rBtn_day = new System.Windows.Forms.RadioButton();
-            this.btn_update = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataRPD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,9 +77,9 @@
             "10",
             "11",
             "12"});
-            this.comboBoxMonth.Location = new System.Drawing.Point(253, 165);
+            this.comboBoxMonth.Location = new System.Drawing.Point(319, 165);
             this.comboBoxMonth.Name = "comboBoxMonth";
-            this.comboBoxMonth.Size = new System.Drawing.Size(80, 36);
+            this.comboBoxMonth.Size = new System.Drawing.Size(150, 36);
             this.comboBoxMonth.TabIndex = 10;
             // 
             // labelmonth
@@ -89,7 +87,7 @@
             this.labelmonth.AutoSize = true;
             this.labelmonth.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelmonth.ForeColor = System.Drawing.Color.Black;
-            this.labelmonth.Location = new System.Drawing.Point(196, 168);
+            this.labelmonth.Location = new System.Drawing.Point(254, 168);
             this.labelmonth.Name = "labelmonth";
             this.labelmonth.Size = new System.Drawing.Size(59, 24);
             this.labelmonth.TabIndex = 9;
@@ -107,10 +105,10 @@
             // textBoxYear
             // 
             this.textBoxYear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxYear.Location = new System.Drawing.Point(442, 165);
+            this.textBoxYear.Location = new System.Drawing.Point(558, 165);
             this.textBoxYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxYear.Name = "textBoxYear";
-            this.textBoxYear.Size = new System.Drawing.Size(80, 34);
+            this.textBoxYear.Size = new System.Drawing.Size(150, 34);
             this.textBoxYear.TabIndex = 6;
             // 
             // labelAOW
@@ -118,7 +116,7 @@
             this.labelAOW.AutoSize = true;
             this.labelAOW.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAOW.ForeColor = System.Drawing.Color.Black;
-            this.labelAOW.Location = new System.Drawing.Point(422, 239);
+            this.labelAOW.Location = new System.Drawing.Point(450, 243);
             this.labelAOW.Name = "labelAOW";
             this.labelAOW.Size = new System.Drawing.Size(166, 24);
             this.labelAOW.TabIndex = 5;
@@ -129,7 +127,7 @@
             this.labelYear.AutoSize = true;
             this.labelYear.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelYear.ForeColor = System.Drawing.Color.Black;
-            this.labelYear.Location = new System.Drawing.Point(388, 168);
+            this.labelYear.Location = new System.Drawing.Point(508, 168);
             this.labelYear.Name = "labelYear";
             this.labelYear.Size = new System.Drawing.Size(44, 24);
             this.labelYear.TabIndex = 4;
@@ -138,10 +136,9 @@
             // textBoxDayRevenue
             // 
             this.textBoxDayRevenue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDayRevenue.Location = new System.Drawing.Point(147, 236);
+            this.textBoxDayRevenue.Location = new System.Drawing.Point(131, 236);
             this.textBoxDayRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDayRevenue.Name = "textBoxDayRevenue";
-            this.textBoxDayRevenue.ReadOnly = true;
             this.textBoxDayRevenue.Size = new System.Drawing.Size(223, 34);
             this.textBoxDayRevenue.TabIndex = 3;
             // 
@@ -185,7 +182,7 @@
             this.comboBoxDay.Location = new System.Drawing.Point(69, 165);
             this.comboBoxDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxDay.Name = "comboBoxDay";
-            this.comboBoxDay.Size = new System.Drawing.Size(80, 36);
+            this.comboBoxDay.Size = new System.Drawing.Size(150, 36);
             this.comboBoxDay.TabIndex = 8;
             // 
             // labelDayRevenue
@@ -193,7 +190,7 @@
             this.labelDayRevenue.AutoSize = true;
             this.labelDayRevenue.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDayRevenue.ForeColor = System.Drawing.Color.Black;
-            this.labelDayRevenue.Location = new System.Drawing.Point(9, 239);
+            this.labelDayRevenue.Location = new System.Drawing.Point(12, 243);
             this.labelDayRevenue.Name = "labelDayRevenue";
             this.labelDayRevenue.Size = new System.Drawing.Size(113, 24);
             this.labelDayRevenue.TabIndex = 1;
@@ -228,10 +225,10 @@
             this.btn_add.BackColor = System.Drawing.Color.DimGray;
             this.btn_add.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.White;
-            this.btn_add.Location = new System.Drawing.Point(566, 163);
+            this.btn_add.Location = new System.Drawing.Point(751, 163);
             this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(78, 38);
+            this.btn_add.Size = new System.Drawing.Size(94, 38);
             this.btn_add.TabIndex = 8;
             this.btn_add.Text = "ADD";
             this.btn_add.UseVisualStyleBackColor = false;
@@ -299,33 +296,6 @@
             this.rBtn_day.Text = "Day";
             this.rBtn_day.UseVisualStyleBackColor = true;
             // 
-            // btn_update
-            // 
-            this.btn_update.BackColor = System.Drawing.Color.DimGray;
-            this.btn_update.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_update.ForeColor = System.Drawing.Color.White;
-            this.btn_update.Location = new System.Drawing.Point(661, 163);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(78, 38);
-            this.btn_update.TabIndex = 81;
-            this.btn_update.Text = "UPDATE";
-            this.btn_update.UseVisualStyleBackColor = false;
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.BackColor = System.Drawing.Color.DimGray;
-            this.btn_delete.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.ForeColor = System.Drawing.Color.White;
-            this.btn_delete.Location = new System.Drawing.Point(754, 163);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(78, 38);
-            this.btn_delete.TabIndex = 82;
-            this.btn_delete.Text = "DELETE";
-            this.btn_delete.UseVisualStyleBackColor = false;
-            // 
             // FormReportDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -333,8 +303,6 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(857, 506);
-            this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.btn_update);
             this.Controls.Add(this.rBtn_day);
             this.Controls.Add(this.comboBoxMonth);
             this.Controls.Add(this.rBtn_amount);
@@ -384,7 +352,5 @@
         private System.Windows.Forms.TextBox tb_seacrh_rpDay;
         private System.Windows.Forms.RadioButton rBtn_amount;
         private System.Windows.Forms.RadioButton rBtn_day;
-        private System.Windows.Forms.Button btn_update;
-        private System.Windows.Forms.Button btn_delete;
     }
 }

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.labelRReport = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_year = new System.Windows.Forms.TextBox();
             this.labelYear = new System.Windows.Forms.Label();
-            this.textBoxRTotal = new System.Windows.Forms.TextBox();
+            this.tb_revenue_total = new System.Windows.Forms.TextBox();
             this.comboBoxMonth = new System.Windows.Forms.ComboBox();
             this.labelRTotal = new System.Windows.Forms.Label();
             this.labelMonth = new System.Windows.Forms.Label();
             this.dataRPMonth = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.img_close_service = new System.Windows.Forms.Label();
+            this.close = new System.Windows.Forms.Label();
             this.rBtn_month = new System.Windows.Forms.RadioButton();
             this.rBtn_year = new System.Windows.Forms.RadioButton();
             this.tb_seacrh_rpMonth = new System.Windows.Forms.TextBox();
@@ -57,37 +57,35 @@
             this.labelRReport.TabIndex = 0;
             this.labelRReport.Text = "REVENUE REPORT MONTH";
             // 
-            // textBox1
+            // tb_year
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(290, 176);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 34);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tb_year.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_year.Location = new System.Drawing.Point(290, 172);
+            this.tb_year.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_year.Name = "tb_year";
+            this.tb_year.Size = new System.Drawing.Size(133, 34);
+            this.tb_year.TabIndex = 7;
             // 
             // labelYear
             // 
             this.labelYear.AutoSize = true;
             this.labelYear.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelYear.ForeColor = System.Drawing.Color.Black;
-            this.labelYear.Location = new System.Drawing.Point(240, 179);
+            this.labelYear.Location = new System.Drawing.Point(240, 175);
             this.labelYear.Name = "labelYear";
             this.labelYear.Size = new System.Drawing.Size(44, 24);
             this.labelYear.TabIndex = 4;
             this.labelYear.Text = "Year";
-            this.labelYear.Click += new System.EventHandler(this.labelYear_Click);
             // 
-            // textBoxRTotal
+            // tb_revenue_total
             // 
-            this.textBoxRTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRTotal.Location = new System.Drawing.Point(575, 176);
-            this.textBoxRTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxRTotal.Name = "textBoxRTotal";
-            this.textBoxRTotal.ReadOnly = true;
-            this.textBoxRTotal.Size = new System.Drawing.Size(157, 34);
-            this.textBoxRTotal.TabIndex = 3;
+            this.tb_revenue_total.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_revenue_total.Location = new System.Drawing.Point(575, 172);
+            this.tb_revenue_total.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_revenue_total.Name = "tb_revenue_total";
+            this.tb_revenue_total.ReadOnly = true;
+            this.tb_revenue_total.Size = new System.Drawing.Size(157, 34);
+            this.tb_revenue_total.TabIndex = 3;
             // 
             // comboBoxMonth
             // 
@@ -110,7 +108,7 @@
             "10",
             "11",
             "12"});
-            this.comboBoxMonth.Location = new System.Drawing.Point(77, 174);
+            this.comboBoxMonth.Location = new System.Drawing.Point(80, 172);
             this.comboBoxMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMonth.Name = "comboBoxMonth";
             this.comboBoxMonth.Size = new System.Drawing.Size(133, 36);
@@ -132,7 +130,7 @@
             this.labelMonth.AutoSize = true;
             this.labelMonth.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMonth.ForeColor = System.Drawing.Color.Black;
-            this.labelMonth.Location = new System.Drawing.Point(12, 177);
+            this.labelMonth.Location = new System.Drawing.Point(15, 177);
             this.labelMonth.Name = "labelMonth";
             this.labelMonth.Size = new System.Drawing.Size(59, 24);
             this.labelMonth.TabIndex = 0;
@@ -149,6 +147,7 @@
             this.dataRPMonth.RowHeadersWidth = 51;
             this.dataRPMonth.Size = new System.Drawing.Size(828, 198);
             this.dataRPMonth.TabIndex = 3;
+            this.dataRPMonth.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataRPMonth_CellClick);
             // 
             // button1
             // 
@@ -164,19 +163,19 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // img_close_service
+            // close
             // 
-            this.img_close_service.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.img_close_service.AutoSize = true;
-            this.img_close_service.BackColor = System.Drawing.Color.Gray;
-            this.img_close_service.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.img_close_service.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.img_close_service.Location = new System.Drawing.Point(830, 0);
-            this.img_close_service.Name = "img_close_service";
-            this.img_close_service.Size = new System.Drawing.Size(28, 25);
-            this.img_close_service.TabIndex = 88;
-            this.img_close_service.Text = "X";
-            this.img_close_service.Click += new System.EventHandler(this.img_close_service_Click);
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.close.AutoSize = true;
+            this.close.BackColor = System.Drawing.Color.Gray;
+            this.close.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.close.Location = new System.Drawing.Point(830, 0);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(28, 25);
+            this.close.TabIndex = 88;
+            this.close.Text = "X";
+            this.close.Click += new System.EventHandler(this.close_Click);
             // 
             // rBtn_month
             // 
@@ -236,13 +235,13 @@
             this.Controls.Add(this.rBtn_year);
             this.Controls.Add(this.tb_seacrh_rpMonth);
             this.Controls.Add(this.btn_search_rpMonth);
-            this.Controls.Add(this.textBoxRTotal);
+            this.Controls.Add(this.tb_revenue_total);
             this.Controls.Add(this.labelRTotal);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_year);
             this.Controls.Add(this.comboBoxMonth);
             this.Controls.Add(this.labelYear);
             this.Controls.Add(this.labelMonth);
-            this.Controls.Add(this.img_close_service);
+            this.Controls.Add(this.close);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataRPMonth);
             this.Controls.Add(this.labelRReport);
@@ -252,7 +251,6 @@
             this.MaximumSize = new System.Drawing.Size(852, 503);
             this.Name = "FormReportMonth";
             this.Text = "FormReportMonth";
-            this.Load += new System.EventHandler(this.RevenueReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataRPMonth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -261,15 +259,15 @@
 
         #endregion
         private System.Windows.Forms.Label labelRReport;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_year;
         private System.Windows.Forms.Label labelYear;
-        private System.Windows.Forms.TextBox textBoxRTotal;
+        private System.Windows.Forms.TextBox tb_revenue_total;
         private System.Windows.Forms.ComboBox comboBoxMonth;
         private System.Windows.Forms.Label labelRTotal;
         private System.Windows.Forms.Label labelMonth;
         private System.Windows.Forms.DataGridView dataRPMonth;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label img_close_service;
+        private System.Windows.Forms.Label close;
         private System.Windows.Forms.RadioButton rBtn_month;
         private System.Windows.Forms.RadioButton rBtn_year;
         private System.Windows.Forms.TextBox tb_seacrh_rpMonth;

@@ -7,7 +7,6 @@ namespace WeddingManagement
 {
     public partial class FormReportMonth : Form
     {
-        public static string currentReportId = "";
         DataTable table1 = new DataTable();
         public FormReportMonth()
         {
@@ -20,15 +19,12 @@ namespace WeddingManagement
             this.rBtn_year.Checked = false;
             Search();
         }
-        private void dataWedding_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            currentReportId = table1.Rows[e.RowIndex]["ReportNo"].ToString();
-        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             int index = comboBoxMonth.SelectedIndex;
-            if (index < 0 || textBox1.Text == "" || !int.TryParse(comboBoxMonth.SelectedItem.ToString(), out int month) 
-                || !int.TryParse(textBox1.Text, out int year))
+            if (index < 0 || tb_year.Text == "" || !int.TryParse(comboBoxMonth.SelectedItem.ToString(), out int month) 
+                || !int.TryParse(tb_year.Text, out int year))
             {
                 MessageBox.Show("Please fill enough information and make sure month and year are numbers and month is between 1 and 12");
                 return;
@@ -110,16 +106,6 @@ namespace WeddingManagement
                 }
                 Search("");
             }
-        }
-
-        private void RevenueReport_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void img_close_service_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void Search(string s)
@@ -243,14 +229,28 @@ namespace WeddingManagement
             Search();
         }
 
-        private void labelYear_Click(object sender, EventArgs e)
+        private void dataRPMonth_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == dataRPMonth.Rows.Count - 1)
+            {
+                return;
+            }
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataRow selectedRow = table1.Rows[
+                    table1.Rows.IndexOf(
+                        ((DataRowView)dataRPMonth.Rows[e.RowIndex].DataBoundItem).Row)
+                    ];
 
+                comboBoxMonth.Text = selectedRow["Month"].ToString();
+                tb_year.Text = selectedRow["Year"].ToString();
+                tb_revenue_total.Text = selectedRow["RevenueTotal"].ToString();
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void close_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }
