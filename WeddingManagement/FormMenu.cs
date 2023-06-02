@@ -191,6 +191,8 @@ namespace WeddingManagement
                                             Convert.ToInt64(cbt_item_price.Text), 
                                             cbt_item_note.Text)
                                         );
+
+                                    load_data_Dishes();
                                 }
                             }
 

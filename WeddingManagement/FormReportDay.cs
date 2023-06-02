@@ -8,8 +8,7 @@ namespace WeddingManagement
     public partial class FormReportDay : Form
     {
 
-        public static string currentReportId = "";
-        public static int currentReportDay = 0;
+        public static string currentReportNo = "";
         DataTable table1 = new DataTable();
         public FormReportDay()
         {
@@ -23,8 +22,8 @@ namespace WeddingManagement
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT D.ReportNo, D.Day, R.Month, D.DayRevenue, R.RevenueToTal, " +
-                    "D.AmoutOfWedding FROM REVENUE_REPORT R, REVENUE_REPORT_DETAIL D", sql))
+                using (SqlCommand cmd = new SqlCommand("SELECT D.ReportNo, D.Day, R.Month, R.Year, D.DayRevenue, R.RevenueToTal, " +
+                    "D.AmoutOfWedding FROM REVENUE_REPORT R, REVENUE_REPORT_DETAIL D WHERE R.ReportNo = D.ReportNo", sql))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
@@ -35,9 +34,10 @@ namespace WeddingManagement
             table1.Columns[0].ColumnMapping = MappingType.Hidden;
             table1.Columns[1].Caption = "Day";
             table1.Columns[2].Caption = "Month";
-            table1.Columns[3].Caption = "Day Revenue";
-            table1.Columns[4].Caption = "Month Revenue";
-            table1.Columns[5].Caption = "Amout Of Wedding";
+            table1.Columns[3].Caption = "Year";
+            table1.Columns[4].Caption = "Day Revenue";
+            table1.Columns[5].Caption = "Revenue ToTal";
+            table1.Columns[6].Caption = "Amout Of Wedding";
             DataColumn column = new DataColumn("Ratio", typeof(float));
             column.Caption = "Ratio";
             table1.Columns.Add(column);
@@ -50,18 +50,8 @@ namespace WeddingManagement
             {
                 col.HeaderText = table1.Columns[col.DataPropertyName].Caption;
             }
-            dataRPD.RowHeaderMouseClick += new DataGridViewCellMouseEventHandler(dataWedding_RowHeaderMouseClick);
-
         }
-        private void dataWedding_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            var rowItem = (DataRowView)dataRPD.Rows[e.RowIndex].DataBoundItem;
-            int i = table1.Rows.IndexOf(rowItem.Row);
-            DataRow row = table1.Rows[i];
-
-            currentReportId = row["ReportNo"].ToString();
-            currentReportDay = (short)row["Day"];
-        }
+        
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             int index = comboBoxDay.SelectedIndex;
@@ -230,11 +220,6 @@ namespace WeddingManagement
             }
         }
 
-        private void ReportDay_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void label6_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -278,6 +263,64 @@ namespace WeddingManagement
                             foreach (DataGridViewColumn col in dataRPD.Columns)
                             {
                                 col.HeaderText = table1.Columns[col.DataPropertyName].Caption;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dataRPD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == dataRPD.Rows.Count - 1)
+            {
+                return;
+            }
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataRow selectedRow = table1.Rows[
+                    table1.Rows.IndexOf(
+                        ((DataRowView)dataRPD.Rows[e.RowIndex].DataBoundItem).Row)
+                    ];
+                currentReportNo = selectedRow["ReportNo"].ToString();
+
+                comboBoxDay.Text = selectedRow["Day"].ToString();
+                comboBoxMonth.Text = selectedRow["Month"].ToString();
+                textBoxYear.Text = selectedRow["Year"].ToString();
+                textBoxDayRevenue.Text = selectedRow["DayRevenue"].ToString();
+                textBoxAOW.Text = selectedRow["AmoutOfWedding"].ToString();
+            }
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            {
+                sql.Open();
+                string query = "UPDATE REVENUE_REPORT " +
+                                "SET Month = @month, Year = @year, RevenueTotal = @revenuetotal" +
+                                "WHERE ReportNo = @reportno";
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.Parameters.AddWithValue("@reportno", currentReportNo);
+
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        string query2 = "UPDATE REVENUE_REPORT_DETAIL " +
+                                        "SET Day = @day, DayRevenue = @dayrevenue, Ratio = @ratio, AmountOfWedding = @amountofwedding" +
+                                        "WHERE ReportNo = @reportno";
+
+                        using (SqlCommand cmd2 = new SqlCommand(query2, sql))
+                        {
+                            cmd2.Parameters.AddWithValue("@reportno", currentReportNo);
+
+                            if (cmd2.ExecuteNonQuery() > 0)
+                            {
+                                MessageBox.Show("Changes have been updated!", "SUCCESS", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fail to update!", "FAIL", MessageBoxButtons.OK);
                             }
                         }
                     }

@@ -184,6 +184,8 @@ namespace WeddingManagement
                                         Convert.ToInt64(tb_service_price.Text), 
                                         tb_service_note.Text)
                                         );
+
+                                    load_data_service();
                                 }
                             }
                         }
