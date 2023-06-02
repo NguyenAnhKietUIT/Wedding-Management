@@ -184,11 +184,11 @@ namespace WeddingManagement
             {
                 using (SqlConnection sqlconn = new SqlConnection(WeddingClient.sqlConnectionString))
                 {
-                    string sqlquery = "SELECT WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, InvoiceDate iDate, PaymentDate pDate, " +
+                    string sqlquery = "SELECT W.WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, InvoiceDate iDate, PaymentDate pDate, " +
                         "Representative, BroomName, BrideName, PhoneNumber, LobbyName, ShiftName, " +
                         "FORMAT(InvoiceDate, 'dd/MM/yyyy') InvoiceDate, TablePriceTotal, ServicePriceTotal, Total, " +
                         "FORMAT(PaymentDate, 'dd/MM/yyyy') PaymentDate, MoneyLeft from WEDDING W, BILL B, LOBBY LB, SHIFT S " +
-                        "WHERE B.BillNo = W.WeddingNo AND W.LobbyNo = LB.LobbyNo AND W.ShiftNo = S.ShiftNo AND " +
+                        "WHERE B.WeddingNo = W.WeddingNo AND W.LobbyNo = LB.LobbyNo AND W.ShiftNo = S.ShiftNo AND " +
                         "(BroomName LIKE @searchB OR BrideName LIKE @searchB OR Representative LIKE @searchB)";
                     sqlconn.Open();
                     using (SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn))
@@ -218,12 +218,12 @@ namespace WeddingManagement
                 using (
                 SqlConnection sqlconn = new SqlConnection(WeddingClient.sqlConnectionString))
                 {
-                    string sqlquery = "SELECT WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, InvoiceDate iDate, PaymentDate pDate, " +
+                    string sqlquery = "SELECT W.WeddingNo, W.ShiftNo, BillNo, W.LobbyNo, InvoiceDate iDate, PaymentDate pDate, " +
                         "Representative, BroomName, BrideName, PhoneNumber, LobbyName, ShiftName, " +
                         "FORMAT(InvoiceDate, 'dd/MM/yyyy') InvoiceDate, TablePriceTotal, ServicePriceTotal, Total, " +
                         "FORMAT(PaymentDate, 'dd/MM/yyyy') PaymentDate, MoneyLeft from WEDDING W, BILL B, LOBBY LB, SHIFT S " +
-                        "WHERE B.BillNo = W.WeddingNo AND W.LobbyNo = LB.LobbyNo AND W.ShiftNo = S.ShiftNo AND " +
-                        "(CONVERT(NVARCHAR(MAX), BookingDate, 103) LIKE @searchB OR CONVERT(NVARCHAR(MAX), PaymentDate, 103) " +
+                        "WHERE B.WeddingNo = W.WeddingNo AND W.LobbyNo = LB.LobbyNo AND W.ShiftNo = S.ShiftNo AND " +
+                        "(CONVERT(NVARCHAR(MAX), InvoiceDate, 103) LIKE @searchB OR CONVERT(NVARCHAR(MAX), PaymentDate, 103) " +
                         "LIKE @searchB)";
                     sqlconn.Open();
                     using (SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn))

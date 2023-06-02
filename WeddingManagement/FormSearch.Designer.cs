@@ -104,10 +104,10 @@
             this.rBtn_name.Location = new System.Drawing.Point(267, 117);
             this.rBtn_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rBtn_name.Name = "rBtn_name";
-            this.rBtn_name.Size = new System.Drawing.Size(345, 27);
+            this.rBtn_name.Size = new System.Drawing.Size(349, 27);
             this.rBtn_name.TabIndex = 20;
             this.rBtn_name.TabStop = true;
-            this.rBtn_name.Text = "Groom name, bride name, representative";
+            this.rBtn_name.Text = "Groom name, Bride name, Representative";
             this.rBtn_name.UseVisualStyleBackColor = true;
             // 
             // rBtn_date
