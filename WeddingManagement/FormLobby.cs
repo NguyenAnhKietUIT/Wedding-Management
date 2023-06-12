@@ -211,7 +211,7 @@ namespace WeddingManagement
                                     }
                                 }
                                 table.Rows.Remove(table.Rows.Find(currentLobbyId));
-                                MessageBox.Show("Lobby deleted!", "SUCESS", MessageBoxButtons.OK);
+                                MessageBox.Show("Lobby has been removed!", "SUCESS", MessageBoxButtons.OK);
                             }
                         }
                     }
@@ -361,7 +361,7 @@ namespace WeddingManagement
                                 cmd.Parameters.AddWithValue("@note", noteTextBox.Text);
                                 if (cmd.ExecuteNonQuery() > 0)
                                 {
-                                    MessageBox.Show("Lobby Update!", "SUCESS", MessageBoxButtons.OK);
+                                    MessageBox.Show("The lobby has been updated!", "SUCESS", MessageBoxButtons.OK);
                                 }
                             }
                         }

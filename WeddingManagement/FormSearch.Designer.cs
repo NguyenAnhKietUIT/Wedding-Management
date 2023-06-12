@@ -82,6 +82,7 @@
             this.dataBill.RowTemplate.Height = 24;
             this.dataBill.Size = new System.Drawing.Size(600, 600);
             this.dataBill.TabIndex = 17;
+            this.dataBill.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataBill_CellDoubleClick);
             // 
             // label1
             // 

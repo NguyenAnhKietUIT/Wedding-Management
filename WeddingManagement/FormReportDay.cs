@@ -24,7 +24,7 @@ namespace WeddingManagement
             {
                 sql.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT D.ReportNo, D.Day, R.Month, R.Year, D.DayRevenue, R.RevenueTotal, " +
-                    "D.AmoutOfWedding FROM REVENUE_REPORT R, REVENUE_REPORT_DETAIL D WHERE R.ReportNo = D.ReportNo", sql))
+                    "D.AmountOfWedding FROM REVENUE_REPORT R, REVENUE_REPORT_DETAIL D WHERE R.ReportNo = D.ReportNo", sql))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {

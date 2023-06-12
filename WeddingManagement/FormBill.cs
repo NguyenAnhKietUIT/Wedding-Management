@@ -19,7 +19,7 @@ namespace WeddingManagement
             tb_total.ReadOnly = true;
 
             invoiceDTP.Enabled = false;
-
+            invoiceDTP.Value = DateTime.Now;
         }
 
         private void pay_yes_Click(object sender, EventArgs e)
@@ -47,6 +47,8 @@ namespace WeddingManagement
 
         public FormBill(string id) : this()
         {
+            invoiceDTP.Value = DateTime.Now;
+
             this.id = id;
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
@@ -99,6 +101,52 @@ namespace WeddingManagement
                         {
                             MessageBox.Show("Not found invoice");
                             this.Close();
+                        }
+                    }
+                }
+                //Load Menu and Service
+                string query_menu = "SELECT M.ItemNo, M.ItemName, TD.AmountOfItems, M.ItemPrice, " +
+                                    "(M.ItemPrice * TD.AmountOfItems) AS 'Total' " +
+                                    "FROM WEDDING W JOIN TABLE_DETAIL TD ON W.WeddingNo = TD.WeddingNo " +
+                                    "JOIN MENU M ON M.ItemNo = TD.ItemNo " +
+                                    "JOIN BILL B ON W.WeddingNo = B.WeddingNo " +
+                                    "WHERE B.BillNo = @billno;";
+                using (SqlCommand cmd_menu = new SqlCommand(query_menu, sql))
+                {
+                    cmd_menu.Parameters.AddWithValue("@billno", id);
+                    using (SqlDataReader reader = cmd_menu.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dgv_menu.Rows.Add(reader["ItemNo"].ToString(),
+                                                 reader["ItemName"].ToString(),
+                                                 Convert.ToInt32(reader["AmountOfItems"]),
+                                                 Convert.ToInt64(reader["ItemPrice"]),
+                                                 Convert.ToInt64(reader["Total"])
+                                                  );
+                        }
+                    }
+                }
+
+                string query_service = "SELECT S.ServiceNo, S.ServiceName, SD.AmountOfServices, S.ServicePrice, " +
+                                        "(S.ServicePrice * SD.AmountOfServices) AS 'Total' " +
+                                        "FROM WEDDING W JOIN SERVICE_DETAIL SD ON W.WeddingNo = SD.WeddingNo " +
+                                        "JOIN SERVICE S ON S.ServiceNo = SD.ServiceNo " +
+                                        "JOIN BILL B ON W.WeddingNo = B.WeddingNo " +
+                                        "WHERE B.BillNo = @billno;";
+                using (SqlCommand cmd_service = new SqlCommand(query_service, sql))
+                {
+                    cmd_service.Parameters.AddWithValue("@billno", id);
+                    using (SqlDataReader reader = cmd_service.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dgv_service.Rows.Add(reader["ServiceNo"].ToString(),
+                                                 reader["ServiceName"].ToString(),
+                                                 Convert.ToInt32(reader["AmountOfServices"]),
+                                                 Convert.ToInt64(reader["ServicePrice"]),
+                                                 Convert.ToInt64(reader["Total"])
+                                                  );
                         }
                     }
                 }
@@ -196,9 +244,9 @@ namespace WeddingManagement
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void label7_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

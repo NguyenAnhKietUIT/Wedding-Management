@@ -41,27 +41,19 @@ namespace WeddingManagement
             this.label_rule_fl = new System.Windows.Forms.Label();
             this.label_penalty_rate = new System.Windows.Forms.Label();
             this.paymentDTP = new System.Windows.Forms.DateTimePicker();
-            this.tb_serviceTotal = new WeddingManagement.CustomBorderTextbox();
-            this.tb_lobby_price = new WeddingManagement.CustomBorderTextbox();
-            this.tb_moneyLeft = new WeddingManagement.CustomBorderTextbox();
-            this.tb_tableTotal = new WeddingManagement.CustomBorderTextbox();
-            this.tb_penalty = new WeddingManagement.CustomBorderTextbox();
             this.rBtn_yes = new System.Windows.Forms.RadioButton();
             this.rBtn_no = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tb_representative = new WeddingManagement.CustomBorderTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbb_staff = new System.Windows.Forms.ComboBox();
-            this.tb_phone = new WeddingManagement.CustomBorderTextbox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tb_total = new WeddingManagement.CustomBorderTextbox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_menu = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgv_service = new System.Windows.Forms.DataGridView();
             this.btn_exit = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,13 +61,31 @@ namespace WeddingManagement
             this.pay_yes = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountOfItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tb_total = new WeddingManagement.CustomBorderTextbox();
+            this.tb_serviceTotal = new WeddingManagement.CustomBorderTextbox();
+            this.tb_tableTotal = new WeddingManagement.CustomBorderTextbox();
+            this.tb_lobby_price = new WeddingManagement.CustomBorderTextbox();
+            this.tb_moneyLeft = new WeddingManagement.CustomBorderTextbox();
+            this.tb_representative = new WeddingManagement.CustomBorderTextbox();
+            this.tb_phone = new WeddingManagement.CustomBorderTextbox();
+            this.tb_penalty = new WeddingManagement.CustomBorderTextbox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_menu)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
@@ -170,9 +180,9 @@ namespace WeddingManagement
             this.label_table_total_price.Location = new System.Drawing.Point(14, 50);
             this.label_table_total_price.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_table_total_price.Name = "label_table_total_price";
-            this.label_table_total_price.Size = new System.Drawing.Size(107, 24);
+            this.label_table_total_price.Size = new System.Drawing.Size(95, 24);
             this.label_table_total_price.TabIndex = 32;
-            this.label_table_total_price.Text = "Dishes Price";
+            this.label_table_total_price.Text = "Items Price";
             // 
             // label_rule_fl
             // 
@@ -207,59 +217,6 @@ namespace WeddingManagement
             this.paymentDTP.Name = "paymentDTP";
             this.paymentDTP.Size = new System.Drawing.Size(212, 34);
             this.paymentDTP.TabIndex = 35;
-            // 
-            // tb_serviceTotal
-            // 
-            this.tb_serviceTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_serviceTotal.Location = new System.Drawing.Point(141, 111);
-            this.tb_serviceTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_serviceTotal.Name = "tb_serviceTotal";
-            this.tb_serviceTotal.ReadOnly = true;
-            this.tb_serviceTotal.Size = new System.Drawing.Size(233, 34);
-            this.tb_serviceTotal.TabIndex = 27;
-            this.tb_serviceTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tb_lobby_price
-            // 
-            this.tb_lobby_price.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_lobby_price.Location = new System.Drawing.Point(141, 167);
-            this.tb_lobby_price.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_lobby_price.Name = "tb_lobby_price";
-            this.tb_lobby_price.ReadOnly = true;
-            this.tb_lobby_price.Size = new System.Drawing.Size(233, 34);
-            this.tb_lobby_price.TabIndex = 33;
-            this.tb_lobby_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tb_moneyLeft
-            // 
-            this.tb_moneyLeft.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_moneyLeft.Location = new System.Drawing.Point(519, 167);
-            this.tb_moneyLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_moneyLeft.Name = "tb_moneyLeft";
-            this.tb_moneyLeft.ReadOnly = true;
-            this.tb_moneyLeft.Size = new System.Drawing.Size(210, 34);
-            this.tb_moneyLeft.TabIndex = 25;
-            // 
-            // tb_tableTotal
-            // 
-            this.tb_tableTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_tableTotal.Location = new System.Drawing.Point(141, 47);
-            this.tb_tableTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_tableTotal.Name = "tb_tableTotal";
-            this.tb_tableTotal.ReadOnly = true;
-            this.tb_tableTotal.Size = new System.Drawing.Size(233, 34);
-            this.tb_tableTotal.TabIndex = 24;
-            this.tb_tableTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tb_penalty
-            // 
-            this.tb_penalty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_penalty.Location = new System.Drawing.Point(1006, 373);
-            this.tb_penalty.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_penalty.Name = "tb_penalty";
-            this.tb_penalty.ReadOnly = true;
-            this.tb_penalty.Size = new System.Drawing.Size(177, 34);
-            this.tb_penalty.TabIndex = 23;
             // 
             // rBtn_yes
             // 
@@ -304,16 +261,6 @@ namespace WeddingManagement
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
-            // tb_representative
-            // 
-            this.tb_representative.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_representative.Location = new System.Drawing.Point(149, 111);
-            this.tb_representative.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_representative.Name = "tb_representative";
-            this.tb_representative.ReadOnly = true;
-            this.tb_representative.Size = new System.Drawing.Size(271, 34);
-            this.tb_representative.TabIndex = 51;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -335,17 +282,6 @@ namespace WeddingManagement
             this.cbb_staff.Name = "cbb_staff";
             this.cbb_staff.Size = new System.Drawing.Size(271, 36);
             this.cbb_staff.TabIndex = 49;
-            this.cbb_staff.Visible = false;
-            // 
-            // tb_phone
-            // 
-            this.tb_phone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_phone.Location = new System.Drawing.Point(149, 175);
-            this.tb_phone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_phone.Name = "tb_phone";
-            this.tb_phone.ReadOnly = true;
-            this.tb_phone.Size = new System.Drawing.Size(271, 34);
-            this.tb_phone.TabIndex = 48;
             // 
             // label2
             // 
@@ -370,7 +306,6 @@ namespace WeddingManagement
             this.label1.Size = new System.Drawing.Size(76, 24);
             this.label1.TabIndex = 46;
             this.label1.Text = "Made by";
-            this.label1.Visible = false;
             // 
             // groupBox2
             // 
@@ -395,16 +330,6 @@ namespace WeddingManagement
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Payment";
             // 
-            // tb_total
-            // 
-            this.tb_total.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_total.Location = new System.Drawing.Point(519, 47);
-            this.tb_total.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_total.Name = "tb_total";
-            this.tb_total.ReadOnly = true;
-            this.tb_total.Size = new System.Drawing.Size(212, 34);
-            this.tb_total.TabIndex = 66;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -419,7 +344,7 @@ namespace WeddingManagement
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dgv_menu);
             this.groupBox3.Location = new System.Drawing.Point(15, 338);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
@@ -427,22 +352,28 @@ namespace WeddingManagement
             this.groupBox3.Size = new System.Drawing.Size(421, 280);
             this.groupBox3.TabIndex = 62;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Dishes";
+            this.groupBox3.Text = "Menu";
             // 
-            // dataGridView1
+            // dgv_menu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 32);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(414, 240);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_menu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_menu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemNo,
+            this.ItemName,
+            this.AmountOfItems,
+            this.ItemPrice,
+            this.dataGridViewTextBoxColumn1});
+            this.dgv_menu.Location = new System.Drawing.Point(6, 32);
+            this.dgv_menu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgv_menu.Name = "dgv_menu";
+            this.dgv_menu.RowHeadersWidth = 51;
+            this.dgv_menu.RowTemplate.Height = 24;
+            this.dgv_menu.Size = new System.Drawing.Size(414, 240);
+            this.dgv_menu.TabIndex = 0;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridView2);
+            this.groupBox4.Controls.Add(this.dgv_service);
             this.groupBox4.Location = new System.Drawing.Point(454, 338);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox4.Name = "groupBox4";
@@ -452,16 +383,22 @@ namespace WeddingManagement
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Service";
             // 
-            // dataGridView2
+            // dgv_service
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 32);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(414, 240);
-            this.dataGridView2.TabIndex = 0;
+            this.dgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ServiceNo,
+            this.ServiceName,
+            this.AmountOfService,
+            this.ServicePrice,
+            this.Total});
+            this.dgv_service.Location = new System.Drawing.Point(6, 32);
+            this.dgv_service.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgv_service.Name = "dgv_service";
+            this.dgv_service.RowHeadersWidth = 51;
+            this.dgv_service.RowTemplate.Height = 24;
+            this.dgv_service.Size = new System.Drawing.Size(414, 240);
+            this.dgv_service.TabIndex = 0;
             // 
             // btn_exit
             // 
@@ -553,19 +490,173 @@ namespace WeddingManagement
             this.groupBox6.TabIndex = 70;
             this.groupBox6.TabStop = false;
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Gray;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(1191, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 27);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "X";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Gray;
+            this.label7.Font = new System.Drawing.Font("Copperplate Gothic Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label7.Location = new System.Drawing.Point(1189, -1);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 25);
+            this.label7.TabIndex = 72;
+            this.label7.Text = "X";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // ItemNo
+            // 
+            this.ItemNo.HeaderText = "ItemNo";
+            this.ItemNo.MinimumWidth = 6;
+            this.ItemNo.Name = "ItemNo";
+            this.ItemNo.Visible = false;
+            this.ItemNo.Width = 125;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "Name";
+            this.ItemName.MinimumWidth = 6;
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Width = 125;
+            // 
+            // AmountOfItems
+            // 
+            this.AmountOfItems.HeaderText = "Amount";
+            this.AmountOfItems.MinimumWidth = 6;
+            this.AmountOfItems.Name = "AmountOfItems";
+            this.AmountOfItems.Width = 125;
+            // 
+            // ItemPrice
+            // 
+            this.ItemPrice.HeaderText = "Price";
+            this.ItemPrice.MinimumWidth = 6;
+            this.ItemPrice.Name = "ItemPrice";
+            this.ItemPrice.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // ServiceNo
+            // 
+            this.ServiceNo.HeaderText = "ServiceNo";
+            this.ServiceNo.MinimumWidth = 6;
+            this.ServiceNo.Name = "ServiceNo";
+            this.ServiceNo.Visible = false;
+            this.ServiceNo.Width = 125;
+            // 
+            // ServiceName
+            // 
+            this.ServiceName.HeaderText = "Name";
+            this.ServiceName.MinimumWidth = 6;
+            this.ServiceName.Name = "ServiceName";
+            this.ServiceName.Width = 125;
+            // 
+            // AmountOfService
+            // 
+            this.AmountOfService.HeaderText = "Amount";
+            this.AmountOfService.MinimumWidth = 6;
+            this.AmountOfService.Name = "AmountOfService";
+            this.AmountOfService.Width = 125;
+            // 
+            // ServicePrice
+            // 
+            this.ServicePrice.HeaderText = "Price";
+            this.ServicePrice.MinimumWidth = 6;
+            this.ServicePrice.Name = "ServicePrice";
+            this.ServicePrice.Width = 125;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.Width = 125;
+            // 
+            // tb_total
+            // 
+            this.tb_total.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_total.Location = new System.Drawing.Point(519, 47);
+            this.tb_total.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tb_total.Name = "tb_total";
+            this.tb_total.ReadOnly = true;
+            this.tb_total.Size = new System.Drawing.Size(212, 34);
+            this.tb_total.TabIndex = 66;
+            // 
+            // tb_serviceTotal
+            // 
+            this.tb_serviceTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_serviceTotal.Location = new System.Drawing.Point(141, 111);
+            this.tb_serviceTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tb_serviceTotal.Name = "tb_serviceTotal";
+            this.tb_serviceTotal.ReadOnly = true;
+            this.tb_serviceTotal.Size = new System.Drawing.Size(233, 34);
+            this.tb_serviceTotal.TabIndex = 27;
+            this.tb_serviceTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_tableTotal
+            // 
+            this.tb_tableTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_tableTotal.Location = new System.Drawing.Point(141, 47);
+            this.tb_tableTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tb_tableTotal.Name = "tb_tableTotal";
+            this.tb_tableTotal.ReadOnly = true;
+            this.tb_tableTotal.Size = new System.Drawing.Size(233, 34);
+            this.tb_tableTotal.TabIndex = 24;
+            this.tb_tableTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_lobby_price
+            // 
+            this.tb_lobby_price.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_lobby_price.Location = new System.Drawing.Point(141, 167);
+            this.tb_lobby_price.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tb_lobby_price.Name = "tb_lobby_price";
+            this.tb_lobby_price.ReadOnly = true;
+            this.tb_lobby_price.Size = new System.Drawing.Size(233, 34);
+            this.tb_lobby_price.TabIndex = 33;
+            this.tb_lobby_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_moneyLeft
+            // 
+            this.tb_moneyLeft.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_moneyLeft.Location = new System.Drawing.Point(519, 167);
+            this.tb_moneyLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tb_moneyLeft.Name = "tb_moneyLeft";
+            this.tb_moneyLeft.ReadOnly = true;
+            this.tb_moneyLeft.Size = new System.Drawing.Size(210, 34);
+            this.tb_moneyLeft.TabIndex = 25;
+            // 
+            // tb_representative
+            // 
+            this.tb_representative.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_representative.Location = new System.Drawing.Point(149, 111);
+            this.tb_representative.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tb_representative.Name = "tb_representative";
+            this.tb_representative.ReadOnly = true;
+            this.tb_representative.Size = new System.Drawing.Size(271, 34);
+            this.tb_representative.TabIndex = 51;
+            // 
+            // tb_phone
+            // 
+            this.tb_phone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_phone.Location = new System.Drawing.Point(149, 175);
+            this.tb_phone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tb_phone.Name = "tb_phone";
+            this.tb_phone.ReadOnly = true;
+            this.tb_phone.Size = new System.Drawing.Size(271, 34);
+            this.tb_phone.TabIndex = 48;
+            // 
+            // tb_penalty
+            // 
+            this.tb_penalty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_penalty.Location = new System.Drawing.Point(1006, 373);
+            this.tb_penalty.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tb_penalty.Name = "tb_penalty";
+            this.tb_penalty.ReadOnly = true;
+            this.tb_penalty.Size = new System.Drawing.Size(177, 34);
+            this.tb_penalty.TabIndex = 23;
             // 
             // FormBill
             // 
@@ -573,7 +664,7 @@ namespace WeddingManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1216, 630);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label5);
@@ -600,9 +691,9 @@ namespace WeddingManagement
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_menu)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -640,9 +731,9 @@ namespace WeddingManagement
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_menu;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgv_service;
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Button btn_save;
         private CustomBorderTextbox tb_total;
@@ -652,6 +743,16 @@ namespace WeddingManagement
         private System.Windows.Forms.RadioButton pay_yes;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountOfItems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountOfService;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServicePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

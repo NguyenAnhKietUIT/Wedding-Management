@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_shift = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbEnd = new System.Windows.Forms.TextBox();
             this.tbStart = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,14 +46,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightBlue;
+            this.panel1.Controls.Add(this.cb_shift);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnUpdate);
-            this.panel1.Controls.Add(this.btnRemove);
+            this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.tbEnd);
             this.panel1.Controls.Add(this.tbStart);
-            this.panel1.Controls.Add(this.tbName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(506, 119);
             this.panel1.MaximumSize = new System.Drawing.Size(2000, 2000);
@@ -64,6 +64,18 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
+            // cb_shift
+            // 
+            this.cb_shift.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_shift.FormattingEnabled = true;
+            this.cb_shift.Items.AddRange(new object[] {
+            "Trưa",
+            "Tối"});
+            this.cb_shift.Location = new System.Drawing.Point(132, 11);
+            this.cb_shift.Name = "cb_shift";
+            this.cb_shift.Size = new System.Drawing.Size(194, 36);
+            this.cb_shift.TabIndex = 20;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -71,20 +83,20 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(17, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 24);
+            this.label3.Size = new System.Drawing.Size(76, 24);
             this.label3.TabIndex = 19;
-            this.label3.Text = "End at";
+            this.label3.Text = "End at(*)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(16, 74);
+            this.label2.Location = new System.Drawing.Point(17, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 24);
+            this.label2.Size = new System.Drawing.Size(81, 24);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Start at";
+            this.label2.Text = "Start at(*)";
             // 
             // btnUpdate
             // 
@@ -99,18 +111,18 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnRemove
+            // btnDelete
             // 
-            this.btnRemove.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnRemove.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(237, 185);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(89, 33);
-            this.btnRemove.TabIndex = 13;
-            this.btnRemove.Text = "DELETE";
-            this.btnRemove.UseVisualStyleBackColor = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnDelete.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnDelete.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(237, 185);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(89, 33);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -140,14 +152,6 @@
             this.tbStart.Name = "tbStart";
             this.tbStart.Size = new System.Drawing.Size(194, 34);
             this.tbStart.TabIndex = 6;
-            // 
-            // tbName
-            // 
-            this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(132, 15);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(194, 34);
-            this.tbName.TabIndex = 5;
             // 
             // label1
             // 
@@ -209,14 +213,14 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbEnd;
         private System.Windows.Forms.TextBox tbStart;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cb_shift;
     }
 }

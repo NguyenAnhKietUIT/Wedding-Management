@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.RegularExpressions;
 
 namespace WeddingManagement
 {
@@ -64,39 +66,51 @@ namespace WeddingManagement
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                if (tb_password.Text == "")
+                string inputText = tb_iden.Text;
+                Regex regex = new Regex("^[0-9]+$");
+
+                if (regex.IsMatch(inputText))
                 {
-                    using (SqlCommand cmd = new SqlCommand("UPDATE ACCOUNT SET Username = @username, Name = @name, Priority = @priority, " +
-                        "Identification = @identification WHERE AccountNo = @accountno", sql))
+                    if (tb_password.Text == "")
                     {
-                        cmd.Parameters.AddWithValue("@accountno", selectedId);
-                        cmd.Parameters.AddWithValue("@username", tb_username.Text);
-                        cmd.Parameters.AddWithValue("@name", tb_name.Text);
-                        cmd.Parameters.AddWithValue("@priority", cbb_level.SelectedIndex + 1 + WeddingClient.client_priority);
-                        cmd.Parameters.AddWithValue("@identification", tb_iden.Text);
-                        if (cmd.ExecuteNonQuery() > 0)
+                        using (SqlCommand cmd = new SqlCommand("UPDATE ACCOUNT SET Username = @username, Name = @name, Priority = @priority, " +
+                            "Identification = @identification WHERE AccountNo = @accountno", sql))
                         {
-                            reset = true;
+                            cmd.Parameters.AddWithValue("@accountno", selectedId);
+                            cmd.Parameters.AddWithValue("@username", tb_username.Text);
+                            cmd.Parameters.AddWithValue("@name", tb_name.Text);
+                            cmd.Parameters.AddWithValue("@priority", cbb_level.SelectedIndex + 1 + WeddingClient.client_priority);
+                            cmd.Parameters.AddWithValue("@identification", tb_iden.Text);
+                            if (cmd.ExecuteNonQuery() > 0)
+                            {
+                                reset = true;
+                            }
                         }
                     }
-                }
-                else
-                {
-                    using (SqlCommand cmd = new SqlCommand("UPDATE ACCOUNT SET Username = @username, Name = @name, Priority = @priority, " +
-                        "Identification = @identification, Password = @password WHERE AccountNo = @accountno", sql))
+                    else
                     {
-                        cmd.Parameters.AddWithValue("@accountno", selectedId);
-                        cmd.Parameters.AddWithValue("@username", tb_username.Text);
-                        cmd.Parameters.AddWithValue("@name", tb_name.Text);
-                        cmd.Parameters.AddWithValue("@priority", cbb_level.SelectedIndex + 1 + WeddingClient.client_priority);
-                        cmd.Parameters.AddWithValue("@identification", tb_iden.Text);
-                        cmd.Parameters.AddWithValue("@password", CryptSharp.Crypter.Blowfish.Crypt(tb_password.Text));
-                        if (cmd.ExecuteNonQuery() > 0)
+                        using (SqlCommand cmd = new SqlCommand("UPDATE ACCOUNT SET Username = @username, Name = @name, Priority = @priority, " +
+                            "Identification = @identification, Password = @password WHERE AccountNo = @accountno", sql))
                         {
-                            reset = true;
+                            cmd.Parameters.AddWithValue("@accountno", selectedId);
+                            cmd.Parameters.AddWithValue("@username", tb_username.Text);
+                            cmd.Parameters.AddWithValue("@name", tb_name.Text);
+                            cmd.Parameters.AddWithValue("@priority", cbb_level.SelectedIndex + 1 + WeddingClient.client_priority);
+                            cmd.Parameters.AddWithValue("@identification", tb_iden.Text);
+                            cmd.Parameters.AddWithValue("@password", CryptSharp.Crypter.Blowfish.Crypt(tb_password.Text));
+                            if (cmd.ExecuteNonQuery() > 0)
+                            {
+                                reset = true;
+                            }
                         }
                     }
+                } else
+                {
+                    MessageBox.Show("Identification must not contain letter!!!");
+                    return;
                 }
+
+                
             }
             if (reset)
             {
@@ -105,50 +119,98 @@ namespace WeddingManagement
         }
         private void btn_add_account_Click(object sender, EventArgs e)
         {
-            if (tb_username.Text == "") return;
-            using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            if (tb_username.Text == "")
             {
-                sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM ACCOUNT WHERE " +
-                    "Username = @username", sql))
+                MessageBox.Show("Username is not empty!!!");
+                return;
+            }
+
+            if (tb_password.Text == "")
+            {
+                MessageBox.Show("Password is not empty!!!");
+                return;
+            }
+
+            if (tb_name.Text == "")
+            {
+                MessageBox.Show("Name is not empty!!!");
+                return;
+            }
+
+            if (tb_iden.Text == "")
+            {
+                MessageBox.Show("Identification is not empty!!!");
+                return;
+            }
+
+            string inputText = tb_iden.Text;
+            Regex regex = new Regex("^[0-9]+$");
+
+            if (regex.IsMatch(inputText))
+            {
+                using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
                 {
-                    cmd.Parameters.AddWithValue("@username", tb_username.Text);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    sql.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM ACCOUNT WHERE " +
+                        "Username = @username", sql))
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@username", tb_username.Text);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("Username already exists!");
-                            return;
+                            if (reader.Read())
+                            {
+                                MessageBox.Show("Username already exists!");
+                                return;
+                            }
+                        }
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM ACCOUNT WHERE " +
+                        "Identification = @identification", sql))
+                    {
+                        cmd.Parameters.AddWithValue("@identification", tb_iden.Text);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                MessageBox.Show("identification already exists!");
+                                return;
+                            }
+                        }
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ACCOUNT (AccountNo, Username, " +
+                        "Name, Password, Priority, Identification) VALUES (@accountno, @username, @name, " +
+                        "@password, @priority, @identification)", sql))
+                    {
+                        long newId = WeddingClient.GetNewACCOUNTSId();
+                        string newPass = tb_password.Text == "" ? CryptSharp.Crypter.Blowfish.Crypt("123") :
+                            CryptSharp.Crypter.Blowfish.Crypt(tb_password.Text);
+                        cmd.Parameters.AddWithValue("@accountno", newId);
+                        cmd.Parameters.AddWithValue("@username", tb_username.Text);
+                        cmd.Parameters.AddWithValue("@name", tb_name.Text);
+                        cmd.Parameters.AddWithValue("@identification", tb_iden.Text);
+                        cmd.Parameters.AddWithValue("@password", newPass);
+                        cmd.Parameters.AddWithValue("@priority", WeddingClient.client_priority + cbb_level.SelectedIndex + 1);
+                        if (cmd.ExecuteNonQuery() > 0)
+                        {
+                            DataRow row = table.NewRow();
+                            row["AccountNo"] = newId;
+                            row["Username"] = tb_username.Text;
+                            row["Name"] = tb_name.Text;
+                            row["Identification"] = tb_iden.Text;
+                            row["Password"] = newPass;
+                            row["Priority"] = cbb_level.SelectedIndex + 1 + WeddingClient.client_priority;
+                            table.Rows.Add(row);
+                            gv_act.DataSource = table;
+                            MessageBox.Show("Account created!");
                         }
                     }
                 }
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO ACCOUNT (AccountNo, Username, " +
-                    "Name, Password, Priority, Identification) VALUES (@accountno, @username, @name, " +
-                    "@password, @priority, @identification)", sql))
-                {
-                    long newId = WeddingClient.GetNewACCOUNTSId();
-                    string newPass = tb_password.Text == "" ? CryptSharp.Crypter.Blowfish.Crypt("123") : 
-                        CryptSharp.Crypter.Blowfish.Crypt(tb_password.Text);
-                    cmd.Parameters.AddWithValue("@accountno", newId);
-                    cmd.Parameters.AddWithValue("@username", tb_username.Text);
-                    cmd.Parameters.AddWithValue("@name", tb_name.Text);
-                    cmd.Parameters.AddWithValue("@identification", tb_iden.Text);
-                    cmd.Parameters.AddWithValue("@password", newPass);
-                    cmd.Parameters.AddWithValue("@priority", WeddingClient.client_priority + cbb_level.SelectedIndex + 1);
-                    if (cmd.ExecuteNonQuery() > 0)
-                    {
-                        DataRow row = table.NewRow();
-                        row["AccountNo"] = newId;
-                        row["Username"] = tb_username.Text;
-                        row["Name"] = tb_name.Text;
-                        row["Identification"] = tb_iden.Text;
-                        row["Password"] = newPass;
-                        row["Priority"] = cbb_level.SelectedIndex + 1 + WeddingClient.client_priority;
-                        table.Rows.Add(row);
-                        gv_act.DataSource = table;
-                        MessageBox.Show("Account created!");
-                    }
-                }
+            } else
+            {
+                MessageBox.Show("Identification must not contain letter!!!");
+                return;
             }
         }
         private void btn_delete_account_Click(object sender, EventArgs e)

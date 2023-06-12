@@ -111,9 +111,9 @@
             this.name.ForeColor = System.Drawing.Color.Black;
             this.name.Location = new System.Drawing.Point(633, 197);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(54, 24);
+            this.name.Size = new System.Drawing.Size(70, 24);
             this.name.TabIndex = 85;
-            this.name.Text = "Name";
+            this.name.Text = "Name(*)";
             // 
             // Password
             // 
@@ -122,9 +122,9 @@
             this.Password.ForeColor = System.Drawing.Color.Black;
             this.Password.Location = new System.Drawing.Point(633, 131);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(87, 24);
+            this.Password.Size = new System.Drawing.Size(103, 24);
             this.Password.TabIndex = 83;
-            this.Password.Text = "Password";
+            this.Password.Text = "Password(*)";
             // 
             // username
             // 
@@ -133,9 +133,9 @@
             this.username.ForeColor = System.Drawing.Color.Black;
             this.username.Location = new System.Drawing.Point(632, 65);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(88, 24);
+            this.username.Size = new System.Drawing.Size(104, 24);
             this.username.TabIndex = 81;
-            this.username.Text = "Username";
+            this.username.Text = "Username(*)";
             // 
             // label
             // 
@@ -170,9 +170,9 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(633, 262);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 24);
+            this.label1.Size = new System.Drawing.Size(124, 24);
             this.label1.TabIndex = 92;
-            this.label1.Text = "Identification";
+            this.label1.Text = "Identification(*)";
             // 
             // label2
             // 
@@ -193,10 +193,10 @@
             "Director",
             "Manager",
             "Staff"});
-            this.cbb_level.Location = new System.Drawing.Point(761, 324);
+            this.cbb_level.Location = new System.Drawing.Point(784, 324);
             this.cbb_level.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_level.Name = "cbb_level";
-            this.cbb_level.Size = new System.Drawing.Size(235, 36);
+            this.cbb_level.Size = new System.Drawing.Size(212, 36);
             this.cbb_level.TabIndex = 4;
             // 
             // btn_search
@@ -230,38 +230,38 @@
             // tb_iden
             // 
             this.tb_iden.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_iden.Location = new System.Drawing.Point(761, 259);
+            this.tb_iden.Location = new System.Drawing.Point(784, 259);
             this.tb_iden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_iden.Name = "tb_iden";
-            this.tb_iden.Size = new System.Drawing.Size(235, 34);
+            this.tb_iden.Size = new System.Drawing.Size(212, 34);
             this.tb_iden.TabIndex = 3;
             // 
             // tb_name
             // 
             this.tb_name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_name.Location = new System.Drawing.Point(761, 194);
+            this.tb_name.Location = new System.Drawing.Point(784, 194);
             this.tb_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_name.Name = "tb_name";
-            this.tb_name.Size = new System.Drawing.Size(235, 34);
+            this.tb_name.Size = new System.Drawing.Size(212, 34);
             this.tb_name.TabIndex = 2;
             // 
             // tb_password
             // 
             this.tb_password.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_password.Location = new System.Drawing.Point(761, 128);
+            this.tb_password.Location = new System.Drawing.Point(784, 128);
             this.tb_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_password.Name = "tb_password";
             this.tb_password.PasswordChar = '*';
-            this.tb_password.Size = new System.Drawing.Size(235, 34);
+            this.tb_password.Size = new System.Drawing.Size(212, 34);
             this.tb_password.TabIndex = 1;
             // 
             // tb_username
             // 
             this.tb_username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_username.Location = new System.Drawing.Point(761, 62);
+            this.tb_username.Location = new System.Drawing.Point(784, 62);
             this.tb_username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_username.Name = "tb_username";
-            this.tb_username.Size = new System.Drawing.Size(235, 34);
+            this.tb_username.Size = new System.Drawing.Size(212, 34);
             this.tb_username.TabIndex = 0;
             // 
             // FormAccount

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace WeddingManagement
 {
@@ -15,6 +16,9 @@ namespace WeddingManagement
         {
             InitializeComponent();
             onclick = ShiftClick;
+            cb_shift.SelectedIndex = 0;
+            tbStart.Text = "00:00:00";
+            tbEnd.Text = "00:00:00";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -27,95 +31,62 @@ namespace WeddingManagement
             else
             {
 
-                if (this.tbEnd.Text == "" || this.tbName.Text == "" || this.tbStart.Text == "")
+                if (this.tbEnd.Text == "" || cb_shift.SelectedItem.ToString() == "" || this.tbStart.Text == "")
                 {
                     MessageBox.Show("Please fill all the fields!", "LACK", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    UCShift s = new UCShift();
-                    s._lbName = this.tbName.Text;
-                    s._lbStart = this.tbStart.Text;
-                    s._lbEnd = this.tbEnd.Text;
-                    using (var sql = new SqlConnection(WeddingClient.sqlConnectionString))
+                    if (DateTime.TryParseExact(tbStart.Text, "HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, 
+                        out DateTime result) && 
+                        DateTime.TryParseExact(tbEnd.Text, "HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                        out DateTime result2))
                     {
-                        sql.Open();
-                        using (SqlCommand command = new SqlCommand("insert into Shift values (@ShiftNo, @Available, @Name, " +
-                            "@Start, @End)", sql))
-                        {
-                            string id = "SH" + WeddingClient.GetNewIdFromTable("SH").ToString().PadLeft(19, '0');
-                            s._id = id;
-                            command.Parameters.AddWithValue("@ShiftNo", id);
-                            command.Parameters.AddWithValue("@Available", 1);
-                            command.Parameters.AddWithValue("@Name", s._lbName);
-                            command.Parameters.AddWithValue("@Start", s._lbStart);
-                            command.Parameters.AddWithValue("@End", s._lbEnd);
+                        DateTime dateTime1 = DateTime.ParseExact(tbStart.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
+                        DateTime dateTime2 = DateTime.ParseExact(tbEnd.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
 
-                            if (command.ExecuteNonQuery() > 0)
+                        if (dateTime1 < dateTime2)
+                        {
+                            UCShift s = new UCShift();
+                            s._lbName = cb_shift.SelectedItem.ToString();
+                            s._lbStart = this.tbStart.Text;
+                            s._lbEnd = this.tbEnd.Text;
+                            using (var sql = new SqlConnection(WeddingClient.sqlConnectionString))
                             {
-                                this.flowLayoutPanel1.Controls.Add(s);
-                                tbEnd.Text = "";
-                                tbName.Text = "";
-                                tbStart.Text = "";
-                            }
-                            MessageBox.Show("Add new shift successfully!", "SUCCESS", MessageBoxButtons.OK);
-                        }
-                    }
-                }
-            }
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (WeddingClient.client_priority > 2)
-            {
-                MessageBox.Show("You don't have permission to do this!", "NOT PERMIT", MessageBoxButtons.OK);
-                return;
-            }
-            else
-            {
-                int count = 0;
-                UCShift selectedShift = new UCShift();
-                UCShift pre = new UCShift();
-                foreach (var s in this.flowLayoutPanel1.Controls)
-                {
-                    selectedShift = s as UCShift;
-                    if (selectedShift != null)
-                    {
-
-                        if (selectedShift._btnCheck == true)
-                        {
-                            pre = selectedShift;
-                            count++;
-                        }
-                    }
-                    if (count > 1)
-                    {
-                        MessageBox.Show("Just choose 1 object", "ERROR", MessageBoxButtons.OK);
-                        break;
-                    }
-                }
-                if (count == 1)
-                {
-                    using (var sql = new SqlConnection(WeddingClient.sqlConnectionString))
-                    {
-                        sql.Open();
-                        using (SqlCommand command = new SqlCommand("delete from Shift where ShiftNo = @id", sql))
-                        {
-                            command.Parameters.AddWithValue("@id", pre._id);
-                            if (command.ExecuteNonQuery() > 0)
-                            {
-                                foreach (var s in this.flowLayoutPanel1.Controls)
+                                sql.Open();
+                                using (SqlCommand command = new SqlCommand("insert into Shift values (@ShiftNo, @Available, @Name, " +
+                                    "@Start, @End)", sql))
                                 {
-                                    if ((s as UCShift)._id == pre._id)
+                                    string id = "SH" + WeddingClient.GetNewIdFromTable("SH").ToString().PadLeft(19, '0');
+                                    s._id = id;
+                                    command.Parameters.AddWithValue("@ShiftNo", id);
+                                    command.Parameters.AddWithValue("@Available", 1);
+                                    command.Parameters.AddWithValue("@Name", s._lbName);
+                                    command.Parameters.AddWithValue("@Start", s._lbStart);
+                                    command.Parameters.AddWithValue("@End", s._lbEnd);
+
+                                    if (command.ExecuteNonQuery() > 0)
                                     {
-                                        this.flowLayoutPanel1.Controls.Remove(s as Control);
-                                        MessageBox.Show("Delete shift successfully!", "SUCCESS", MessageBoxButtons.OK);
-                                        break;
+                                        flowLayoutPanel1.Controls.Add(s);
+                                        tbEnd.Text = "";
+                                        cb_shift.Text = "";
+                                        tbStart.Text = "";
                                     }
+                                    MessageBox.Show("Add new shift successfully!", "SUCCESS", MessageBoxButtons.OK);
+                                    cb_shift.SelectedIndex = 0;
                                 }
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("Start time must earlier than end time!!!", "FAIL", MessageBoxButtons.OK);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Start time or End time must have format 00:00:00!!!");
+                        return;
                     }
                 }
             }
@@ -137,7 +108,7 @@ namespace WeddingManagement
                             shift._lbName = reader["ShiftName"].ToString();
                             shift._lbStart = reader["Starting"].ToString();
                             shift._lbEnd = reader["Ending"].ToString();
-                            shift._lbStatus = reader["Available"].ToString() == "1" ? "Trống" : "Đã được đặt";
+                            shift._lbStatus = reader["Available"].ToString() == "1" ? "Empty" : "Available";
                             shift._id = reader["ShiftNo"].ToString();
                             this.flowLayoutPanel1.Controls.Add(shift);
                         }
@@ -165,73 +136,96 @@ namespace WeddingManagement
             }
             else
             {
-                if (this.tbEnd.Text == "" || this.tbName.Text == "" || this.tbStart.Text == "")
+                if (this.tbEnd.Text == "" || cb_shift.SelectedItem.ToString() == "" || this.tbStart.Text == "")
                 {
                     MessageBox.Show("Please fill all the fields!", "LACK", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    int count = 0;
-                    UCShift selectedShift = new UCShift();
-                    UCShift pre = new UCShift();
-                    foreach (var s in this.flowLayoutPanel1.Controls)
+                    if (DateTime.TryParseExact(tbStart.Text, "HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                        out DateTime result) &&
+                        DateTime.TryParseExact(tbEnd.Text, "HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                        out DateTime result2))
                     {
-                        selectedShift = s as UCShift;
-                        if (selectedShift != null)
-                        {
+                        DateTime dateTime1 = DateTime.ParseExact(tbStart.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
+                        DateTime dateTime2 = DateTime.ParseExact(tbEnd.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
 
-                            if (selectedShift._btnCheck == true)
-                            {
-                                pre = selectedShift;
-                                count++;
-                            }
-                        }
-                        if (count > 1)
+                        if (dateTime1 < dateTime2)
                         {
-                            MessageBox.Show("Just choose 1 object", "ERROR", MessageBoxButtons.OK);
-                            break;
-                        }
-                    }
-                    if (count == 1)
-                    {
-                        using (var sql = new SqlConnection(WeddingClient.sqlConnectionString))
-                        {
-                            sql.Open();
-                            using (SqlCommand command = new SqlCommand("update Shift Set Available = @avl, " +
-                                "ShiftName = @name, Starting = @start, Ending = @end where ShiftNo = @id", sql))
+                            int count = 0;
+                            UCShift selectedShift = new UCShift();
+                            UCShift pre = new UCShift();
+                            foreach (var s in this.flowLayoutPanel1.Controls)
                             {
-                                command.Parameters.AddWithValue("@id", pre._id);
-                                command.Parameters.AddWithValue("@start", tbStart.Text);
-                                command.Parameters.AddWithValue("@end", tbEnd.Text);
-                                command.Parameters.AddWithValue("@avl", 1);
-                                command.Parameters.AddWithValue("@name", tbName.Text);
-                                if (command.ExecuteNonQuery() > 0)
+                                selectedShift = s as UCShift;
+                                if (selectedShift != null)
                                 {
-                                    this.flowLayoutPanel1.Controls.Clear();
-                                    using (SqlCommand command1 = new SqlCommand("select * from Shift where Available > 0", sql))
+
+                                    if (selectedShift._btnCheck == true)
                                     {
-                                        using (SqlDataReader reader = command1.ExecuteReader())
+                                        pre = selectedShift;
+                                        count++;
+                                    }
+                                }
+                                if (count > 1)
+                                {
+                                    MessageBox.Show("Just choose 1 object", "ERROR", MessageBoxButtons.OK);
+                                    break;
+                                }
+                            }
+                            if (count == 1)
+                            {
+                                using (var sql = new SqlConnection(WeddingClient.sqlConnectionString))
+                                {
+                                    sql.Open();
+                                    using (SqlCommand command = new SqlCommand("update Shift Set Available = @avl, " +
+                                        "ShiftName = @name, Starting = @start, Ending = @end where ShiftNo = @id", sql))
+                                    {
+                                        command.Parameters.AddWithValue("@id", pre._id);
+                                        command.Parameters.AddWithValue("@start", tbStart.Text);
+                                        command.Parameters.AddWithValue("@end", tbEnd.Text);
+                                        command.Parameters.AddWithValue("@avl", 1);
+                                        command.Parameters.AddWithValue("@name", cb_shift.Text);
+                                        if (command.ExecuteNonQuery() > 0)
                                         {
-                                            while (reader.Read())
+                                            this.flowLayoutPanel1.Controls.Clear();
+                                            using (SqlCommand command1 = new SqlCommand("select * from Shift where Available > 0", sql))
                                             {
-                                                UCShift shift = new UCShift();
-                                                shift._lbName = reader["ShiftName"].ToString();
-                                                shift._lbStart = reader["Starting"].ToString();
-                                                shift._lbEnd = reader["Ending"].ToString();
-                                                shift._lbStatus = reader["available"].ToString() == "1" ? "Trống" : "Đã được đặt";
-                                                shift._id = reader["ShiftNo"].ToString();
-                                                this.flowLayoutPanel1.Controls.Add(shift);
+                                                using (SqlDataReader reader = command1.ExecuteReader())
+                                                {
+                                                    while (reader.Read())
+                                                    {
+                                                        UCShift shift = new UCShift();
+                                                        shift._lbName = reader["ShiftName"].ToString();
+                                                        shift._lbStart = reader["Starting"].ToString();
+                                                        shift._lbEnd = reader["Ending"].ToString();
+                                                        shift._lbStatus = reader["available"].ToString() == "1" ? "Trống" : "Đã được đặt";
+                                                        shift._id = reader["ShiftNo"].ToString();
+                                                        this.flowLayoutPanel1.Controls.Add(shift);
+                                                    }
+                                                }
                                             }
+                                            tbEnd.Text = "";
+                                            cb_shift.Text = "";
+                                            tbStart.Text = "";
+                                            MessageBox.Show("Update shift successfully", "SUCCESS", MessageBoxButtons.OK);
                                         }
                                     }
-                                    tbEnd.Text = "";
-                                    tbName.Text = "";
-                                    tbStart.Text = "";
-                                    MessageBox.Show("Update shift successfully", "SUCCESS", MessageBoxButtons.OK);
                                 }
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("Start time must earlier than end time!!!", "FAIL", MessageBoxButtons.OK);
+                            return;
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Start time or End time must have format 00:00:00!!!");
+                        return;
+                    }
+                    
                 }
             }
         }
@@ -254,8 +248,67 @@ namespace WeddingManagement
         private void ShiftClick(UCShift s)
         {
             tbEnd.Text = s._lbEnd;
-            tbName.Text = s._lbName;
+            cb_shift.Text = s._lbName;
             tbStart.Text = s._lbStart;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            using (var sql = new SqlConnection(WeddingClient.sqlConnectionString))
+            {
+                sql.Open();
+                string query = "select * from wedding where ShiftNo = @shiftno";
+                int count = 0;
+                UCShift selectedShift = new UCShift();
+                UCShift pre = new UCShift();
+
+                foreach (var s in this.flowLayoutPanel1.Controls)
+                {
+                    selectedShift = s as UCShift;
+                    if (selectedShift != null)
+                    {
+
+                        if (selectedShift._btnCheck == true)
+                        {
+                            pre = selectedShift;
+                            count++;
+                        }
+                    }
+                    if (count > 1)
+                    {
+                        MessageBox.Show("Just choose 1 object", "ERROR", MessageBoxButtons.OK);
+                        break;
+                    }
+                }
+
+                using (SqlCommand cmd = new SqlCommand(query, sql))
+                {
+                    cmd.Parameters.AddWithValue("@shiftno", pre._id);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            MessageBox.Show("There exists at least one wedding party using this shift!!!", 
+                                "ERROR", MessageBoxButtons.OK);
+                            return;
+                        }
+                        else
+                        {
+                            reader.Close();
+                            string delete = "DELETE FROM SHIFT WHERE ShiftNo = @shiftno;";
+                            using (SqlCommand cmd2  = new SqlCommand(delete, sql))
+                            {
+                                cmd2.Parameters.AddWithValue("@shiftno", pre._id);
+                                if (cmd2.ExecuteNonQuery() > 0)
+                                {
+                                    flowLayoutPanel1.Controls.Clear();
+                                    FormShift_Load(sender, e);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

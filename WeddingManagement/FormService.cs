@@ -177,7 +177,7 @@ namespace WeddingManagement
                                     row["Note"] = tb_service_note.Text;
                                     row["ServiceNo"] = newServiceId;
                                     table.Rows.Add(row);
-                                    MessageBox.Show("A service added", "SUCCESS", MessageBoxButtons.OK);
+                                    MessageBox.Show("Add successfully!!!", "SUCCESS", MessageBoxButtons.OK);
                                     WeddingClient.listServices.Add(new Service(
                                         newServiceId, 
                                         tb_service_name.Text, 
@@ -230,7 +230,7 @@ namespace WeddingManagement
                                     }
                                 }
                                 table.Rows.Remove(table.Rows.Find(currentServiceId));
-                                MessageBox.Show("A service deleted!", "LACK", MessageBoxButtons.OK);
+                                MessageBox.Show("Delete successfully!", "LACK", MessageBoxButtons.OK);
                             }
                         }
                     }
@@ -318,7 +318,7 @@ namespace WeddingManagement
                                 cmd.Parameters.AddWithValue("@note", tb_service_note.Text);
                                 if (cmd.ExecuteNonQuery() > 0)
                                 {
-                                    MessageBox.Show("A service Updated!", "LACK", MessageBoxButtons.OK);
+                                    MessageBox.Show("Update successfully!", "LACK", MessageBoxButtons.OK);
                                 }
                             }
                         }

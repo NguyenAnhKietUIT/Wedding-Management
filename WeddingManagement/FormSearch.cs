@@ -261,22 +261,13 @@ namespace WeddingManagement
                 string id = row["WeddingNo"].ToString();
 
                 DialogResult dialogResult = MessageBox.Show("Do you want to edit wedding informations or pay for wedding?",
-                    "Edit", MessageBoxButtons.YesNoCancel);
-                if (dialogResult == DialogResult.No)
+                    "Edit", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
                     FormWedding nt = new FormWedding(id);
                     nt.ShowDialog();
                 }
-                else if (dialogResult == DialogResult.Yes)
-                {
-                    FormBill b = new FormBill(id);
-                    b.ShowDialog();
-                }
-                else if (dialogResult == DialogResult.Cancel)
-                {
-                    return;
-                }
-                else
+                else if (dialogResult == DialogResult.No)
                 {
                     return;
                 }
@@ -299,6 +290,30 @@ namespace WeddingManagement
                 dataWedding.Size = new Size((formWidth - 18 - 39) / 2, dataWedding.Size.Height);
                 dataBill.Size = new Size((formWidth - 18 - 39) / 2, dataBill.Size.Height);
                 dataBill.Location = new Point(dataWedding.Location.X + dataWedding.Size.Width + 39, dataBill.Location.Y);
+            }
+        }
+
+        private void dataBill_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1 && e.RowIndex < dataBill.Rows.Count)
+            {
+                var rowItem = (DataRowView)dataBill.Rows[e.RowIndex].DataBoundItem;
+                int index = table1.Rows.IndexOf(rowItem.Row);
+                DataRow row = table1.Rows[index];
+
+                string id = row["BillNo"].ToString();
+
+                DialogResult dialogResult = MessageBox.Show("Do you want to edit bill informations?",
+                    "Edit", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    FormBill b = new FormBill(id);
+                    b.ShowDialog();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
             }
         }
     }

@@ -47,6 +47,13 @@ namespace WeddingManagement
                     {
                         if (reader.Read())
                         {
+                            cbt_representative.Text = reader.GetString(2);
+                            cbt_phone.Text = reader.GetString(3);
+                            cbt_broom.Text = reader.GetString(6);
+                            cbt_bride.Text = reader.GetString(7);
+                            cbt_table.Text = reader.GetInt32(8).ToString();
+                            cbt_contigency.Text = reader.GetInt32(9).ToString();
+                            cbt_deposit.Text = reader.GetInt64(11).ToString();
                             cbb_lobby.SelectedIndex = WeddingClient.listLobbies.FindIndex(
                                 x => x.LobbyNo == reader["LobbyNo"].ToString());
                             cbb_shift.SelectedIndex = WeddingClient.listShifts.FindIndex(
@@ -64,7 +71,7 @@ namespace WeddingManagement
                                 reader.GetString(7),
                                 reader.GetInt32(8).ToString(),
                                 reader.GetInt32(9).ToString(), 
-                                0,
+                                reader.GetInt64(10).ToString(),
                                 reader.GetInt64(11).ToString(), 
                                 id 
                             };
@@ -209,32 +216,42 @@ namespace WeddingManagement
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT LobbyName, ShiftName, Representative, PhoneNumber, " +
+                table1.Rows.Clear();
+                //Update TablePrice
+                string query = "UPDATE WEDDING " +
+                                "SET TablePrice = (SELECT SUM(T.TotalItemsPrice) FROM TABLE_DETAIL T WHERE T.WeddingNo = W.WeddingNo) " +
+                                "FROM WEDDING W";
+                using (SqlCommand cmd = new SqlCommand(query,sql))
+                {
+                    if (cmd.ExecuteNonQuery() > 0) {
+                        using (SqlCommand cmd2 = new SqlCommand("SELECT LobbyName, ShiftName, Representative, PhoneNumber, " +
                     "BookingDate, WeddingDate, BroomName, BrideName, AmountOfTable, AmountOfContingencyTable, TablePrice, " +
                     "Deposit, WeddingNo FROM LOBBY LB, SHIFT S, WEDDING WD WHERE WD.ShiftNo = S.ShiftNo AND " +
                     "WD.LobbyNo = LB.LobbyNo AND WD.Available > 0", sql))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
                         {
-                            DataRow row = table1.NewRow();
-                            row.ItemArray = new object[] {
-                                reader["LobbyName"].ToString(),
-                                reader["ShiftName"].ToString(),
-                                reader.GetString(2),
-                                reader.GetString(3),
-                                reader.GetDateTime(4).ToString(),
-                                reader.GetDateTime(5).ToString(),
-                                reader.GetString(6),
-                                reader.GetString(7),
-                                reader.GetInt32(8).ToString(),
-                                reader.GetInt32(9).ToString(),
-                                0,
-                                reader.GetInt64(11).ToString(),
-                                reader["WeddingNo"].ToString()
-                            };
-                            table1.Rows.Add(row);
+                            using (SqlDataReader reader = cmd2.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    DataRow row = table1.NewRow();
+                                    row.ItemArray = new object[] {
+                                        reader["LobbyName"].ToString(),
+                                        reader["ShiftName"].ToString(),
+                                        reader.GetString(2),
+                                        reader.GetString(3),
+                                        reader.GetDateTime(4).ToString(),
+                                        reader.GetDateTime(5).ToString(),
+                                        reader.GetString(6),
+                                        reader.GetString(7),
+                                        reader.GetInt32(8).ToString(),
+                                        reader.GetInt32(9).ToString(),
+                                        reader.GetInt64(10).ToString(),
+                                        reader.GetInt64(11).ToString(),
+                                        reader["WeddingNo"].ToString()
+                                    };
+                                    table1.Rows.Add(row);
+                                }
+                            }
                         }
                     }
                 }
@@ -499,6 +516,7 @@ namespace WeddingManagement
                                             MessageBox.Show("Add successfully!", "SUCCESS", MessageBoxButtons.OK);
                                             cbt_amount_item.Text = "";
                                             Load_Menu_Detail(currentWeddingNo);
+                                            load_gridView_wedding();
                                         }
                                         else
                                         {
@@ -539,6 +557,7 @@ namespace WeddingManagement
                                         {
                                             MessageBox.Show("Add successfully!", "SUCCESS", MessageBoxButtons.OK);
                                             cbt_amount_item.Text = "";
+                                            load_gridView_wedding();
                                         }
                                         else
                                         {
@@ -886,7 +905,7 @@ namespace WeddingManagement
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                string query = "SELECT s.ServiceName, sd.AmountOfServices, sd.TotalServicesPrice, " +
+                string query = "SELECT s.ServiceName, sd.AmountOfServices, sd.TotalServicesPrice " +
                                 "FROM SERVICE_DETAIL sd " +
                                 "INNER JOIN SERVICE s ON sd.ServiceNo = s.ServiceNo " +
                                 "WHERE sd.WeddingNo = @WeddingNo";
@@ -935,7 +954,7 @@ namespace WeddingManagement
                 cbb_lobby.Text = selectedRow["lobbyName"].ToString();
 
                 Load_Menu_Detail(currentWeddingNo);
-                //Load_Service_Detail(currentWeddingNo);
+                Load_Service_Detail(currentWeddingNo);
             }
         }
 
@@ -1068,6 +1087,7 @@ namespace WeddingManagement
                     {
                         MessageBox.Show("Changes have been updated!", "SUCCESS", MessageBoxButtons.OK);
                         Load_Menu_Detail(currentWeddingNo);
+                        load_gridView_wedding();
                     }
                     else
                     {
@@ -1132,6 +1152,7 @@ namespace WeddingManagement
                     if (cmd.ExecuteNonQuery() > 0)
                     {
                         MessageBox.Show("Successful delete!", "SUCCESS", MessageBoxButtons.OK);
+                        load_gridView_wedding();
                         Load_Menu_Detail(currentWeddingNo);
                     }
                     else

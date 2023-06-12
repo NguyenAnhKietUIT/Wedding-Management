@@ -183,7 +183,7 @@ namespace WeddingManagement
                                     row["Note"] = cbt_item_note.Text;
                                     row["ItemNo"] = newDishesId;
                                     table.Rows.Add(row);
-                                    MessageBox.Show("An item added", "SUCCESS", MessageBoxButtons.OK);
+                                    MessageBox.Show("Add successfully", "SUCCESS", MessageBoxButtons.OK);
                                     WeddingClient.listItems.Add(
                                         new Item(
                                             newDishesId, 
@@ -238,7 +238,7 @@ namespace WeddingManagement
                                     }
                                 }
                                 table.Rows.Remove(table.Rows.Find(currentTypeId));
-                                MessageBox.Show("An item deleted!");
+                                MessageBox.Show("Delete successfully!");
                             }
                         }
                     }
@@ -320,7 +320,7 @@ namespace WeddingManagement
                                 cmd.Parameters.AddWithValue("@note", cbt_item_note.Text);
                                 if (cmd.ExecuteNonQuery() > 0)
                                 {
-                                    MessageBox.Show("A dish updated!");
+                                    MessageBox.Show("Update successfully!");
                                 }
                             }
                         }
