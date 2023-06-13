@@ -348,12 +348,6 @@
     <Compile Include="UCShift.Designer.cs">
       <DependentUpon>UCShift.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCMenuItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCMenuItem.Designer.cs">
-      <DependentUpon>UCMenuItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="WeddingClient.cs" />
     <EmbeddedResource Include="DropDownLobby.resx">
       <DependentUpon>DropDownLobby.cs</DependentUpon>
@@ -419,9 +413,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UCMenuItem.resx">
-      <DependentUpon>UCMenuItem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UCShift.resx">
       <DependentUpon>UCShift.cs</DependentUpon>
     </EmbeddedResource>
