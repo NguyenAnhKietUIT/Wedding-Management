@@ -19,6 +19,7 @@ namespace WeddingManagement
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
             column.ColumnName = "lobbyName";
+            column.Caption = "Lobby Name";
             column.AutoIncrement = false;
             column.ReadOnly = true;
             column.Unique = false;
@@ -27,6 +28,7 @@ namespace WeddingManagement
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
             column.ColumnName = "lobbyType";
+            column.Caption = "Lobby Type";
             column.AutoIncrement = false;
             column.ReadOnly = true;
             column.Unique = false;
@@ -35,6 +37,7 @@ namespace WeddingManagement
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.Int64");
             column.ColumnName = "maxTable";
+            column.Caption = "Max Table";
             column.AutoIncrement = false;
             column.ReadOnly = true;
             column.Unique = false;
@@ -211,7 +214,7 @@ namespace WeddingManagement
                                     }
                                 }
                                 table.Rows.Remove(table.Rows.Find(currentLobbyId));
-                                MessageBox.Show("Lobby has been removed!", "SUCESS", MessageBoxButtons.OK);
+                                MessageBox.Show("Delete successfully!", "SUCESS", MessageBoxButtons.OK);
                             }
                         }
                     }
@@ -269,7 +272,7 @@ namespace WeddingManagement
                                 row["lobbyNo"] = newTypeId;
                                 row["lobbyTypeNo"] = idLobbyType;
                                 table.Rows.Add(row);
-                                MessageBox.Show("New type added!");
+                                MessageBox.Show("Add successfully!");
                                 WeddingClient.listLobbies.Add(
                                     new Lobby(
                                         newTypeId, 
@@ -361,7 +364,7 @@ namespace WeddingManagement
                                 cmd.Parameters.AddWithValue("@note", noteTextBox.Text);
                                 if (cmd.ExecuteNonQuery() > 0)
                                 {
-                                    MessageBox.Show("The lobby has been updated!", "SUCESS", MessageBoxButtons.OK);
+                                    MessageBox.Show("Update successfully!", "SUCESS", MessageBoxButtons.OK);
                                 }
                             }
                         }

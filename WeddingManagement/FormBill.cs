@@ -210,7 +210,7 @@ namespace WeddingManagement
                 {
                     if (rBtn_yes.Checked && int.TryParse(tb_penalty.Text, out int penalty))
                     {
-                        using (SqlCommand cmd = new SqlCommand("UPDATE BILL SET Total = @Total, PaymentDate = @PaymentDate, " +
+                        using (SqlCommand cmd = new SqlCommand("UPDATE BILL SET Total = @Total + 500000, PaymentDate = @PaymentDate, " +
                             "MoneyLeft = 0 WHERE BillNo = @BillNo", sql))
                         {
                             cmd.Parameters.AddWithValue("@Total", tb_total.Text);

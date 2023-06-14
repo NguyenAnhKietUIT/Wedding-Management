@@ -101,6 +101,7 @@
             this.textBoxAOW.Name = "textBoxAOW";
             this.textBoxAOW.Size = new System.Drawing.Size(223, 34);
             this.textBoxAOW.TabIndex = 7;
+            this.textBoxAOW.Enabled = false;
             // 
             // textBoxYear
             // 
@@ -141,6 +142,7 @@
             this.textBoxDayRevenue.Name = "textBoxDayRevenue";
             this.textBoxDayRevenue.Size = new System.Drawing.Size(223, 34);
             this.textBoxDayRevenue.TabIndex = 3;
+            this.textBoxDayRevenue.Enabled = false;
             // 
             // comboBoxDay
             // 

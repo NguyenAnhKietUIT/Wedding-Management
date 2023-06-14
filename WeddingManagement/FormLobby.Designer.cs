@@ -155,9 +155,9 @@
             this.label4.Location = new System.Drawing.Point(407, 20);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 24);
+            this.label4.Size = new System.Drawing.Size(70, 24);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Name";
+            this.label4.Text = "Name(*)";
             // 
             // label3
             // 
@@ -167,9 +167,9 @@
             this.label3.Location = new System.Drawing.Point(25, 76);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 24);
+            this.label3.Size = new System.Drawing.Size(105, 24);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Max Table";
+            this.label3.Text = "Max Table(*)";
             // 
             // label1
             // 
@@ -179,9 +179,9 @@
             this.label1.Location = new System.Drawing.Point(25, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 24);
+            this.label1.Size = new System.Drawing.Size(118, 24);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Lobby Type";
+            this.label1.Text = "Lobby Type(*)";
             // 
             // btn_delete
             // 
@@ -215,7 +215,7 @@
             // 
             this.lobbyTypeCombobox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lobbyTypeCombobox.FormattingEnabled = true;
-            this.lobbyTypeCombobox.Location = new System.Drawing.Point(143, 19);
+            this.lobbyTypeCombobox.Location = new System.Drawing.Point(172, 19);
             this.lobbyTypeCombobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lobbyTypeCombobox.Name = "lobbyTypeCombobox";
             this.lobbyTypeCombobox.Size = new System.Drawing.Size(156, 36);
@@ -224,7 +224,7 @@
             // maxTableTextBox
             // 
             this.maxTableTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxTableTextBox.Location = new System.Drawing.Point(143, 75);
+            this.maxTableTextBox.Location = new System.Drawing.Point(172, 74);
             this.maxTableTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maxTableTextBox.Name = "maxTableTextBox";
             this.maxTableTextBox.Size = new System.Drawing.Size(156, 34);

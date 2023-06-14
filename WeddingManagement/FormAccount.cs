@@ -42,6 +42,10 @@ namespace WeddingManagement
 
         private void Reset()
         {
+            tb_username.Text = "";
+            tb_password.Text = "";
+            tb_name.Text = "";
+            tb_iden.Text = "";
             this.table = new DataTable();
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {

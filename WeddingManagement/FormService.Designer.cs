@@ -125,9 +125,9 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(496, 230);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 24);
+            this.label2.Size = new System.Drawing.Size(65, 24);
             this.label2.TabIndex = 91;
-            this.label2.Text = "Price";
+            this.label2.Text = "Price(*)";
             // 
             // label1
             // 
@@ -136,9 +136,9 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(496, 156);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 24);
+            this.label1.Size = new System.Drawing.Size(70, 24);
             this.label1.TabIndex = 89;
-            this.label1.Text = "Name";
+            this.label1.Text = "Name(*)";
             // 
             // tb_search_service
             // 

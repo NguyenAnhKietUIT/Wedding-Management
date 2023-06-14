@@ -168,9 +168,9 @@ namespace WeddingManagement
             this.label_groom.ForeColor = System.Drawing.Color.Black;
             this.label_groom.Location = new System.Drawing.Point(350, 26);
             this.label_groom.Name = "label_groom";
-            this.label_groom.Size = new System.Drawing.Size(109, 24);
+            this.label_groom.Size = new System.Drawing.Size(110, 24);
             this.label_groom.TabIndex = 21;
-            this.label_groom.Text = "Broom name";
+            this.label_groom.Text = "Groom name";
             // 
             // label_weddingdate
             // 
