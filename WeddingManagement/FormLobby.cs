@@ -18,8 +18,7 @@ namespace WeddingManagement
             table = new DataTable();
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "lobbyName";
-            column.Caption = "Lobby Name";
+            column.ColumnName = "Lobby Name";
             column.AutoIncrement = false;
             column.ReadOnly = true;
             column.Unique = false;
@@ -27,8 +26,7 @@ namespace WeddingManagement
 
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "lobbyType";
-            column.Caption = "Lobby Type";
+            column.ColumnName = "Lobby Type";
             column.AutoIncrement = false;
             column.ReadOnly = true;
             column.Unique = false;
@@ -36,8 +34,7 @@ namespace WeddingManagement
 
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.Int64");
-            column.ColumnName = "maxTable";
-            column.Caption = "Max Table";
+            column.ColumnName = "Max Table";
             column.AutoIncrement = false;
             column.ReadOnly = true;
             column.Unique = false;
@@ -45,9 +42,8 @@ namespace WeddingManagement
 
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "note";
+            column.ColumnName = "Note";
             column.AutoIncrement = false;
-            column.Caption = "Note";
             column.ReadOnly = true;
             column.Unique = false;
             table.Columns.Add(column);
@@ -125,10 +121,10 @@ namespace WeddingManagement
                                 reader["Note"].ToString())
                                 );
                             row = table.NewRow();
-                            row["lobbyName"] = reader["LobbyName"].ToString();
-                            row["lobbyType"] = reader["LobbyTypeName"].ToString();
-                            row["maxTable"] = Convert.ToInt32(reader["MaxTable"]);
-                            row["note"] = reader["Note"].ToString();
+                            row["Lobby Name"] = reader["LobbyName"].ToString();
+                            row["Lobby Type"] = reader["LobbyTypeName"].ToString();
+                            row["Max Table"] = Convert.ToInt32(reader["MaxTable"]);
+                            row["Note"] = reader["Note"].ToString();
                             row["lobbyNo"] = reader["LobbyNo"].ToString();
                             row["lobbyTypeNo"] = reader["LobbyTypeNo"].ToString();
                             table.Rows.Add(row);
@@ -153,9 +149,9 @@ namespace WeddingManagement
             DataRow row = table.Rows[index];
 
             currentLobbyId = row["lobbyNo"].ToString();
-            nameTextBox.Text = row["lobbyName"].ToString();
-            maxTableTextBox.Text = (row["maxTable"]).ToString();
-            noteTextBox.Text = row["note"].ToString();
+            nameTextBox.Text = row["Lobby Name"].ToString();
+            maxTableTextBox.Text = (row["Max Table"]).ToString();
+            noteTextBox.Text = row["Note"].ToString();
 
             lobbyTypeCombobox.SelectedIndex = WeddingClient.listLobbyTypes.FindIndex(
                 x => x.LobbyTypeNo == row["lobbyTypeNo"].ToString());
@@ -264,11 +260,11 @@ namespace WeddingManagement
                             if (cmd.ExecuteNonQuery() > 0)
                             {
                                 row = table.NewRow();
-                                row["lobbyName"] = nameTextBox.Text;
-                                row["lobbyType"] = WeddingClient.listLobbyTypes.Find(
+                                row["Lobby Name"] = nameTextBox.Text;
+                                row["Lobby Type"] = WeddingClient.listLobbyTypes.Find(
                                     x => { if (x.LobbyTypeNo == idLobbyType) return true; else return false; }).LobbyTypeName;
-                                row["maxTable"] = maxTable;
-                                row["note"] = noteTextBox.Text;
+                                row["Max Table"] = maxTable;
+                                row["Note"] = noteTextBox.Text;
                                 row["lobbyNo"] = newTypeId;
                                 row["lobbyTypeNo"] = idLobbyType;
                                 table.Rows.Add(row);

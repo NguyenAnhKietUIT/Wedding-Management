@@ -209,16 +209,54 @@ namespace WeddingManagement
             table1.Columns.Add(column);
         }
 
-        void load_after_add_menu()
+        void load_after_change_menu()
         {
             using (SqlConnection sql = new SqlConnection(WeddingClient.sqlConnectionString))
             {
                 sql.Open();
-                string query = "UPDATE WEDDING " +
-                                "SET TablePrice = TablePrice + (SELECT SUM(T.TotalItemsPrice) FROM TABLE_DETAIL T WHERE T.WeddingNo = W.WeddingNo) " +
-                                "FROM WEDDING W";
+                long minTablePrice = 0;
+                long totalItemsPrice = 0;
+                Lobby lobby = WeddingClient.listLobbies[cbb_lobby.SelectedIndex];
 
-                using (SqlCommand cmd  = new SqlCommand(query, sql)) {
+                string queryUpdate ="UPDATE WEDDING " +
+                                    "SET TablePrice = @originalTablePrice + @totalItemsPrice " +
+                                    "FROM WEDDING W " +
+                                    "WHERE WeddingNo = @weddingno";
+
+                string querySelectMinTablePrice = "SELECT MinTablePrice FROM LOBBY_TYPE WHERE LobbyTypeNo = @LobbyTypeNo";
+                string querySelectSumItemPrice = "(SELECT SUM(T.TotalItemsPrice) AS 'Total' FROM TABLE_DETAIL T WHERE T.WeddingNo = @weddingNo)";
+
+                using (SqlCommand cmd = new SqlCommand(querySelectMinTablePrice, sql))
+                {
+                    cmd.Parameters.AddWithValue("@LobbyTypeNo", lobby.LobbyTypeNo);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            minTablePrice = Convert.ToInt64(reader["MinTablePrice"]);
+                        }
+                        reader.Close();
+                    }
+                }
+                long originalTablePrice = minTablePrice * (Convert.ToInt32(cbt_table.Text) + Convert.ToInt32(cbt_contigency.Text));
+
+                using (SqlCommand cmd = new SqlCommand(querySelectSumItemPrice, sql))
+                {
+                    cmd.Parameters.AddWithValue("@weddingNo", currentWeddingNo);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            totalItemsPrice = Convert.ToInt64(reader["Total"]);
+                        }
+                        reader.Close();
+                    }
+                }
+
+                using (SqlCommand cmd  = new SqlCommand(queryUpdate, sql)) {
+                    cmd.Parameters.AddWithValue("@originalTablePrice", originalTablePrice);
+                    cmd.Parameters.AddWithValue("@totalItemsPrice", totalItemsPrice);
+                    cmd.Parameters.AddWithValue("@weddingno", currentWeddingNo);
                     if (cmd.ExecuteNonQuery() > 0)
                     {
                         load_gridView_wedding();
@@ -529,7 +567,7 @@ namespace WeddingManagement
                                             MessageBox.Show("Add successfully!", "SUCCESS", MessageBoxButtons.OK);
                                             cbt_amount_item.Text = "";
                                             Load_Menu_Detail(currentWeddingNo);
-                                            load_after_add_menu();
+                                            load_after_change_menu();
                                         }
                                         else
                                         {
@@ -570,7 +608,7 @@ namespace WeddingManagement
                                         {
                                             MessageBox.Show("Add successfully!", "SUCCESS", MessageBoxButtons.OK);
                                             cbt_amount_item.Text = "";
-                                            load_after_add_menu();
+                                            load_after_change_menu();
                                         }
                                         else
                                         {
@@ -1115,8 +1153,8 @@ namespace WeddingManagement
                     if (cmd.ExecuteNonQuery() > 0)
                     {
                         MessageBox.Show("Changes have been updated!", "SUCCESS", MessageBoxButtons.OK);
+                        load_after_change_menu();
                         Load_Menu_Detail(currentWeddingNo);
-                        load_after_add_menu();
                     }
                     else
                     {
@@ -1181,7 +1219,7 @@ namespace WeddingManagement
                     if (cmd.ExecuteNonQuery() > 0)
                     {
                         MessageBox.Show("Successful delete!", "SUCCESS", MessageBoxButtons.OK);
-                        load_after_add_menu();
+                        load_after_change_menu();
                         Load_Menu_Detail(currentWeddingNo);
                     }
                     else
